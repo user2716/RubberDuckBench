@@ -1,0 +1,51 @@
+[
+    {
+        "desc": "Does the answer discuss key mutability and size differences between HashMap and singletonMap?",
+        "points": 3,
+        "subitems": [
+            {
+                "desc": "The answer should state that a singletonMap is immutable. 1 point should be deducted if it is not mentioned",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "The answer should state that a HashMap is mutable. 1 point should be deducted if it is not mentioned",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "The answer should state that a singletonMap returns only a single key-value mapping. 1 point should be deducted if it is not mentioned.",
+                "points": 1,
+                "lie": false
+            }
+
+        ]
+    },
+    {
+        "desc": "Does the answer discuss messageParams?",
+        "points": 4,
+        "subitems": [
+            {
+                "desc": "The answer should mention the message signature of messageParams. 1 point should be deducted if it is not mentioned.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "The answer should state that messageParams takes a HashMap. If the answer states that it requires a mutable map, this is not specific enough. 1 point should be deducted if it is not mentioned.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "The answer should discuss usages of the map argument within messageParams, noting that these are read-only. 1 point should be deducted if this is not discussed, or if the answer fails to clearly determine whether the usages modify the map or not.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "If the answer incorrectly states that the usages of the map argument to messageParams modify it, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            }
+
+        ]
+    }
+]

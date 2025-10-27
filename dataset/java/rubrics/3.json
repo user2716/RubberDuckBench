@@ -1,0 +1,45 @@
+[
+    {
+        "desc": "Does the answer explain or imply that an NPE may occur when mPrefix is accessed?",
+        "points": 2,
+        "subitems": [
+            {
+                "desc": "1 point should be deducted if this is not discussed.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "2 points should be deducted if the answer states than an NPE cannot occur or an exception type other than NPE may occur",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer state that mPrefix can be null and discuss the situation in which that could occur?",
+        "points": 5,
+        "subitems": [
+            {
+                "desc": "If the answer does not mention that mPrefix may be null, or does not make a decision either way, 1 point should be deducted",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "If the answer incorrectly states that mPrefix cannot be null, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            },
+            {
+                "desc": "The answer should discuss that mPrefix is null when the system property for cloud service is an unexpected value. If this is not discussed, 1 point should be deducted",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "If the answer incorrectly states that mPrefix can be null through some other means, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            }
+
+        ]
+    }
+]

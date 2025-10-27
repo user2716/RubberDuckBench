@@ -1,0 +1,50 @@
+[
+    {
+        "desc": "Does the answer discuss data dependency between drawer and actionBarSubTitle.setVisibility?",
+        "points": 3,
+        "subitems": [
+            {
+                "desc": "The answer should state that actionBarSubTitle.setVisibility does not have any usages of drawer. If it is not mentioned, 2 points should be deducted.",
+                "points": 2,
+                "lie": false
+            },
+            {
+                "desc": "If the answer incorrectly states that setVisibility uses drawer, 3 points should be deducted",
+                "points": 3,
+                "lie": true
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer discuss data dependency between drawer and singleFolderMode?",
+        "points": 3,
+        "subitems": [
+            {
+                "desc": "The answer should state that the value of singleFolderMode does depend on the value of drawer. If it is not mentioned, 2 points should be deducted.",
+                "points": 2,
+                "lie": false
+            },
+            {
+                "desc": "If the answer incorrectly states that the value of singleFolderMode depends on the value of drawer, 3 points should be deducted.",
+                "points": 3,
+                "lie": true
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer state discuss reachability of the call to actionBarSubTitle.setVisibility based on the value of drawer?",
+        "points": 3,
+        "subitems": [
+            {
+                "desc": "The answer should state that the call to actionBarSubTitle.setVisibility is only reachable if drawer is non-null. 2 points should be deducted if it is not discussed.",
+                "points": 2,
+                "lie": false
+            },
+            {
+                "desc": "If the answer incorrectly states that actionBarSubTitle.setVisibility is reachable if drawer is null, or that actionBarSubTitle.setVisibility will be executed regardless of the value of drawer, or, that drawer is assumed to always be non-null, 3 points should be deducted",
+                "points": 3,
+                "lie": true
+            }
+        ]
+    }
+]

@@ -1,0 +1,104 @@
+[
+    {
+        "desc": "Does the answer state that an exception can happen?",
+        "points": 2,
+        "subitems": [
+            {
+                "desc": "The answer should clearly state that an exception can happen. 1 point should be deducted if it is not mentioned.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "If the answer incorrectly states that an exception cannot occur, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer correctly state the exception types that can occur?",
+        "points": 6,
+        "subitems": [
+            {
+                "desc": "The answer should state that a ClassCastException can occur. 1 point should be deducted if this is not stated.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "If the answer incorrectly states that a NullPointerException can occur here, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            },
+            {
+                "desc": "If the answer incorrectly states that an IllegalStateException can occur here, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            },
+            {
+                "desc": "If the answer incorrectly states that an IllegalArgumentException can occur here, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            },
+            {
+                "desc": "If the answer incorrectly states that a ResourceNotFoundException can occur here, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            },
+            {
+                "desc": "If the answer incorrectly states that a SecurityException can occur here, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            },
+            {
+                "desc": "If the answer incorrectly states some other RuntimeException can occur here, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            }
+
+
+        ]
+    },
+    {
+        "desc": "Does the answer discuss that a ClassCastException can occur when the fragment lookup returns an invalid Fragment type?",
+        "points": 3,
+        "subitems": [
+            {
+                "desc": "The answer should explain that the fragment lookup does not necessarily return an OnKeyListenerForFragments type. 1 point should be deducted if it is not mentioned.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "If the answer incorrectly refers to OnKeyListenerForFragments as an Interface instead of a class (implements instead of extends) 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer discuss that a ClassCastException can occur when the fragment is not found?",
+        "points": 2,
+        "subitems": [
+            {
+                "desc": "The answer should explain that if the fragment is not found, it will result in a ClassCastException. 1 points should be deducted if it is not mentioned.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "If the answer incorrectly states that the code correctly handles the case where the fragment is not found, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer correctly identify the location we are asking about?",
+        "points": 1,
+        "subitems": [
+            {
+                "desc": "The answer should only mention code related to fragments and getting fragment IDs If it mentions other program values (audioManager) deduct 1 point.",
+                "points": 1,
+                "lie": false
+            }
+        ]
+    }
+]

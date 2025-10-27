@@ -1,0 +1,77 @@
+[
+    {
+        "desc": "Does the answer explain how the behavior differs without the null check?",
+        "points": 3,
+        "subitems": [
+            {
+                "desc": "The answer should explain that, without the null check, if roleInfoList is null and caching is enabled, it will not query the database.  1 point should be deducted if this is not mentioned.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "If the answer incorrectly states that an NPE will occur without the null check on roleInfoList, 2 points should be deducted. If it mentions a downstream NPE from the return value that is acceptable and no points should be deducted.",
+                "points": 2,
+                "lie": true
+            },
+            {
+                "desc": "If the answer incorrectly mentions a scenario when caching is disabled, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            },
+            {
+                "desc": "If the answer incorrectly discusses the behavior of adding a null check after the database query, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            },
+            {
+                "desc": "If the answer incorrectly states that without the null check, unnecessary database queries will occur, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            },
+            {
+                "desc": "If the answer incorrectly states that the null check is redundant, and the behavior does not differ without it, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            }
+
+        ]
+    },
+    {
+        "desc": "Does the answer state that roleInfoList can be null?",
+        "points": 2,
+        "subitems": [
+            {
+                "desc": "The answer should mention roleInfoList can be null.  1 point should be deducted if it is not stated.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "If the answer incorrectly states that roleInfoList cannot be null, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer discuss the situations under which roleInfoList will be null?",
+        "points": 4,
+        "subitems": [
+            {
+                "desc": "The answer should discuss the situation in which roleInfoList is null because the username is not in the database.  1 point should be deducted if this is not discussed.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "The answer should discuss the situation in which roleInfoList is null because the cache is outdated, and has not been updated or initialized through reload. 1 point should be deducted if this is not discussed.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "If the answer incorrectly discusses a situation in which a username exists as a key but has a null value, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    }
+
+]
