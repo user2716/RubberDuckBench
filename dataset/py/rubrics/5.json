@@ -1,0 +1,52 @@
+[
+    {
+        "desc": "Does the answer explain what build_directory is?",
+        "points": 3,
+        "subitems": [
+            {
+                "desc": "The answer should explain or imply that build_directory is an environment variable. 1 point should be deducted if this is not mentioned.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "If the answer states that build_manager.setup_build sets the value of build_directory, or that a successful build_setup_result ensures that BUILD_DIR is set, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer explain the usages of build_directory?",
+        "points": 1,
+        "subitems": [
+            {
+                "desc": "The answer should state that build_directory is used by the Runner constructor. 1 point should be deducted if this is not mentioned.",
+                "points": 1,
+                "lie": false
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer explain that the check is not needed?",
+        "points": 3,
+        "subitems": [
+            {
+                "desc": "1 point should be deducted if the answer states that the check is needed or if the answer does not make a decision either way.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "The answer should explain that in the Runner constructor a similar check on build_directory occurs. 1 point should be deducted if this is not mentioned.",
+                "points": 1,
+                "lie": false
+
+            },
+            {
+                "desc": "The answer should explain that a CorpusPruningException is thrown in the Runner constructor if build_directory is None. 1 point should be deducted if this is not mentioned.",
+                "points": 1,
+                "lie": false
+
+            }
+        ]
+    }
+]

@@ -1,0 +1,34 @@
+[
+    {
+        "desc": "Does the answer explain the differences between ascii and UTF-8 encodings?",
+        "points": 2,
+        "subitems": [
+            {
+                "desc": "Does the answer state that UTF-8 supports more character sets than ASCII? 1 point should be deducted if this is not mentioned.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "Does the answer mention that an error can occur when calling decode with 'ascii' as a parameter on non-ascii character inputs? 1 point should be deducted if this is not mentioned.",
+                "points": 1,
+                "lie": false
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer discuss the validity of non-ASCII characters in HTTP headers?",
+        "points": 2,
+        "subitems": [
+            {
+                "desc": "The answer should explain that HTTP headers can only contain ASCII characters. 1 point should be deducted if there is no discussion of HTTP header standards.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "If the answer incorrectly states that HTTP headers contain non-ascii characters, deduct 2 points",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    }
+]

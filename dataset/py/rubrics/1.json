@@ -1,0 +1,34 @@
+[
+    {
+        "desc": "Does the answer state or imply that cross_entropy is not defined?",
+        "points": 2,
+        "subitems": [
+            {
+                "desc": "1 point should be deducted if the answer does not discuss the definition of cross_entropy or does not make any claim about its definition.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "2 points should be deducted if the answer incorrectly states that cross_entropy is a defined function or an imported function.",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer state that F.cross_entropy refers to a valid function from pytorch?",
+        "points": 2,
+        "subitems": [
+            {
+                "desc": "1 point should be deducted if this is not mentioned.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "2 points should be deducted if the answer states it is not a valid function, or states it is a valid function but incorrectly names the library or module. Do not deduct any points if the answer correctly states F.cross_entropy is a call from torch.nn.functional module or if the answer correctly states that F.cross_entropy is a call from the PyTorch library but does not name the exact module.",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    }
+]

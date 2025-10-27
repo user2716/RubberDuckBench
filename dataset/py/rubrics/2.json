@@ -1,0 +1,40 @@
+[
+    {
+        "desc": "Does the answer explain what a cumulative KPISet is?",
+        "points": 3,
+        "subitems": [
+            {
+                "desc": "The answer should explain that cumulative KPISets are created by merging two or more KPISets. 2 points should be deducted if the meaning of a Cumulative KPISet is not discussed.",
+                "points": 2,
+                "lie": false
+            },
+            {
+                "desc": "If the answer incorrectly explains cumulative KPISets either mentioning duplicates or aggregation over a non-fixed time period, 3 points should be deducted.",
+                "points": 3,
+                "lie": true
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer explain what _compact_times() does?",
+        "points": 4,
+        "subitems": [
+            {
+                "desc": "The answer should explain that _compact_times() performs memory optimization by combining elements. 1 point should be deducted if this is not explained",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "If the answer incorrectly explains the behavior of _compact_times (e.g. mentioning duplicates, necessary data processing step for statistical calculations), 2 points should be deducted. If the answer discusses that _compact_times() only has an effect datasets with more elements than the max, this is correct and points for incorrectness should not be deducted.",
+                "points": 2,
+                "lie": true
+            },
+            {
+                "desc": "1 point should be deducted if the answer does not discuss the overhead in calling _compact_times on every KPISet.",
+                "points": 1,
+                "lie": false
+
+            }
+        ]
+    }
+]
