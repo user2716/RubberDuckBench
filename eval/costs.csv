@@ -1,0 +1,12 @@
+Model,Cost
+Claude Opus 4,0.59742
+Claude Opus 4.1,0.613845
+Claude Sonnet 3.7,0.110334
+Claude Sonnet 4,0.117342
+Gemini 2.5 Flash,0.0214391
+Gemini 2.5 Pro,0.08744375
+Gpt-4.1,0.05988
+Gpt-5,0.029765
+o3,0.039256
+Grok 3,0.130893
+Grok 4,0.050313
