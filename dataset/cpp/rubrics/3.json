@@ -1,0 +1,55 @@
+[
+    {
+        "desc": "Does the answer state or imply that there is a difference between using at vs []?",
+        "points": 2,
+        "subitems": [
+            {
+                "desc": "1 point should be deducted if the answer does not state either way.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "2 points should be deducted if the answer incorrectly states there is no difference.",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer discuss differences in handling non-existent keys?",
+        "points": 3,
+        "subitems": [
+            {
+                "desc": "If the answer does not mention there is a difference in each operation’s handling of non-existent keys, 1 point should be deducted.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "The answer should mention that for this code, the map will never be queried with a non-existent key. If this is not mentioned, 1 point should be deducted.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "If the answer states or implies that non-existent keys are possible by listing it as an important consideration in this context, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer discuss how each operation can be used in the context of a const method?",
+        "points": 2,
+        "subitems": [
+            {
+                "desc": "The answer should mention or imply that the method is marked as const. 1 point should be deducted if this is not mentioned.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "The answer should explain that [] cannot be called in a const method. 1 point should be deducted if this is not mentioned.",
+                "points": 1,
+                "lie": false
+            }
+        ]
+    }
+]

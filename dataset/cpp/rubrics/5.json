@@ -1,0 +1,34 @@
+[
+    {
+        "desc": "Does the answer state reasons why the destructor should be removed?",
+        "points": 3,
+        "subitems": [
+            {
+                "desc": "The answer should state or imply that the empty destructor is equivalent to the compiler generated destructor. If it is not mentioned or implied, 1 point should be deducted.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "If the answer incorrectly mentions the virtual destructor definition in the base class as a reason why the destructor can be removed, incorrectly states that the compiler generated destructor will be virtual, or incorrectly states that the current destructor is not virtual, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer state reasons why the destructor should be kept?",
+        "points": 3,
+        "subitems": [
+            {
+                "desc": "The answer should discuss that if the destructor is declared as virtual in the .h file, removing the destructor in the cpp will cause a linker error. If this is not discussed, 1 point should be deducted.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "If the answer incorrectly mentions a presence or absence of a virtual destructor in the base class, complex inheritance scenarios, or presence of a unique_ptr definition as a reason why the destructor functionally cannot be removed, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    }
+]

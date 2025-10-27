@@ -1,0 +1,72 @@
+[
+    {
+        "desc": "Does the answer state or imply that both statements produce the same result?",
+        "points": 2,
+        "subitems": [
+            {
+                "desc": "1 point should be deducted if the answer does not make any claim on the difference in the resulting string.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "2 points should be deducted if the answer incorrectly states they produce a different result.",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer explain what {} does?",
+        "points": 2,
+        "subitems": [
+            {
+                "desc": "The answer should explain or imply that the initialization syntax {} calls the default constructor or value initializer. 1 point should be deducted if this is not explained",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "2 points should be deducted if the answer incorrectly explains that {} does something other than call the default constructor.",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer explain what L”” does?",
+        "points": 2,
+        "subitems": [
+            {
+                "desc": "The answer should explain or imply that L\"\" creates an empty wchar[] which is used to create a wstring. 1 point should be deducted if this is not explained.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "2 points should be deducted if the answer incorrectly states that L”” calls the default constructor or the C-string constructor",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer discuss the performance overhead of L\"\"?",
+        "points": 2,
+        "subitems": [
+            {
+                "desc": "If the answer does not discuss efficiency of the approaches, 1 point should be deducted",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "If the answer incorrectly states that L”” is more efficient, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            },
+            {
+                "desc": "If the answer incorrectly states that both L”” and {} are equivalent, optimize to the same code, or performance differences are negligible, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            }
+
+        ]
+    }
+]

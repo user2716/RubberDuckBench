@@ -1,0 +1,55 @@
+[
+    {
+        "desc": "Does the answer mention that error_code can indeed be something other than ECONNREFUSED or ECONNRESET?",
+        "points": 2,
+        "subitems": [
+            {
+                "desc": "1 point should be deducted if it does not answer either way.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "2 points should be deducted if the answer says error_code can only be ECONNREFUSED or ECONNRESET",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer explain how the value of error_code affects the retry connection process when there are more addresses to attempt?",
+        "points": 2,
+        "subitems": [
+            {
+                "desc": "The answer should explain that If any error type is thrown, the program attempts to connect to the next address. 1 point should be deducted if this is not mentioned. If the answer vaguely mentions that error_code is related to retry logic, but does not explain further, 1 point should be deducted.",
+                "points": 1,
+                "lie": true
+            },
+            {
+                "desc": "If the answer incorrectly states that error_codes not equal to REFUSED or RESET are handled by throwing an exception, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    },
+    {
+        "desc": "Does the answer explain how the value of error_code affects the retry connection process when all addresses have been attempted?",
+        "points": 3,
+        "subitems": [
+            {
+                "desc": "The answer should explain that if all addresses have been tried without a successful connection and at least one attempt results in a refusal or reset, the program repeats all connection attempts again. 1 point should be deducted if this is not explained",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "The answer should explain that if all addresses have been tried without a successful connection and none of the attempts result in a refusal or reset, an error is thrown and no reconnection is attempted. 1 point should be deducted if this is not explained. If the answer breaks down when the error is thrown based on the value of `wait`, this is acceptable and no points should be deducted.",
+                "points": 1,
+                "lie": false
+            },
+            {
+                "desc": "If the answer describes the correct functionality when anyRefused and anyReset are false, but does not condition it with when all addresses have been processed, 2 points should be deducted.",
+                "points": 2,
+                "lie": true
+            }
+        ]
+    }
+]

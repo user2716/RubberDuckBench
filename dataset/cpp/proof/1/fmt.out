@@ -1,0 +1,1280 @@
+desc: --detailed-freq=1 --time-unit=B --massif-out-file=fmt.out
+cmd: ./a.out chowajksldf aa
+time_unit: B
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=1
+#-----------
+time=77600
+mem_heap_B=76907
+mem_heap_extra_B=69
+mem_stacks_B=0
+heap_tree=peak
+n3: 76907 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 3002 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 3002 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 3002 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n1: 1201 0x48814F7: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1201 0x4881A18: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n1: 1201 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+       n0: 1201 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=2
+#-----------
+time=2478926104
+mem_heap_B=72704
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=detailed
+n2: 72704 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n0: 0 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=3
+#-----------
+time=4911997976
+mem_heap_B=72704
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=detailed
+n2: 72704 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n0: 0 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=4
+#-----------
+time=6736648216
+mem_heap_B=72704
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=detailed
+n2: 72704 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n0: 0 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=5
+#-----------
+time=9169281048
+mem_heap_B=72704
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=detailed
+n2: 72704 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n0: 0 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=6
+#-----------
+time=11316954968
+mem_heap_B=72704
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=detailed
+n2: 72704 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n0: 0 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=7
+#-----------
+time=13597679960
+mem_heap_B=72704
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=detailed
+n2: 72704 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n0: 0 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=8
+#-----------
+time=15878404952
+mem_heap_B=72704
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=detailed
+n2: 72704 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n0: 0 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=9
+#-----------
+time=17246847504
+mem_heap_B=73909
+mem_heap_extra_B=27
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73909 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1205 0x4870EEE: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n0: 1205 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=10
+#-----------
+time=19375543920
+mem_heap_B=73909
+mem_heap_extra_B=27
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73909 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1205 0x4870EEE: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n0: 1205 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=11
+#-----------
+time=21504240336
+mem_heap_B=73909
+mem_heap_extra_B=27
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73909 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1205 0x4870EEE: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n0: 1205 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=12
+#-----------
+time=23632936752
+mem_heap_B=73909
+mem_heap_extra_B=27
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73909 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1205 0x4870EEE: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n0: 1205 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=13
+#-----------
+time=25761633168
+mem_heap_B=73909
+mem_heap_extra_B=27
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73909 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1205 0x4870EEE: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n0: 1205 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=14
+#-----------
+time=27092068280
+mem_heap_B=72704
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=detailed
+n2: 72704 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n0: 0 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=15
+#-----------
+time=29752938504
+mem_heap_B=75106
+mem_heap_extra_B=54
+mem_stacks_B=0
+heap_tree=detailed
+n4: 75106 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1201 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 1201 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 1201 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1201 0x48814F7: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1201 0x4881A18: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n1: 1201 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+       n0: 1201 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=16
+#-----------
+time=31349466600
+mem_heap_B=75706
+mem_heap_extra_B=46
+mem_stacks_B=0
+heap_tree=detailed
+n4: 75706 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1801 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 1801 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 1801 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=17
+#-----------
+time=33212082824
+mem_heap_B=75706
+mem_heap_extra_B=46
+mem_stacks_B=0
+heap_tree=detailed
+n4: 75706 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1801 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 1801 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 1801 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=18
+#-----------
+time=35074699048
+mem_heap_B=75706
+mem_heap_extra_B=46
+mem_stacks_B=0
+heap_tree=detailed
+n4: 75706 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1801 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 1801 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 1801 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=19
+#-----------
+time=36937315272
+mem_heap_B=75706
+mem_heap_extra_B=46
+mem_stacks_B=0
+heap_tree=detailed
+n4: 75706 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1801 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 1801 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 1801 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=20
+#-----------
+time=38799931496
+mem_heap_B=75706
+mem_heap_extra_B=46
+mem_stacks_B=0
+heap_tree=detailed
+n4: 75706 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1801 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 1801 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 1801 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=21
+#-----------
+time=40662547720
+mem_heap_B=75706
+mem_heap_extra_B=46
+mem_stacks_B=0
+heap_tree=detailed
+n4: 75706 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1801 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 1801 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 1801 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=22
+#-----------
+time=43057339568
+mem_heap_B=73909
+mem_heap_extra_B=27
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73909 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1205 0x4870EEE: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n0: 1205 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=23
+#-----------
+time=45186035984
+mem_heap_B=73909
+mem_heap_extra_B=27
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73909 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1205 0x4870EEE: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n0: 1205 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=24
+#-----------
+time=47314732400
+mem_heap_B=73909
+mem_heap_extra_B=27
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73909 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1205 0x4870EEE: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n0: 1205 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=25
+#-----------
+time=49443428816
+mem_heap_B=73909
+mem_heap_extra_B=27
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73909 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1205 0x4870EEE: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n0: 1205 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=26
+#-----------
+time=51572125232
+mem_heap_B=73909
+mem_heap_extra_B=27
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73909 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1205 0x4870EEE: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n0: 1205 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=27
+#-----------
+time=53700821648
+mem_heap_B=73909
+mem_heap_extra_B=27
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73909 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1205 0x4870EEE: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n0: 1205 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=28
+#-----------
+time=55829518064
+mem_heap_B=73909
+mem_heap_extra_B=27
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73909 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1205 0x4870EEE: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n0: 1205 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=29
+#-----------
+time=57958214480
+mem_heap_B=73909
+mem_heap_extra_B=27
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73909 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1205 0x4870EEE: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n0: 1205 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=30
+#-----------
+time=60086910896
+mem_heap_B=73909
+mem_heap_extra_B=27
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73909 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1205 0x4870EEE: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n0: 1205 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=31
+#-----------
+time=62215607312
+mem_heap_B=73909
+mem_heap_extra_B=27
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73909 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1205 0x4870EEE: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n0: 1205 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=32
+#-----------
+time=64344303728
+mem_heap_B=73909
+mem_heap_extra_B=27
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73909 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1205 0x4870EEE: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n0: 1205 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=33
+#-----------
+time=66473000144
+mem_heap_B=73909
+mem_heap_extra_B=27
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73909 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1205 0x4870EEE: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n0: 1205 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=34
+#-----------
+time=68601696560
+mem_heap_B=73909
+mem_heap_extra_B=27
+mem_stacks_B=0
+heap_tree=detailed
+n3: 73909 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 1205 0x4870EEE: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n0: 1205 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n0: 0 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=35
+#-----------
+time=71240639776
+mem_heap_B=76907
+mem_heap_extra_B=69
+mem_stacks_B=0
+heap_tree=detailed
+n4: 76907 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 3002 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 3002 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 3002 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n1: 1201 0x48814F7: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1201 0x4881A18: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n1: 1201 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+       n0: 1201 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=36
+#-----------
+time=74389829792
+mem_heap_B=76907
+mem_heap_extra_B=69
+mem_stacks_B=0
+heap_tree=detailed
+n4: 76907 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 3002 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 3002 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 3002 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n1: 1201 0x48814F7: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1201 0x4881A18: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n1: 1201 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+       n0: 1201 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=37
+#-----------
+time=77539019808
+mem_heap_B=76907
+mem_heap_extra_B=69
+mem_stacks_B=0
+heap_tree=detailed
+n4: 76907 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 3002 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 3002 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 3002 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n1: 1201 0x48814F7: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1201 0x4881A18: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n1: 1201 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+       n0: 1201 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=38
+#-----------
+time=80688209824
+mem_heap_B=76907
+mem_heap_extra_B=69
+mem_stacks_B=0
+heap_tree=detailed
+n4: 76907 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 3002 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 3002 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 3002 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n1: 1201 0x48814F7: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1201 0x4881A18: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n1: 1201 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+       n0: 1201 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=39
+#-----------
+time=83837399840
+mem_heap_B=76907
+mem_heap_extra_B=69
+mem_stacks_B=0
+heap_tree=detailed
+n4: 76907 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 3002 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 3002 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 3002 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n1: 1201 0x48814F7: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1201 0x4881A18: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n1: 1201 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+       n0: 1201 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=40
+#-----------
+time=86986589856
+mem_heap_B=76907
+mem_heap_extra_B=69
+mem_stacks_B=0
+heap_tree=detailed
+n4: 76907 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 3002 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 3002 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 3002 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n1: 1201 0x48814F7: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1201 0x4881A18: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n1: 1201 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+       n0: 1201 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=41
+#-----------
+time=90135779872
+mem_heap_B=76907
+mem_heap_extra_B=69
+mem_stacks_B=0
+heap_tree=detailed
+n4: 76907 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 3002 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 3002 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 3002 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n1: 1201 0x48814F7: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1201 0x4881A18: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n1: 1201 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+       n0: 1201 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=42
+#-----------
+time=93284969888
+mem_heap_B=76907
+mem_heap_extra_B=69
+mem_stacks_B=0
+heap_tree=detailed
+n4: 76907 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 3002 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 3002 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 3002 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n1: 1201 0x48814F7: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1201 0x4881A18: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n1: 1201 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+       n0: 1201 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=43
+#-----------
+time=96434159904
+mem_heap_B=76907
+mem_heap_extra_B=69
+mem_stacks_B=0
+heap_tree=detailed
+n4: 76907 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 3002 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 3002 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 3002 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n1: 1201 0x48814F7: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1201 0x4881A18: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n1: 1201 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+       n0: 1201 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=44
+#-----------
+time=99583349920
+mem_heap_B=76907
+mem_heap_extra_B=69
+mem_stacks_B=0
+heap_tree=detailed
+n4: 76907 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 3002 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 3002 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 3002 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n1: 1201 0x48814F7: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1201 0x4881A18: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n1: 1201 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+       n0: 1201 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=45
+#-----------
+time=102732539936
+mem_heap_B=76907
+mem_heap_extra_B=69
+mem_stacks_B=0
+heap_tree=detailed
+n4: 76907 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 3002 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 3002 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 3002 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n1: 1201 0x48814F7: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1201 0x4881A18: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n1: 1201 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+       n0: 1201 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=46
+#-----------
+time=104307134944
+mem_heap_B=76907
+mem_heap_extra_B=69
+mem_stacks_B=0
+heap_tree=detailed
+n4: 76907 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 3002 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 3002 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 3002 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n1: 1201 0x48814F7: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1201 0x4881A18: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n1: 1201 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+       n0: 1201 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=47
+#-----------
+time=105881729952
+mem_heap_B=76907
+mem_heap_extra_B=69
+mem_stacks_B=0
+heap_tree=detailed
+n4: 76907 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 3002 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 3002 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 3002 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n1: 1201 0x48814F7: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1201 0x4881A18: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n1: 1201 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+       n0: 1201 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=48
+#-----------
+time=107456324960
+mem_heap_B=76907
+mem_heap_extra_B=69
+mem_stacks_B=0
+heap_tree=detailed
+n4: 76907 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 3002 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 3002 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 3002 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n1: 1201 0x48814F7: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1201 0x4881A18: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n1: 1201 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+       n0: 1201 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=49
+#-----------
+time=109030919968
+mem_heap_B=76907
+mem_heap_extra_B=69
+mem_stacks_B=0
+heap_tree=detailed
+n4: 76907 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4935939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x2: ???
+       n1: 72704 0x1FFEFFFA7A: ???
+        n1: 72704 0x1FFEFFFA82: ???
+         n0: 72704 0x1FFEFFFA8E: ???
+ n1: 3002 0x48714FD: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+  n1: 3002 0x4873D2F: void fmt::v8::detail::buffer<char>::append<char>(char const*, char const*) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+   n2: 3002 0x4875206: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+    n1: 1801 0x4881A05: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1801 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n0: 1801 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+    n1: 1201 0x48814F7: ??? (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+     n1: 1201 0x4881A18: void fmt::v8::detail::vformat_to<char>(fmt::v8::detail::buffer<char>&, fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<std::conditional<std::is_same<fmt::v8::type_identity<char>::type, char>::value, fmt::v8::appender, std::back_insert_iterator<fmt::v8::detail::buffer<fmt::v8::type_identity<char>::type> > >::type, fmt::v8::type_identity<char>::type> >, fmt::v8::detail::locale_ref) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+      n1: 1201 0x4870E4D: fmt::v8::vformat[abi:cxx11](fmt::v8::basic_string_view<char>, fmt::v8::basic_format_args<fmt::v8::basic_format_context<fmt::v8::appender, char> >) (in /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1)
+       n0: 1201 0x10A83F: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+ n1: 1201 0x49D7724: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n2: 1201 0x10A5B9: fn(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 1201 0x10A79A: main (in /home/edinella/projects/crqbench/crqbench/artifact/dataset/c++/proof/1/a.out)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
