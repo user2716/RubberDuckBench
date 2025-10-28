@@ -1,0 +1,9 @@
+To determine whether `compact_times()` should be called on every KPIset or only cumulative KPIsets, we need to consider the purpose of the `compact_times()` method and how it affects the data. 
+
+The `recalculate` function appears to be part of a class that manages Key Performance Indicators (KPIs), such as average connection time, latency, response time, and percentiles. The `_compact_times()` method is likely used to compress or optimize the storage of time-related data.
+
+If `compact_times()` is called on every KPIset, it would ensure that all time data is consistently optimized, which could be beneficial for storage efficiency and potentially improve performance when calculating averages and percentiles. However, if `compact_times()` modifies the underlying data in a way that's specific to cumulative calculations (e.g., aggregating values), calling it on non-cumulative KPIsets might alter their original data unintentionally.
+
+Given the context of the provided code, it seems that `_compact_times()` is closely related to preparing the data for recalculations of averages, standard deviations, and percentiles. If `compact_times()` is specifically designed to handle cumulative data (e.g., summing up values over time), then it might be more appropriate to call it only on cumulative KPIsets to avoid affecting other types of data.
+
+<answer> You should call compact_times() on every KPIset if the method optimizes storage without altering the nature of non-cumulative data, but only on cumulative KPIsets if compact_times() modifies data in a way specific to cumulative calculations. The decision depends on the implementation details of compact_times(), which are not provided here. </answer>

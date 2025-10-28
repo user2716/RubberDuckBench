@@ -1,0 +1,11 @@
+The `recalculate` method is designed to update various statistical metrics such as averages, standard deviations, and percentiles for a dataset. The method includes a call to `self._compact_times()`, which presumably compacts or processes the time data in some way before performing the recalculations.
+
+The question asks whether this compacting step should be performed on every KPI set or only cumulative KPI sets. To answer this, we need to consider the purpose of `_compact_times()` and the nature of the different types of KPI sets:
+
+1. **Every KPI Set**: If `_compact_times()` is essential for ensuring that the time data is in a suitable format or state for accurate statistical calculations, then it should be called on every KPI set to maintain consistency and correctness. This would ensure that all individual KPI sets have their times compacted before recalculating averages, standard deviations, and percentiles.
+
+2. **Cumulative KPI Sets**: If `_compact_times()` is specifically designed to handle cumulative data (e.g., aggregating time data from multiple individual KPI sets), then it might only be necessary for cumulative KPI sets. This would imply that individual KPI sets do not require this preprocessing step.
+
+Without additional context on what `_compact_times()` does specifically, the more conservative approach is to assume it's a general preprocessing step needed for accurate calculations. Therefore, it should be called on every KPI set.
+
+<answer>You should call `_compact_times()` on every KPI set to ensure that all time data is consistently processed before performing recalculations.</answer>

@@ -1,0 +1,5 @@
+To determine whether to use UTF-8 or ASCII for decoding the `host`, it's essential to consider the potential characters that can appear in a Host header. The Host header is used to specify the domain name or IP address of the server, and according to the HTTP/1.1 specification (RFC 7230), the host field should only contain ASCII characters.
+
+Using UTF-8 instead of ASCII for decoding could potentially introduce issues if non-ASCII characters are present in the Host header, as they might not be correctly interpreted by all systems involved in the communication process. On the other hand, using ASCII ensures compatibility with the HTTP specification and minimizes potential problems with character encoding.
+
+<answer> We should use ASCII instead of UTF-8 for decoding the host to maintain compliance with the HTTP/1.1 specification and ensure correct interpretation across different systems. Using UTF-8 could introduce unnecessary complexity and potential issues if non-ASCII characters are encountered in the Host header. Therefore, sticking with ASCII as the default encoding is the safer choice in this context. </answer>

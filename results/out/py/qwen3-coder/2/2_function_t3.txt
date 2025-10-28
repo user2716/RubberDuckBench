@@ -1,0 +1,12 @@
+Looking at this code segment, I need to analyze the context and purpose of `compact_times()` in relation to KPI sets.
+
+The key insight is that `compact_times()` appears to be a method that organizes or consolidates time-based data, likely removing duplicates or consolidating overlapping time intervals. However, based on the code structure, it seems like this method should only be called on cumulative KPIsets rather than every KPIset.
+
+The reason is that:
+1. `compact_times()` is called at the beginning of `recalculate()` before any calculations are performed
+2. The method name suggests it's about time consolidation, which would be more relevant for cumulative data that spans time periods
+3. For non-cumulative KPIsets (like those representing instantaneous measurements), calling `compact_times()` might be unnecessary or even counterproductive
+4. The function returns `self`, indicating this is a state-modifying operation that should only apply to data structures that benefit from time consolidation
+
+<answer>
+You should call `compact_times()` only on cumulative KPIsets, not on every KPIset. The method appears to consolidate time-based data by removing duplicates or overlapping intervals, which is primarily beneficial for cumulative data that spans time periods. For instantaneous or non-cumulative KPIsets, this consolidation would be unnecessary and could potentially cause issues with data integrity.</answer>

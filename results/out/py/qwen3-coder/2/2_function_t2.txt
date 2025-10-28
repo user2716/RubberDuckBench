@@ -1,0 +1,17 @@
+Looking at this code segment, I need to analyze when `compact_times()` should be called. The function `recalculate()` appears to be part of a KPIset class that handles performance metrics like averages, standard deviations, and percentiles.
+
+From the code structure, I can see that:
+1. `compact_times()` is called at the beginning of `recalculate()`
+2. The method processes various metrics including response times, concurrency, and percentiles
+3. It uses `self[self.RESP_TIMES]` which suggests it's working with time-based data
+
+The key insight is understanding what `compact_times()` does - based on the name and typical usage patterns in performance monitoring systems, this function likely consolidates or compacts time-series data to optimize storage and processing.
+
+Looking at the broader context (though not fully visible), if this is a KPIset class that handles both real-time and cumulative data, then `compact_times()` should be called on **every KPIset** rather than only cumulative ones. This is because:
+
+1. It's part of the standard recalculation process that happens regardless of whether it's a cumulative or real-time KPIset
+2. The method appears to be a cleanup/optimization step that should run consistently
+3. The function call is at the very beginning of `recalculate()` suggesting it's a required preprocessing step
+
+<answer>
+You should call `compact_times()` on every KPIset, not just cumulative ones. The method is called at the beginning of the `recalculate()` function and appears to be a standard preprocessing step that prepares time-series data for calculation of averages, percentiles, and other metrics. Since it's part of the core recalculation logic and runs regardless of KPIset type, it should be applied consistently across all KPIsets to ensure proper data consolidation and optimization before metric calculations.

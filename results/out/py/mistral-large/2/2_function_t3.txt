@@ -1,0 +1,18 @@
+
+To determine whether you should call `compact_times()` on every KPIset or only cumulative KPIsets, we need to consider the purpose of this method and what a "KPIset" represents in your context. Unfortunately, since there is no concrete definition or documentation provided for what a "KPIset" is, let's make some logical assumptions based on the code segment given:
+
+1. **Purpose of `_compact_times`**: The method `_compact_times()` likely processes or compacts time-related data within an object (probably `self`) that holds KPI (Key Performance Indicators) information. This could include consolidating time records, removing duplicates, or other optimizations related to the time metrics being calculated later in the method.
+
+2. **KPIset Types**: The question implies there are different types of KPIsets: possibly "cumulative" and others which might be "non-cumulative." Cumulative sets could refer to those where performance data is aggregated over a period, while non-cumulative sets may capture individual metrics without aggregation.
+
+3. **Recalculating Averages**: The code segment shows calculations of averages and other statistical measures based on the data stored in `self`. For example:
+   ```python
+   self[self.AVG_CONN_TIME] = self.sum_cn / self[self.SAMPLE_COUNT]
+   ```
+   These operations suggest that some form of preprocessing (like compacting times) would be beneficial to ensure accurate and efficient calculations, regardless of whether the KPIset is cumulative or not.
+
+Given these points:
+- If `compact_times()` optimizes or cleans up time data used in subsequent calculations, it makes sense to call this method on every KPIset, as it ensures the accuracy and efficiency of all statistical computations.
+- Cumulative KPIsets might benefit more from such optimization if they involve larger datasets or continuous aggregation over a period, but that does not negate the potential benefits for non-cumulative sets too.
+
+<answer>You should call `compact_times()` on every KPIset to ensure accurate and efficient calculations of averages, standard deviations, and percentiles, regardless of whether the set is cumulative or not.</answer>

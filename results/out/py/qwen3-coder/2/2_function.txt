@@ -1,0 +1,11 @@
+Looking at this code segment, I can see that `compact_times()` is called unconditionally at the beginning of the `recalculate` method, regardless of whether the KPIset is cumulative or not.
+
+However, based on the method name and typical KPI set patterns, `compact_times()` likely serves to consolidate time-based data by removing duplicate timestamps and aggregating values. This operation would typically only be necessary for cumulative KPI sets that accumulate data over time, where timestamp consolidation is important for performance and data integrity.
+
+For non-cumulative KPI sets (like those representing instantaneous measurements or snapshots), calling `compact_times()` would be unnecessary overhead since there's no accumulated time-series data to consolidate.
+
+The answer is: **Only call compact_times() on cumulative KPIsets**, not on every KPIset. Cumulative KPI sets that aggregate data over time need timestamp consolidation, while instantaneous or non-aggregated KPI sets don't require this operation.
+
+<answer>
+You should only call compact_times() on cumulative KPIsets, not on every KPIset. The compact_times() method appears to consolidate time-based data by removing duplicates and aggregating values, which is only necessary for cumulative KPI sets that accumulate data over time. Non-cumulative KPI sets don't require timestamp consolidation and would benefit from avoiding this unnecessary operation.
+</answer>

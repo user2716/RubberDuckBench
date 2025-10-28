@@ -1,0 +1,9 @@
+To answer this question, let's consider the purpose of `compact_times()` and how it relates to KPIsets. The method `_compact_times()` seems to be responsible for organizing or optimizing time-related data within a KPIset (Key Performance Indicator set), which is crucial for accurate calculations of averages, standard deviations, and percentiles.
+
+Calling `compact_times()` on every KPIset would ensure that all time-related data across different types of KPIsets are consistently organized. This approach could be beneficial if the organization or optimization provided by `_compact_times()` is universally required for any subsequent analysis or calculation, regardless of whether the KPIset is cumulative or not.
+
+However, calling `compact_times()` only on cumulative KPIsets implies that these sets have specific requirements or properties that necessitate this method's execution. Cumulative KPIsets might accumulate data over time or from various sources, potentially benefiting more from compacting times to maintain efficiency and accuracy in calculations.
+
+Given the context provided by the code snippet and considering general software engineering principles, it seems reasonable to call `compact_times()` on every KPIset that requires organized time data for accurate calculations. This would ensure consistency across different types of KPIsets. However, without specific details about the implementation or requirements of non-cumulative KPIsets, it's challenging to provide a definitive answer.
+
+<answer> You should consider calling compact_times() on every KPIset if the method is essential for ensuring data integrity and calculation accuracy across all types of KPIsets. If specific requirements dictate that only cumulative KPIsets need this operation, then call it only on those. The decision depends on the universal necessity of _compact_times() for accurate KPI calculations. </answer>

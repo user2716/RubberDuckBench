@@ -1,0 +1,22 @@
+To determine whether `compact_times()` should be called on every KPI set or only cumulative KPI sets, let's first understand the purpose of this method and its context within the code.
+
+The `recalculate` method is designed to recalculate averages, standard deviations, and percentiles for a given set of performance metrics (KPIs). The method includes the following key steps:
+1. Calls `_compact_times()`.
+2. Recalculates average connection time, latency, and response time if there are sample counts available.
+3. Summarizes concurrency data.
+4. Computes percentiles and standard deviations for response times.
+5. Stores these computed values back into the object.
+
+Given this context, here’s a detailed consideration of whether `compact_times()` should be called on every KPI set or only cumulative ones:
+
+### General Consideration:
+- **Every KPI Set**: If `_compact_times()` is meant to process or prepare data needed for the subsequent calculations, it should likely be called for every KPI set. This ensures that all relevant metrics (e.g., connection times, latencies) are up-to-date and correctly formatted before calculating averages, percentiles, etc.
+- **Cumulative KPI Sets Only**: If `_compact_times()` is specifically designed to handle cumulative data (i.e., metrics that aggregate over time or multiple samples), it may only be necessary for such sets. This would avoid unnecessary processing on non-cumulative KPIs.
+
+### Analysis of the Code:
+The provided code does not explicitly define what `_compact_times()` does, but its name suggests it might compress or aggregate time-related data. Since the subsequent steps in `recalculate` depend on having accurate and prepared data (e.g., sums of connection times, response times), it seems prudent to ensure this preparation step is performed for all relevant KPI sets.
+
+### Conclusion:
+Without more context on what exactly `_compact_times()` does or how cumulative KPI sets differ in their processing needs, the safest approach is to call `_compact_times()` on every KPI set. This ensures consistency and correctness in the recalculation of all performance metrics.
+
+<answer>You should call `_compact_times()` on every KPI set to ensure that all necessary data is properly prepared for the subsequent calculations.</answer>

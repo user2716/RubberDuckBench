@@ -1,0 +1,13 @@
+<think>
+Okay, let's see. The user is asking whether they should call compact_times() on every KPIset or only cumulative ones. Looking at the code, the recalculate method starts with self._compact_times(). So the question is about when this method should be called.
+
+First, I need to understand what _compact_times() does. The name suggests it might be cleaning up or consolidating time data. If this method is responsible for preparing the data for calculations, then it's probably necessary before computing averages, stdev, etc. 
+
+Now, the code checks if self[self.SAMPLE_COUNT] exists before calculating averages. That implies that compact_times() might be part of the process that ensures the data is in the right format. If compact_times() is used to aggregate or process the time data, then it should be called on all KPIsets, not just cumulative ones. Because even non-cumulative KPIsets might need their data compacted before calculations. 
+
+But wait, the question is about whether it's every KPIset or only cumulative. If the method is called at the start of recalculate, then it's part of the recalculate process. So the answer would be that it should be called on every KPIset, because the recalculate method is likely called on all KPIsets, and compact_times() is a prerequisite for the calculations. Unless there's a reason to skip it for non-cumulative, but the code doesn't indicate that. So the answer is that it should be called on every KPIset.
+</think>
+
+The `compact_times()` method should be called on every `KPIset`, not just cumulative ones. The method is invoked at the beginning of the `recalculate()` function, which suggests it is a prerequisite for computing statistics like averages, standard deviation, and percentiles. This implies that all `KPIset` instances (regardless of being cumulative or not) require their time data to be compacted before further processing. If `compact_times()` prepares the data structure or aggregates time entries, it is necessary for accurate calculations in all cases. The code does not indicate any conditional logic to skip it for non-cumulative sets, so it should be called universally. 
+
+<answer>Call `compact_times()` on every `KPIset` because it is a required preprocessing step for all statistical calculations, regardless of whether the set is cumulative or not.</answer>

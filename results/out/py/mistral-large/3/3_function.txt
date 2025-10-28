@@ -1,0 +1,16 @@
+To answer whether we should use UTF-8 instead of ASCII when decoding the `host` header, let's consider a few points:
+
+1. **Character Set Compatibility**:
+   - **ASCII** is a subset of UTF-8 and includes only 7-bit characters (0–127).
+   - **UTF-8** can represent any Unicode character and is more versatile in handling non-English characters, such as those with accents or from different scripts.
+
+2. **Practical Use Cases**:
+   - In real-world scenarios, domain names (hosts) might include internationalized domain names (IDNs), which can contain characters outside the ASCII range. For instance, domains like `münchen.de` or `xn--fsq.com` (which is `bücher.com` in IDN form).
+   - Decoding such hostnames with ASCII would fail if they contain non-ASCII characters, whereas UTF-8 can handle them correctly.
+
+3. **Error Handling**:
+   - Using UTF-8 decoding reduces the risk of encountering `UnicodeDecodeError` for valid but internationalized domain names.
+
+Considering these points, it is generally safer and more versatile to use UTF-8 as the default encoding when decoding the host header. This approach will handle a wider range of possible characters that might appear in hostnames without failing due to non-ASCII characters.
+
+<answer>Yes, we should use UTF-8 instead of ASCII as the default encoding when decoding `host`. This is because UTF-8 can handle a broader set of characters, including internationalized domain names (IDNs), which may contain non-ASCII characters.</answer>

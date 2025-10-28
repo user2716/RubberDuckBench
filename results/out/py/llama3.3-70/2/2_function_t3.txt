@@ -1,0 +1,13 @@
+To determine whether `compact_times()` should be called on every KPI set or only on cumulative KPI sets, we need to understand the purpose of `compact_times()` and how it affects the data in the context of this code.
+
+The method `_compact_times()` is not shown in the provided segment, but based on its name and the fact that it's called at the beginning of the `recalculate` method, it likely serves to organize or reduce the size of time-related data. This could be crucial for maintaining efficient storage and computation, especially when dealing with large datasets.
+
+Given that `recalculate` seems to update various metrics (averages, standard deviations, percentiles) based on response times and other measurements, calling `compact_times()` at this point suggests it's necessary for preparing the data for these calculations. 
+
+If KPI sets are designed to hold specific, possibly non-cumulative data (e.g., metrics from a single test run), then calling `compact_times()` on every KPI set could ensure that each set's data is properly formatted and reduced before calculations, potentially preventing inconsistencies or errors in the calculated metrics.
+
+However, if "cumulative KPI sets" refer to collections of data aggregated over time or multiple runs, it might imply that only these cumulative sets require compaction due to their larger size or the need to consolidate data from multiple sources. In such a scenario, calling `compact_times()` on non-cumulative KPI sets might be unnecessary or even counterproductive if those sets are meant to retain detailed, uncompressed data for other analyses.
+
+Without more context about what `_compact_times()` does and how different types of KPI sets are used within the application, it's difficult to provide a definitive answer. However, considering general principles of data processing and the need for consistent, efficient handling of metrics calculations, calling `compact_times()` on every KPI set could be beneficial if it ensures all data is in an optimal state for calculation, regardless of whether the set is cumulative or not.
+
+<answer> You should call compact_times() on every KPIset to ensure consistency and efficiency in your calculations, unless there's a specific reason related to the nature of non-cumulative KPI sets that would make this unnecessary or counterproductive. The decision ultimately depends on the specifics of what compact_times() does and how different types of KPI sets are utilized within your application. </answer>
