@@ -1,0 +1,13 @@
+<answer>
+Yes.  
+The statement
+
+    OnKeyListenerForFragments myFragment =
+            (OnKeyListenerForFragments) getSupportFragmentManager()
+                    .findFragmentById(R.id.main_view);
+
+performs an unchecked cast.  
+• If the fragment that is currently placed in R.id.main_view does not implement (or extend) OnKeyListenerForFragments, the cast will fail at run time and a ClassCastException will be thrown.  
+• If no fragment is found, findFragmentById returns null; casting null is legal and just yields null, so that situation is safe (the subsequent null-check prevents a NPE).  
+
+Therefore the only real danger here is a possible ClassCastException when the wrong type of fragment is present. </answer>

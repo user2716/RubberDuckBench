@@ -1,0 +1,14 @@
+<answer>
+Using `HashMap` vs `Collections.singletonMap` changes the type, mutability, and performance of the map you hand to `messageParams`.
+
+* **`HashMap`**  
+  * A concrete, mutable implementation.  
+  * Can grow to contain any number of entries and can be modified after it’s created.  
+  * Slightly larger memory footprint and a bit slower to construct because it allocates its own backing array and can re‑hash as entries are added.
+
+* **`Collections.singletonMap`**  
+  * Returns an immutable map that contains exactly one key/value pair.  
+  * It has no backing `HashMap` or other collection; it’s a lightweight wrapper.  
+  * Cannot be modified (no `put`, `remove`, etc.).  Any attempt to modify it throws an `UnsupportedOperationException`.
+
+So if `messageParams` only ever needs that single entry and you don’t plan to change the map later, passing the `singletonMap` directly is more efficient and expresses intent clearly. If the code later needs to add or change entries, you must use a mutable map such as `HashMap`.

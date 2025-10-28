@@ -1,0 +1,12 @@
+**Answer:**  
+Yes, the null check is required (unless you change the caching strategy to never store `null`).  
+
+**Why?**  
+`roleInfoMap.get(username)` returns `null` when the user’s key is not present in the map. The subsequent `if (!authConfigs.isCachingEnabled() || roleInfoList == null)` ensures that the code will fetch fresh data from the database when:
+
+1. Caching is disabled – you want a fresh list regardless of what the map holds, **or**  
+2. The cache does not contain an entry for the given username – `roleInfoList` will be `null`.
+
+If you omitted the `roleInfoList == null` part, the method would skip the database call for users that are simply missing from the cache, returning `null` to the caller instead of an up‑to‑date list.  
+
+You could remove the null check only if you guarantee that the map never holds a `null` value (e.g., by always inserting an empty `List<RoleInfo>` when a user is first cached). But with the current implementation, the null check is necessary.

@@ -1,0 +1,9 @@
+<answer>
+Yes, you still need the null-check.
+
+roleInfoMap.get(username) can legitimately return null when the user is not yet in the cache.  
+If caching is enabled and you drop the “roleInfoList == null” part of the condition, the block that calls getRolesFromDatabase(…) will no longer execute, so you would just return null instead of loading the data from the database (and you would never put anything in the cache for that user).  
+Keeping the check ensures that, when caching is on but the entry is missing, the method falls back to the database and returns a populated list.  
+
+You could remove the check only if you changed the caching layer to store an empty List for every miss (so get(...) never returns null), but with the code as it stands the null check is required.
+</answer>

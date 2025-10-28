@@ -1,0 +1,3 @@
+<answer>
+Yes, the null check for roleInfoList is necessary to handle cache misses when caching is enabled. Without it, if caching is enabled but no entry exists in roleInfoMap (causing get() to return null), the method would skip fetching from the database and return null, which is likely not the intended behavior.
+</answer>

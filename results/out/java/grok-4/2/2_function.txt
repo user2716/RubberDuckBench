@@ -1,0 +1,8 @@
+The code is passing a `HashMap` (which is mutable) to `messageParams()`, but it's initialized from the result of `Collections.singletonMap()` (which returns an immutable `Map`). If `Collections.singletonMap()` were passed directly instead:
+
+- It would provide an immutable `Map` (any attempt to modify it would throw `UnsupportedOperationException`).
+- It may fail at runtime if the implementation of `messageParams()` (or code it delegates to) attempts to modify the provided `Map`.
+
+Using `new HashMap<>()` instead creates a mutable copy, which is safe if the `Map` needs to be modified. In all other respects (e.g., contents, performance), there is no meaningful difference in this specific usage.
+
+<answer>The key difference is mutability: `HashMap` is mutable (can be modified), while the `Map` from `Collections.singletonMap()` is immutable (cannot be modified).</answer>

@@ -1,0 +1,15 @@
+**Short answer**
+
+`Collections.singletonMap(...)` creates an *immutable* one‑entry map, while `new HashMap<>(Collections.singletonMap(...))` creates a *mutable* copy. The immutable map is smaller and safer (no accidental writes), but it cannot be modified later; the `HashMap` can be changed but costs a bit of memory and allocation time.
+
+**Explanation**
+
+|                     | `Collections.singletonMap(...)` | `new HashMap<>(Collections.singletonMap(...))` |
+|---------------------|---------------------------------|----------------------------------------------|
+| **Mutability**      | Read‑only; any put/remove throws `UnsupportedOperationException`. | Mutable; you can add or remove entries. |
+| **Memory / Allocation** | No extra allocation beyond the singleton map object itself. | Allocates a new `HashMap` instance and copies the single entry. |
+| **Performance**     | Slightly faster for creation (no copy). | Slightly slower (constructor + copy). |
+| **Thread‑safety**   | Immutable, so safe to share between threads. | Mutable, so external code could change it unless properly guarded. |
+| **Use‑case**        | When the map is only used as a read‑only lookup and will never need to be altered. | When the calling code or `messageParams` needs to modify the map (e.g., add more entries). |
+
+In the context of `messageParams`, if the method only reads the map, you can safely pass `Collections.singletonMap`. If the method might try to modify the map, you must supply a mutable map like the `HashMap` copy.

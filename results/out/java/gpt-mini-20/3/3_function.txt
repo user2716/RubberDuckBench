@@ -1,0 +1,17 @@
+**Answer**  
+Yes – if `mPrefix` can ever be `null` you should guard against it.  
+A safe test is `mPrefix != null && !mPrefix.isEmpty()` (or `StringUtils.isNotEmpty(mPrefix)` from Apache Commons).  
+If you are certain the field is always initialized to a non‑null string, the check can be omitted, but adding it makes the method robust against accidental null assignments or future changes.  
+
+```java
+public String getLogFileParentDir() {
+    List<String> elements = new ArrayList<>();
+    if (mPrefix != null && !mPrefix.isEmpty()) {
+        elements.add(mPrefix);
+    }
+    if (mTopic != null && !mTopic.isEmpty()) {
+        elements.add(mTopic);
+    }
+    return StringUtils.join(elements, "/");
+}
+```

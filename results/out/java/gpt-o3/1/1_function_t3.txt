@@ -1,0 +1,10 @@
+<answer>
+Yes.  
+The very first thing the “end-of-method” block does is
+
+    if (drawer == null) {
+        return;
+    }
+
+If drawer is null the method returns immediately, so none of the subsequent instructions (the calls to drawer.select… and even the final actionBarSubTitle.setVisibility()) are executed. Therefore all of the remaining code is executed only when drawer is non-null; i.e. it depends on drawer being present.  
+</answer>

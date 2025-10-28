@@ -1,0 +1,6 @@
+<answer>
+Yes, you still need the  roleInfoList == null test.  
+When caching is enabled (isCachingEnabled() returns true) the first operand of the OR is false, so the only way to enter the block and go to the database is if the list you just looked up is null – i.e. the user has no entry in the cache.  
+If you remove the null-check and caching is turned on, a cache miss will leave the method returning null instead of the real role list, and you will never repopulate the cache for that user.  
+Therefore the null check is required unless the map is guaranteed to contain a non-null (possibly empty) list for every user, which is not the case here.
+</answer>

@@ -1,0 +1,10 @@
+<answer>
+Yes – a runtime exception can be thrown at the cast. `findFragmentById()` may return a fragment that does **not** implement `OnKeyListenerForFragments`; in that case the cast
+
+```java
+(OnKeyListenerForFragments) getSupportFragmentManager()
+        .findFragmentById(R.id.main_view);
+```
+
+will throw a **ClassCastException**. Casting a `null` reference is safe (it just yields `null`), and `getSupportFragmentManager()` is never `null` in a normal Activity, so the only realistic exception here is a `ClassCastException` if the fragment type is mismatched (or, extremely rarely, a `Resources.NotFoundException` if the view ID is invalid, but that would be caught earlier). Therefore you should guard the cast (e.g., with `instanceof`) or ensure the fragment always implements the expected interface.
+</answer>

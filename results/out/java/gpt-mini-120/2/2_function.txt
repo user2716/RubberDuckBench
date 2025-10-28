@@ -1,0 +1,3 @@
+<answer>
+`Collections.singletonMap(key, value)` returns an immutable map that is optimised for a single entry – it has minimal overhead but cannot be changed (no put/remove). Wrapping it in `new HashMap<>(Collections.singletonMap(...))` creates a mutable `HashMap` copy containing the same entry. Therefore, passing the `singletonMap` directly to `messageParams` gives a read‑only, lightweight map, while passing a `HashMap` allows the called method (or later code) to modify the map (add or remove entries) at the cost of a slightly larger, mutable object.
+</answer>

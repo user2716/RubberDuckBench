@@ -1,0 +1,9 @@
+<answer>
+Yes, you need the “roleInfoList == null” part of the condition.
+
+Reason:  
+• When caching *is* enabled you only want to hit the database if there is no cached value for the user.  
+• Map#get returns null when the key is absent, so “roleInfoList == null” is how you detect a cache miss.  
+• If you remove the null-check the code will call the database only when caching is disabled; with caching enabled and no cached entry it would simply return null, giving the caller an incorrect (and possibly authorization-breaking) result.
+
+Therefore the null check is required to preserve correct behaviour when the cache is enabled but does not yet contain an entry for the user. </answer>

@@ -1,0 +1,7 @@
+**Answer**  
+`Collections.singletonMap(...)` creates an immutable map that contains exactly one entry.  
+`new HashMap<>(Collections.singletonMap(...))` creates a normal, mutable `HashMap` that is a copy of that one‑entry map.  
+
+Using the `singletonMap` is cheaper in terms of memory and guarantees that the map cannot be altered after it is passed to `messageParams`. If `messageParams` or the code that consumes the map never needs to modify the mapping, the immutable map is safe and slightly more efficient.  
+
+If `messageParams` (or downstream code) might add or change entries, the immutable map would throw an exception, so a mutable `HashMap` is required. Thus, the choice hinges on whether mutability is needed: immutable `singletonMap` for read‑only, one‑off data; mutable `HashMap` when future modifications are expected.

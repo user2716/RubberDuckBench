@@ -1,0 +1,9 @@
+<answer>
+Collections.singletonMap(...) returns a special, read-only Map implementation that contains exactly one key/value pair; any attempt to put(), remove() or otherwise change its contents will throw UnsupportedOperationException.  
+Wrapping that map in new HashMap<>(...) creates a *copy* of it that is an ordinary, mutable HashMap − you can freely add, remove or replace entries.
+
+Therefore:
+• Passing singletonMap directly to messageParams gives it an immutable, single-entry map (cheap but not modifiable).  
+• Passing new HashMap<>(singletonMap) gives it a regular, mutable map (slightly more overhead, but the method or later code can change its contents).
+
+The choice depends on whether messageParams (or code that later receives the map) needs to modify the map. </answer>

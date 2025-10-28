@@ -1,0 +1,7 @@
+<answer>
+Call­ing length() on a null String will throw a NullPointerException, so you need some kind of protection one way or the other.  
+
+1. If the class invariants guarantee that mPrefix is always initialised to a non-null value (e.g. set to "" in every constructor / setter), then the extra check is unnecessary—an NPE would indicate a programming error elsewhere.  
+2. If a null value for mPrefix is considered legal input, then you must guard against it (e.g. `if (mPrefix != null && mPrefix.length() > 0)` or simply use `StringUtils.isEmpty(mPrefix)`).
+
+So add the null check only when null is an expected state; otherwise enforce a non-null invariant and leave the code as is. </answer>

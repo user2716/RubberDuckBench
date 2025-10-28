@@ -1,0 +1,2 @@
+<answer>
+Yes – the null check is necessary unless you guarantee that `roleInfoMap.get(username)` will never return `null`. In the current implementation `roleInfoMap` can legitimately miss an entry, so `roleInfoList` will be `null` and you must fall back to the database call. If you change the cache to always store a (possibly empty) list, you could drop the null test and just use the cached value; otherwise keep the check or replace it with a guard that returns an empty list instead of `null`.

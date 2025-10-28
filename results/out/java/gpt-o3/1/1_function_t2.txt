@@ -1,0 +1,5 @@
+<answer>
+Yes. The first thing the method does after calculating singleFolderMode is check if (drawer == null) { return; }.  
+If drawer is null the method returns immediately, so none of the subsequent statements (the three calls to drawer.select… and the final actionBarSubTitle.setVisibility(…)) are executed.  
+Consequently the “code at the end” is executed only when drawer is non-null, i.e. it depends on drawer being available.
+</answer>

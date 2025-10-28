@@ -1,0 +1,24 @@
+<answer>
+Yes – the null check is required unless you can guarantee that `roleInfoMap` will never return `null` for a username (for example, if you always store an empty `List<RoleInfo>` instead of omitting the entry).  
+
+The method first tries to read the cached roles:
+
+```java
+List<RoleInfo> roleInfoList = roleInfoMap.get(username);
+```
+
+If caching is disabled (`!authConfigs.isCachingEnabled()`) **or** the cache lookup yields `null` (meaning there is no entry for that user), the code must fall back to the database:
+
+```java
+if (!authConfigs.isCachingEnabled() || roleInfoList == null) {
+    Page<RoleInfo> roleInfoPage = getRolesFromDatabase(...);
+    if (roleInfoPage != null) {
+        roleInfoList = roleInfoPage.getPageItems();
+    }
+}
+```
+
+Without the `roleInfoList == null` part, a missing cache entry would cause the method to return `null` even though the user might have roles stored in the database. The check also distinguishes a cached empty list (which is a valid result) from a missing entry (which requires a DB fetch).
+
+If you redesign the cache to always contain a non‑null list (e.g., using `Collections.emptyList()` for users with no roles) or use `computeIfAbsent` to populate the cache lazily, the explicit null test could be removed. Otherwise, keep the null check to ensure correct fallback behavior.
+</answer>

@@ -1,0 +1,6 @@
+<answer>
+Collections.singletonMap(..) returns a tiny, immutable Map that contains exactly one entry; every mutative operation (put / remove / clear …) will throw UnsupportedOperationException.  
+new HashMap<>(Collections.singletonMap(..)) copies that single-entry map into a normal HashMap that is fully mutable and can later accept more key/value pairs or be altered in any way.
+
+Therefore, if UidFetchCommand.Builder.messageParams only reads the map you could pass singletonMap directly, but if the builder (or the command it builds) needs to add, remove or update entries you must wrap it in a HashMap; otherwise you would get a runtime exception. Aside from that behavioural difference, time/memory cost is just the negligible cost of copying the single element into the new HashMap.
+</answer>

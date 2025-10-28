@@ -1,0 +1,7 @@
+<answer>
+`Collections.singletonMap` returns an **immutable** map that contains exactly one entry. It’s cheap to create but cannot be changed (no puts, removes, etc.).  
+
+By wrapping that singleton map in `new HashMap<>(…)` you create a **mutable copy** – a regular `HashMap` that can later be modified, have additional entries added, or be passed to APIs that expect a mutable `HashMap` implementation.  
+
+So the difference is that `singletonMap` is a lightweight, read‑only map with a single entry, while the `HashMap` copy is a separate, mutable map that incurs extra allocation and copying overhead but allows further modifications.  
+</answer>

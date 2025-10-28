@@ -1,0 +1,9 @@
+<answer>
+Collections.singletonMap(k, v) returns a special Map implementation that contains exactly one entry and is ​unmodifiable​.  
+If you hand that object to messageParams and messageParams (or later code that receives the command) tries to add, remove or clear entries, an UnsupportedOperationException will be thrown.
+
+new HashMap<>(Collections.singletonMap(k, v)) creates a *copy* of that one-element map.  
+Because it is a normal HashMap it is fully mutable – additional (uid, Message) pairs can be inserted or removed without error – at the cost of an extra allocation and a little more memory.
+
+So the only real difference is mutability (and the tiny allocation overhead); use singletonMap when the map should stay read-only, wrap it in a HashMap when further modifications are expected.
+</answer>

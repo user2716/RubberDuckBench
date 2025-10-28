@@ -1,0 +1,14 @@
+<answer>
+Yes.  
+`findFragmentById()` returns a Fragment reference that may be  
+
+a) null, or  
+b) a Fragment whose class does not implement the `OnKeyListenerForFragments` interface / class.  
+
+The explicit cast that is executed first
+
+    (OnKeyListenerForFragments) getSupportFragmentManager()
+            .findFragmentById(R.id.main_view);
+
+will therefore throw a `ClassCastException` if case (b) occurs.  
+(The subsequent `if (myFragment != null)` only protects against a `null` reference, not against a failed cast.) So a runtime exception is indeed possible at that line. </answer>

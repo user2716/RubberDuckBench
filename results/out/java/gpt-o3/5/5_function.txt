@@ -1,0 +1,11 @@
+<answer>
+Yes.  
+The potentially dangerous line is  
+
+    OnKeyListenerForFragments myFragment =
+            (OnKeyListenerForFragments) getSupportFragmentManager()
+                    .findFragmentById(R.id.main_view);
+
+findFragmentById(..) returns a Fragment reference.  
+If the Fragment that is currently placed in R.id.main_view does **not** implement the interface/class OnKeyListenerForFragments, the explicit cast will fail at runtime and the VM will throw a ClassCastException, crashing the app before it reaches the subsequent null-check.  
+If the method returns null the cast is safe (casting null yields null), so the only time an exception is thrown is when a non-conforming Fragment instance is returned.

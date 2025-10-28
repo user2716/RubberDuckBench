@@ -1,0 +1,7 @@
+<answer>
+`Collections.singletonMap` creates a **compact, immutable** map that contains exactly one entry. It cannot be changed (no put/remove) and is implemented specially for that single‑entry case, so it uses less memory and has lower construction cost.
+
+`new HashMap<>(Collections.singletonMap(...))` copies that single entry into a **regular, mutable** `HashMap`. The resulting map can be modified later (add or remove entries) and is independent of the original `singletonMap`.
+
+Therefore, passing a `singletonMap` directly gives the called method an immutable, one‑element map, while passing a `HashMap` gives it a mutable map that can be altered without causing `UnsupportedOperationException`. The choice depends on whether the method needs to modify the map and on any performance considerations.
+</answer>

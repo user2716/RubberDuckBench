@@ -1,0 +1,9 @@
+<answer>
+A null-check is only needed if mPrefix is allowed to be null.  
+In the current code you immediately call mPrefix.length(); if mPrefix can ever be null this will raise a NullPointerException, so you should add a check such as
+
+    if (mPrefix != null && mPrefix.length() > 0) { … }
+
+(or use StringUtils.isNotEmpty).  
+However, if the class constructor or another invariant guarantees that mPrefix is always initialised to a non-null value (e.g. ""), then adding an extra null-check is unnecessary and would only add noise.  
+In short: add the check unless you can prove mPrefix is never null. </answer>

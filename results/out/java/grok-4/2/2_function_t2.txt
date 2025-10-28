@@ -1,0 +1,3 @@
+<answer>
+The key difference is that `Collections.singletonMap` returns an immutable map containing a single key-value pair, which cannot be modified after creation and will throw an `UnsupportedOperationException` if modification is attempted. In contrast, wrapping it in `new HashMap<>(Collections.singletonMap(...))` creates a mutable copy of that map, allowing potential additions, removals, or changes to entries. This mutability might be necessary if the `messageParams` method or the `UidFetchCommand.Builder` internally modifies the map, but if no modifications are needed, using `singletonMap` directly would be more efficient and lightweight for a single-entry map.
+</answer>
