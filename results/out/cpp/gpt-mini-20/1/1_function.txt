@@ -1,0 +1,28 @@
+**Short answer**
+
+Yes.  
+Using `operator+` concatenates the strings in several steps, creating temporary `AString` objects (and possibly allocating memory for each step). `fmt::format` builds the final string in one pass, allocating only once, and it gives you type‑safe formatting, compile‑time format‑string checking, and better readability.  
+
+**Why it matters**
+
+```cpp
+// operator+ (what the code does)
+AString("[") + AString(cManualBindings::GetLuaPlugin(...)->GetName()) + AString("]: ")
++ AString(str, len);   // four separate operations → 3 temporaries
+```
+
+* Each `operator+` call produces a new `AString` temporary.  
+* The compiler usually has to allocate memory for each temporary, then copy or move it again into the next temporary.  
+* If the string literals are used directly, you risk subtle bugs (pointer arithmetic on C‑string literals).
+
+```cpp
+// fmt::format
+fmt::format("[{}]: {}", cManualBindings::GetLuaPlugin(...)->GetName(), AString(str, len));
+```
+
+* The format string is parsed once (at compile time if you use `FMT_STRING`).  
+* All components are written into a single buffer.  
+* The library handles different types (`const char*`, `AString`, integers, etc.) safely and without requiring intermediate temporaries.  
+* It also gives you formatting specifiers (e.g., width, precision) and can perform bounds‑checking at compile time.
+
+In most cases `fmt::format` (or `std::format` in C++20) will be more efficient and safer than chained `operator+` concatenation.

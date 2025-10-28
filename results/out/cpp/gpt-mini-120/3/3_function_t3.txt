@@ -1,0 +1,5 @@
+<answer>
+Yes. `m_sliceTypeStrMap.at(m_sliceType)` looks up the key and **throws** `std::out_of_range` if the key is not present. It does not modify the map and can be called on a `const` map, which is why it works inside a `const` member function.
+
+`m_sliceTypeStrMap[m_sliceType]` uses the subscript operator. For a non‑`const` `std::map` it will **insert** a new element with a default‑constructed value if the key is missing, then return a reference to that value. The subscript operator is not defined for a `const` map, so it would not compile in this context (unless the map is declared `mutable`). Both operations have the same logarithmic lookup cost, but they differ in side‑effects and error handling.
+</answer>

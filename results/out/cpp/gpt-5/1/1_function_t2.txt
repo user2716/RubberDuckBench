@@ -1,0 +1,3 @@
+<answer>
+For the final string content, there’s no difference as long as you pass the Lua text with its length to fmt (e.g., fmt::string_view(str, len)): fmt::format("[{}]: {}", name, fmt::string_view(str, len)). The practical differences are that fmt::format typically does a single allocation (fewer copies) and avoids the common gotcha where "literal" + std::string is invalid unless the left operand is a std::string. Using operator+ can create multiple temporaries/allocations and is easier to get wrong with mixed types, while fmt is clearer and safer for this case.
+</answer>

@@ -1,0 +1,7 @@
+<answer>
+Yes. Using `operator+` on `AString` (or `std::string`) creates a chain of temporary objects – each `+` typically allocates a new buffer, copies the left‑hand operand, then appends the right‑hand operand. In the code above you would end up with several temporaries (one for `"[" + name`, another for that result + `"]: "`, and a final one for adding the Lua string), which means multiple allocations and copies.
+
+`fmt::format` builds the final string in a single step. It parses the format string once, computes the total size, allocates the buffer only once (or uses its small‑buffer optimisation), and writes the pieces directly into it. This is usually faster, uses less memory, and provides compile‑time type‑checking of the arguments.
+
+So while both approaches produce the same textual result, `fmt::format` is generally more efficient and safer for concatenating several pieces, especially when the number of parts grows or the pieces are expensive to copy. The `operator+` version is simpler but can incur extra allocations and copies. 
+</answer>

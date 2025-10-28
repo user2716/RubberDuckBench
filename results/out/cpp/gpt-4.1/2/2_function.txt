@@ -1,0 +1,3 @@
+<answer>
+Yes, `error_code` can be something other than `ECONNREFUSED` or `ECONNRESET`. The function only checks for those two specific values to set the `anyRefused` or `anyReset` flags, but it is possible for `error_code` to have other values if the connect operation fails for other reasons (such as `ETIMEDOUT`, `EHOSTUNREACH`, etc.). The code assumes this by not using `else` statements and by handling errors generically after updating the pointer and checking whether another address can be tried.
+</answer>

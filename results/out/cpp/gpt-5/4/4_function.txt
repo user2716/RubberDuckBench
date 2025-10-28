@@ -1,0 +1,10 @@
+Both forms produce an empty std::wstring, but they use different constructors:
+
+- return L""; calls the const wchar_t* constructor, which measures the length of the literal (zero) before constructing the string.
+- return {}; value-initializes the std::wstring via its default constructor, yielding an empty string directly.
+
+In practice, there’s no observable behavioral difference. return {} is slightly more direct (no length check), and it’s type-agnostic if the return type changes in the future. Performance differences are negligible.
+
+<answer>
+No functional difference: both return an empty std::wstring. return L"" constructs from a pointer (does a zero-length check), while return {} default-constructs the string. The result is the same; {} is marginally cleaner and avoids even that tiny length check.
+</answer>

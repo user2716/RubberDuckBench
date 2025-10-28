@@ -1,0 +1,9 @@
+<answer>
+Both statements return an empty `std::wstring`; they are semantically equivalent.  
+
+`return L"";` passes a wide‑character literal (type `const wchar_t[1]`) to the `std::wstring(const wchar_t*)` constructor, which builds a string by calling `traits::length` on the literal (which immediately finds the terminating null) and then creates the `wstring` object.  
+
+`return {};` uses list‑initialization with an empty initializer list, which selects the default (or the `initializer_list`‑taking) constructor of `std::wstring`. This directly constructs an empty string without looking at a literal.
+
+Thus the result is the same, but `return {};` can be a tiny bit more efficient (and is clearer about the intent of “empty”). In practice modern compilers will optimize both cases away, so the observable difference is negligible.
+</answer>

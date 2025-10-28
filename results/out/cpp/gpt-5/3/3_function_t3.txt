@@ -1,0 +1,3 @@
+<answer>
+Yes. at() does a bounds check and throws std::out_of_range if the key isn’t present, and it never inserts anything; it also has a const overload, so it works in a const member function. operator[] requires a non-const map, will insert a default-constructed value if the key doesn’t exist (mutating the map), and thus can’t be used here without making the map mutable. Use at() when the key must exist and you don’t want accidental insertion; use [] when you want insert-on-access semantics.
+</answer>

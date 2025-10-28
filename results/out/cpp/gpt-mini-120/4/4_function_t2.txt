@@ -1,0 +1,8 @@
+<answer>
+Both statements return an empty `std::wstring`, so the observable result is the same. The difference is only in how the object is created:  
+
+* `return L"";` converts the wide‑character literal (a `const wchar_t*`) to a `std::wstring` by invoking the `std::wstring(const wchar_t*)` constructor, which must compute the length (zero) and may allocate a buffer.  
+* `return {};` (or `return std::wstring{}`) uses list‑initialization of the return type, which calls the default constructor `std::wstring()`. This directly creates an empty string and typically avoids any allocation.
+
+Thus, semantically they are equivalent, but `return {}` is more idiomatic and can be slightly more efficient because it uses the default constructor instead of a conversion from a literal. 
+</answer>

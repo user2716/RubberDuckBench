@@ -1,0 +1,3 @@
+<answer>
+Yes. The destructor does nothing, so it can be removed (or changed to = default in the header). The compiler-generated destructor will be virtual if the base’s destructor is virtual, and it will correctly destroy all members. Removing the user-declared destructor can also re-enable implicit move operations that a user-declared destructor would otherwise suppress. Just ensure the header is updated accordingly, and if you rely on an out-of-line key function for vtable/typeinfo emission in a shared library, other out-of-line virtuals in this file already satisfy that.
+</answer>

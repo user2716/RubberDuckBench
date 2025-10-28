@@ -1,0 +1,3 @@
+<answer>
+Both forms produce an empty std::wstring. return {} value-initializes the return object (calls std::wstring default constructor), while return L"" constructs a std::wstring from a wide C-string literal, which typically involves calling char_traits<wchar_t>::length on the literal (finding length 0) before constructing the string. Practically, there’s no observable difference; return {} is a bit more direct (no length scan, no implicit conversion) and is often preferred for clarity. With C++17 guaranteed copy elision, neither incurs extra temporaries.
+</answer>

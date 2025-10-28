@@ -1,0 +1,13 @@
+<answer>
+Yes.  
+The destructor does not perform any work – it merely opens and closes a brace – and the class does not manage any resources that require a special shutdown sequence.  
+If the explicit declaration and definition
+
+    virtual ~SQWLoadingPresenter();
+
+and
+
+    SQWLoadingPresenter::~SQWLoadingPresenter() {}
+
+are removed, the compiler will synthesise a default destructor that does exactly the same thing (it simply calls the base–class destructor and destroys the data members).  
+Therefore deleting the user-provided destructor (and its declaration in the header) will not change the program’s behaviour; it will just let the compiler generate the trivial destructor automatically. </answer>

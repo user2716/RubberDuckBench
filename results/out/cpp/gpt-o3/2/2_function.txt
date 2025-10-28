@@ -1,0 +1,3 @@
+<answer>
+Yes.  
+`error_code` is just an `int` that the caller passes in (typically the value of `errno` after a failed `socket()` or `connect()` call).  The function merely tests whether that integer equals `ECONNREFUSED` or `ECONNRESET`; if it is some other errno value (e.g. `EHOSTUNREACH`, `ETIMEDOUT`, `EACCES`, …) the two `if` conditions will simply evaluate to false and the code will continue without setting either flag.  Nothing in the function constrains the argument to those two specific constants, so any errno value can arrive here. </answer>

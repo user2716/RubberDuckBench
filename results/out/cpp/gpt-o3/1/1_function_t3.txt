@@ -1,0 +1,19 @@
+<answer>
+Both approaches yield the same logical result – a single string that looks like
+
+    "[" + pluginName + "]: " + messageText
+
+but they do it in different ways.
+
+operator+
+• At least two ‘+’ evaluations are performed.  
+  1. "["  + pluginName → temporary string  
+  2. that temporary + "]: " → second temporary  
+  3. AString is then built from the temporary and finally another ‘+’ appends AString(str,len).  
+• Unless AString’s operator+ is specially optimised, each ‘+’ can allocate and copy, so several temporary buffers may be created.
+
+fmt::format
+• fmt::format("[{}]: {}", pluginName, AString(str,len)) first computes the total length, allocates exactly once and fills the buffer.  
+• No intermediate strings are produced (other than very small stack buffers inside fmt).
+
+So functionally there is no difference, but fmt::format is usually faster, makes only one allocation, and gives stronger compile-time type checking and clearer syntax. The only caveat is that fmt must know how to format AString (i.e. there needs to be an fmt::formatter specialization for it). If that specialization exists, fmt::format is the more efficient choice. </answer>

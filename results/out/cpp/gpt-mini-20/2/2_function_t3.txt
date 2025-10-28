@@ -1,0 +1,2 @@
+<answer>
+Yes. The `error_code` passed to `handleConnectException` is whatever value the underlying connect() (or related socket) call returns on failure. It can be any POSIX errno, such as `ETIMEDOUT`, `EHOSTUNREACH`, `ENETUNREACH`, `ECONNABORTED`, etc. The function only branches for `ECONNREFUSED` and `ECONNRESET` because those cases need special handling, but any other error code can legitimately reach this function and will be treated by the default logic (propagated up by the `throw;` statement if no address remains).

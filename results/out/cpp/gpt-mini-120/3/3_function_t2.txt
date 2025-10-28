@@ -1,0 +1,14 @@
+<answer>
+Yes. `m_sliceTypeStrMap.at(m_sliceType)` uses the `std::map::at` member function, which:
+
+* Is `const`‑qualified, so it can be called in a `const` member function.
+* Performs only a lookup; if the key is not present it throws `std::out_of_range`.
+* Does **not** modify the map.
+
+`m_sliceTypeStrMap[m_sliceType]` uses the subscript operator:
+
+* Requires a non‑`const` map (there is no `const` overload), so it cannot be used in a `const` method.
+* If the key is missing, it inserts a new element with a default‑constructed `std::string` value, potentially changing the container and causing reallocation.
+* Returns a reference to the (possibly newly inserted) element.
+
+Therefore, `at` is safer for read‑only access and will alert you to missing keys via an exception, whereas `operator[]` can silently create entries and cannot be used on a `const` map.

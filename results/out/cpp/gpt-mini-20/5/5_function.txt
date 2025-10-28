@@ -1,0 +1,10 @@
+**Answer:**  
+Yes – the empty destructor can be omitted. The compiler will automatically generate a defaulted destructor that does exactly the same thing (destroys any members via their own destructors). Since the class does not manage any resources that need special cleanup, an explicit empty destructor provides no benefit.
+
+If you prefer to be explicit you could write
+
+```cpp
+~SQWLoadingPresenter() = default;
+```
+
+but it is perfectly fine to simply remove the definition entirely.

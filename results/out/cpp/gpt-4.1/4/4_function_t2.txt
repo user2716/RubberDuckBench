@@ -1,0 +1,8 @@
+<answer>
+In the context of returning an empty `std::wstring`, there is no practical difference between `return L"";` and `return {};`. Both expressions will return an empty `std::wstring` object. 
+
+- `return L"";` constructs a `std::wstring` from the empty wide string literal, which becomes an empty `std::wstring`.
+- `return {};` uses value initialization to create a default-constructed (and thus empty) `std::wstring`.
+
+Both approaches yield the same result: a default-constructed, empty `std::wstring`. The choice is mostly a matter of style and readability.
+</answer>

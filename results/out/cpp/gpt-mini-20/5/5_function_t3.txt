@@ -1,0 +1,53 @@
+**Answer**
+
+Yes – the empty body can be removed, but you must change the header so that the compiler generates a defaulted destructor instead of expecting an out‑of‑line definition.
+
+---
+
+### Why the current destructor is unnecessary
+
+| Member | Need for manual cleanup? | Why the auto‑generated destructor is fine |
+|--------|--------------------------|-------------------------------------------|
+| `std::unique_ptr<MDLoadingView> m_view` | `unique_ptr` manages its own destruction | The auto‑generated destructor calls `unique_ptr`’s destructor, which deletes the owned view. |
+| `std::string m_filename, m_wsTypeName` | POD / STL types | Their destructors are trivial. |
+| Inherited `MDEWLoadingPresenter` | The base class already has a virtual destructor | The derived class will automatically call the base destructor. |
+
+No other resources (files, handles, threads, etc.) are held directly in `SQWLoadingPresenter`, so a custom destructor that does nothing is redundant.
+
+---
+
+### How to safely remove it
+
+1. **Remove the `.cpp` implementation**  
+   Delete the definition:
+   ```cpp
+   SQWLoadingPresenter::~SQWLoadingPresenter() {}
+   ```
+
+2. **Update the header**  
+   * **Option A** – delete the declaration entirely.  
+     If the class has no user‑declared destructor, the compiler will synthesize one automatically.
+   * **Option B** – keep a declaration and default it inline:
+     ```cpp
+     class SQWLoadingPresenter : public MDEWLoadingPresenter {
+     public:
+         ~SQWLoadingPresenter() = default;   // ← replaces the empty body
+         // …other members…
+     };
+     ```
+
+3. **Re‑compile**  
+   No linker errors will occur because the defaulted destructor provides the required symbol.
+
+---
+
+### When you **cannot** remove it
+
+* If the header still contains a plain declaration `~SQWLoadingPresenter();` without a definition elsewhere, the linker will complain.  
+* If the base class destructor is **non‑virtual** and you rely on dynamic polymorphism (e.g., deleting through a base pointer), you must keep the virtual destructor declared (though it can still be defaulted).
+
+---
+
+### Bottom line
+
+`SQWLoadingPresenter::~SQWLoadingPresenter() {}` can safely be removed. Just make sure the header either deletes the declaration or default‑s the destructor. No additional cleanup logic is required.

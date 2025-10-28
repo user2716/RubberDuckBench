@@ -1,0 +1,2 @@
+**Answer**  
+Yes. `at()` performs bounds‑checking and never inserts a new element; it returns a `const` reference and will throw `std::out_of_range` if the key isn’t present. `operator[]` will insert a default‑constructed value for a missing key and return a non‑const reference. In a `const` member function, `operator[]` is not available at all, so `at()` is the correct choice here.

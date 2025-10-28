@@ -1,0 +1,5 @@
+<answer>
+Yes. `error_code` is whatever `errno` value was reported by the failed `connect()` (or by the exception that wraps that call).  
+`ECONNREFUSED` and `ECONNRESET` are only two of many possible `connect()` errors; others such as `ETIMEDOUT`, `EHOSTUNREACH`, `ENETUNREACH`, `EACCES`, etc. can also be passed in.  
+The function gives special retry-logic to the two “expected” transient errors; for any other code the two flags remain false and, once all addresses are tried, the function immediately re-throws the original exception.
+</answer>

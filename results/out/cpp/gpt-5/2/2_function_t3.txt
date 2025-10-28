@@ -1,0 +1,3 @@
+<answer>
+Yes. error_code can be any errno produced by socket()/connect(), not just ECONNREFUSED or ECONNRESET (e.g., ETIMEDOUT, EHOSTUNREACH, ENETUNREACH, EADDRNOTAVAIL, EAFNOSUPPORT, EACCES, ENOBUFS, etc.). This function treats only ECONNREFUSED and ECONNRESET as “retryable” (setting flags to allow waiting/retrying). For any other error code, it just advances to the next address; if none remain and neither flag was set (or wait is false), it rethrows the exception.
+</answer>

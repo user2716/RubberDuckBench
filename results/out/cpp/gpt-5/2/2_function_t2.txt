@@ -1,0 +1,3 @@
+<answer>
+Yes. error_code can be any errno returned by connect/socket (e.g., ETIMEDOUT, ENETUNREACH, EHOSTUNREACH, EACCES, etc.). The function only special-cases ECONNREFUSED and ECONNRESET to set flags; for any other code it just advances to the next address. If all addresses are exhausted and none produced ECONNREFUSED/ECONNRESET (or wait is false), it rethrows immediately rather than waiting/retrying.
+</answer>

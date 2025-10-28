@@ -1,0 +1,24 @@
+<answer>
+Yes.  
+With the chain of operator+ calls
+
+    "[" + pluginName + "]: " + AString(str, len)
+
+every ‘+’ produces a temporary std::string/AString.  
+In the worst case you get
+
+1. one allocation/copy to build "[" + pluginName  
+2. another to append "]: "  
+3. a third one to append the message itself
+
+so up to three allocations and three copies (fewer only if the small-string optimisation happens to cover the sizes).
+
+fmt::format (or std::format in C++20)
+
+    fmt::format("[{}]: {}", pluginName, std::string_view(str, len));
+
+parses the format string, computes the total length once, allocates one buffer and writes the characters directly into it.  
+Hence it usually performs a single allocation and no intermediate copies, while also giving compile-time checking of the format string and clearer intent.  
+The only costs it adds are the (compile-time) inclusion of the formatting library and a small run-time format-string parse, which is negligible for a once-per-log-call operation.
+
+So the two approaches are functionally equivalent, but fmt::format is typically more efficient and more readable than building the result with successive operator+ concatenations. </answer>

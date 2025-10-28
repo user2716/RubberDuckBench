@@ -1,0 +1,3 @@
+<answer>
+There is no practical difference between using `return L"";` and `return {};` when returning an empty `std::wstring` in this context. Both forms will result in an empty `std::wstring` being returned. `L""` is an empty wide string literal that will be implicitly converted to a `std::wstring`, while `{}` uses list-initialization to construct a default-initialized (empty) `std::wstring`. Both approaches are valid and equivalent for this purpose.
+</answer>

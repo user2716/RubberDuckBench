@@ -1,0 +1,3 @@
+<answer>
+Yes. The class does not own any resources that need special cleanup, and it inherits from a base class that already has a virtual destructor. In such a case the compiler‑generated destructor is sufficient (it will be virtual because the base’s destructor is virtual). Therefore the explicit empty definition `SQWLoadingPresenter::~SQWLoadingPresenter() {}` can be safely omitted.
+</answer>

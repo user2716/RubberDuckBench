@@ -1,0 +1,6 @@
+**Answer**  
+`return L"";` constructs a temporary `std::wstring` from the wide‑string literal `L""` (via the constructor that takes a `const wchar_t*`), while `return {};` value‑initializes a `std::wstring` directly using its default constructor.  
+Both end up with an empty string and are equivalent in terms of observable behaviour.  
+However, `return {};` is a bit more efficient because it skips the construction from a C‑string literal, and it is the idiomatic, modern‑C++ way to return an empty object. It also avoids any ambiguity that might arise from overloaded constructors.
+
+So the difference is only in implementation detail, not in the final value returned. Use `return {};` for conciseness and performance.

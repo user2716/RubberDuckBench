@@ -1,0 +1,5 @@
+**Answer:**  
+No, they are equivalent for a `std::wstring` return type.  
+`return L"";` creates a temporary `wstring` from the wide‑string literal, while `return {};` value‑initializes a `wstring`, which calls its default constructor and produces an empty string. Both yield an empty `wstring` and have the same observable behavior. The `{}` form is often preferred for uniformity and clarity that a default‑constructed value is returned. 
+
+<answer>They produce the same result – `return L"";` constructs a `wstring` from an empty literal, and `return {};` value‑initializes a `wstring`, which is empty. The difference is only in how the temporary is created (literal conversion vs default construction), and it has no effect on the returned value.

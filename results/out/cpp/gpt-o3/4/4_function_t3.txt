@@ -1,0 +1,17 @@
+<answer>
+For a function that returns std::wstring the two statements
+
+    return L"";
+    return {};
+
+both create a temporary std::wstring that represents an empty string and return it, so the value the caller receives is identical.
+
+The way that temporary is built, however, is a little different:
+
+• return L""; – the literal L"" is a const wchar_t[1].  
+  The compiler has to call the constructor std::wstring(const wchar_t*) which, at run time, measures the length of the string with char_traits::length(p) before copying 0 characters.
+
+• return {}; – an empty braced-init-list is used.  
+  Overload resolution chooses the std::wstring(std::initializer_list<wchar_t>) constructor with an empty list (or, on some implementations, the default constructor). No length scan is necessary.
+
+So the observable result is the same; the {} form can avoid the needless length calculation and is a little more idiomatic when you simply want “give me an empty string”. Other than that negligible efficiency difference (and the fact that {} requires C++11 or later), there is no behavioral difference between the two. </answer>

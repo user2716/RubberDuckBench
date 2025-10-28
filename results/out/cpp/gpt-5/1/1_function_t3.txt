@@ -1,0 +1,3 @@
+<answer>
+Functionally, no—the produced text is the same. The differences are in efficiency and safety: chaining operator+ typically creates multiple temporaries/allocations, while fmt::format usually builds the final string with a single allocation and can take fmt::string_view for (str,len) to avoid an extra temporary. Also, if GetName() ever returned const char*, "[" + GetName() would be a bug (pointer arithmetic), whereas fmt::format is safe; with AString/std::string it’s fine. So fmt::format is generally more efficient and robust, but both yield the same output here.
+</answer>

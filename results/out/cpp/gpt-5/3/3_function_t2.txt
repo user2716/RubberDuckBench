@@ -1,0 +1,3 @@
+<answer>
+Yes. std::map/std::unordered_map::at() is bounds-checked, has a const overload, and throws std::out_of_range if the key isn’t present. operator[] is not const, inserts a default-constructed value when the key is missing (modifying the container), and requires the mapped type to be default-constructible. In your const method, operator[] wouldn’t compile (unless the map were mutable), while at() is correct and avoids accidental insertion.
+</answer>

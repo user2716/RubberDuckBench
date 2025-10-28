@@ -1,0 +1,3 @@
+<answer>
+Yes. `error_code` is the value returned by `connect()` (or by socket‑creation functions) and can be any POSIX `errno` that those system calls may set—e.g., `ETIMEDOUT`, `EHOSTUNREACH`, `ENETUNREACH`, `EADDRINUSE`, etc. The function only treats `ECONNREFUSED` and `ECONNRESET` specially (setting the corresponding flags), but any other error code is still possible and will simply be ignored for those flags while the code proceeds to try the next address.
+</answer>

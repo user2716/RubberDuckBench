@@ -1,0 +1,13 @@
+In short, yes – they behave differently.
+
+* `m_sliceTypeStrMap.at(m_sliceType)`  
+  * Requires the key to exist; if it does not, it throws a `std::out_of_range` exception.  
+  * It does **not** modify the map.  
+  * It can be called on a `const` map and returns a `const` reference (or `const T&` if the map stores `T`).  
+
+* `m_sliceTypeStrMap[m_sliceType]`  
+  * If the key is missing, the operator inserts a new element with that key and a default‑constructed value, then returns a reference to that value.  
+  * It modifies the map (even in a const‑context, it cannot be used on a `const` map).  
+  * The returned reference is non‑const, so you can modify the value.  
+
+So using `at` in a `const` getter is the right choice: it guarantees you won’t accidentally create a new entry or change the map, and it gives you a clear exception if the key is missing. Using `operator[]` would silently insert a default entry, which is almost certainly not what you want here.

@@ -1,0 +1,11 @@
+<answer>
+For a function whose declared return type is std::wstring both statements are valid and produce an empty std::wstring for the caller.
+
+• return L"";  
+  – The wide-character literal L"" is a const wchar_t[1].  
+  – The compiler selects std::wstring(const wchar_t*) and builds a wstring from that pointer; the constructor has to determine the length of the literal (traits::length), which is 0.
+
+• return {};  
+  – Because the return type is already fixed to std::wstring, the empty braced-initializer means “value-initialise a std::wstring”, i.e. call std::wstring().
+
+Thus the only difference is which constructor is invoked (pointer constructor vs. default constructor). Both yield an empty string; any performance difference is negligible and, for an optimising compiler, typically disappears. In normal code there is therefore no observable difference between the two forms. </answer>

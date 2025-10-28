@@ -1,0 +1,3 @@
+<answer>
+Yes. The destructor does nothing beyond what the implicitly‑generated one would do, so it can be omitted. The compiler will synthesize a default destructor that automatically destroys the class’s members (including the unique_ptr passed to the base) and calls the base‑class destructor. Since the base class already provides a virtual destructor (required for proper polymorphic deletion in this MVP hierarchy), removing the empty `~SQWLoadingPresenter() {}` has no effect on behavior or object lifetime.
+</answer>

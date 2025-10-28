@@ -1,0 +1,3 @@
+<answer>
+Yes. `SQWLoadingPresenter` does not own any resources that require custom clean‑up, and its base class already has a virtual destructor. The compiler will automatically generate a trivial destructor that correctly destroys the base part and the member objects, so an out‑of‑line empty definition is unnecessary. You can either omit the destructor entirely (or declare it as `= default;` in the class definition) without changing the program’s behavior.
+</answer>

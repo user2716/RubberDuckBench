@@ -1,0 +1,6 @@
+**Answer**  
+Yes – there are practical differences.  
+`operator+` simply appends the operands into a new `AString` (often via an efficient move‑based concatenation), so it incurs only the cost of copying the characters.  
+`fmt::format` first parses a format string, then writes each argument into an output buffer; this adds the overhead of parsing and formatting, but gives you type safety and richer formatting options.  
+For a plain concatenation of a few strings, `operator+` is usually faster and lighter‑weight.  
+<answer>In short, `operator+` just stitches the strings together (with only copy/move overhead), whereas `fmt::format` parses a format string and does a formatted write, adding extra parsing and formatting work but giving you type‑checked formatting flexibility. For simple concatenation, `operator+` is typically more efficient. </answer>

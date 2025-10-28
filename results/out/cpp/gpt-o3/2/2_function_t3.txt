@@ -1,0 +1,5 @@
+<answer>
+Yes.  
+The parameter is a plain int that the caller passes in (usually `errno` extracted from a `std::system_error` thrown by `socket()` or `connect()`).  
+Nothing in the template or in the call-site constrains its value to only `ECONNREFUSED` or `ECONNRESET`; those two codes are merely handled specially because they mean “server not listening yet” and “listen backlog full”.  
+If the code is, say, `EHOSTUNREACH`, `ETIMEDOUT`, `EADDRNOTAVAIL`, etc., the two if-statements simply do not execute, the function falls through to “try the next address”, and when all addresses are exhausted the original exception is re-thrown.  So `error_code` can indeed be any socket/connection-related errno, not just the two explicitly checked. </answer>

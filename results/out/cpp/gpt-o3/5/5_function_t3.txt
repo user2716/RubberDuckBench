@@ -1,0 +1,18 @@
+<answer>
+The body of the destructor does not perform any work – it is exactly what the compiler-generated (implicit) destructor would do.  
+Therefore, the hand-written definition is not required for functional reasons.
+
+However, a definition has to exist because the header almost certainly declares
+
+    virtual ~SQWLoadingPresenter();
+
+If that declaration is left in place, removing the out-of-line definition will give an “undefined reference to SQWLoadingPresenter::~SQWLoadingPresenter()” linker error.  
+So you have two valid choices:
+
+1. Keep the declaration in the header and replace the out-of-line definition with an inline defaulted one:  
+       virtual ~SQWLoadingPresenter() = default;  
+   (no .cpp definition needed).
+
+2. Remove both the declaration from the header and the definition in the .cpp file, letting the compiler generate the destructor automatically.
+
+Simply deleting the definition in the .cpp file while leaving the declaration intact will not compile, so in that sense “no, it cannot be removed on its own”.</answer>

@@ -1,0 +1,9 @@
+<answer>Yes. Using the `operator+` on `AString` creates a series of temporary objects – each `+` typically allocates a new buffer, copies the left‑hand side, then appends the right‑hand side. In the expression  
+
+```cpp
+"[" + name + "]: " + AString(str, len)
+```  
+
+you get at least two intermediate `AString`s and multiple memory allocations.  
+
+`fmt::format` builds the final string in a single pass: it parses the format string once, allocates a buffer of the exact needed size, and writes all parts directly into it. It also handles non‑string types without needing explicit conversions. Therefore `fmt::format("[{}]: {}", name, AString(str, len))` is usually more efficient (fewer allocations and copies) and can be more readable, though both produce the same result. </answer>

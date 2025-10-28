@@ -1,0 +1,14 @@
+**Answer**  
+Both expressions ultimately produce the same resulting string, but `fmt::format` is generally more efficient and safer than chaining `operator+`.  
+
+**Why?**  
+
+| Aspect | `operator+` | `fmt::format` |
+|--------|--------------|---------------|
+| **Temporary objects** | Each `+` creates a new temporary string, so a chain like `a + b + c + d` results in *n‑1* allocations/copies. | All parts are written directly into one buffer (or into a pre‑allocated string), usually requiring only one allocation. |
+| **Compile‑time safety** | No checks on the types of the operands; a mismatch (e.g., adding a `char*` to a `std::string` without an overload) will fail to compile or produce a warning. | The format string is parsed at compile time (or at least checked by the formatter), giving early diagnostics for incorrect placeholders or argument types. |
+| **Readability / intent** | The intent of formatting is implicit; you have to eyeball the concatenation. | Placeholders (`{}`) make the structure explicit and easy to read. |
+| **Extensibility** | You must manually overload `operator+` for each new type you want to concatenate. | `fmt::format` already knows how to format many built‑in and user‑defined types with minimal effort. |
+| **Performance** | Multiple heap allocations / copies → higher runtime cost. | Single allocation / write → lower runtime cost and less heap churn. |
+
+So, while `operator+` will give you the correct string, `fmt::format` is usually preferable for performance, safety, and clarity.

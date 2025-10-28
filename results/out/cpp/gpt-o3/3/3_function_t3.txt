@@ -1,0 +1,14 @@
+<answer>
+Yes, there is a functional difference.
+
+1. `map::at(key)`  
+   • Has a const overload, so it can be called inside a `const` member function.  
+   • Performs a bounds-check: if `key` is not present it throws `std::out_of_range`.  
+   • Does not modify the container.
+
+2. `map::operator[](key)`  
+   • No const overload – you cannot call it on a `const` map (so it would not compile inside the `const` function shown).  
+   • If the key does not exist it inserts a new element with a default-constructed value and then returns a reference to it, thereby mutating the map.  
+   • Never throws for a missing key.
+
+So in the code shown `at` is the correct choice: it works on a `const` map, guarantees the map is not accidentally modified, and will report an error if an unexpected key is requested. </answer>

@@ -1,0 +1,12 @@
+<answer>
+From a purely functional point of view the class does not need its own destructor – the compiler would generate an implicit (and virtual, because the base class’ destructor is virtual) one that would do exactly the same thing.
+
+However the Mantid code base deliberately provides an *out-of-line* (i.e. defined in the .cpp file) destructor here.  
+Keeping the destructor out-of-line has two practical advantages:
+
+1. It guarantees that the definition of the destructor – and therefore the instantiation of any code that ultimately deletes the unique_ptr that lives in the base class – is compiled in a translation unit that already includes the full definition of MDLoadingView.  If the destructor were implicit (inline in the header) that guarantee would be lost and some translation unit that only sees a forward-declaration could end up instantiating it, leading to a compile-time error.
+
+2. It exports a single, non-inline symbol from the DLL/shared library, which is important for binary-compatibility and for keeping the public header free from unnecessary inline code.
+
+So although the destructor does not perform any explicit work, removing it (or replacing it with “= default;” in the header) could cause compilation or linkage problems in other translation units.  It should therefore be left in place.
+</answer>

@@ -1,0 +1,2 @@
+**Answer**  
+Yes. `error_code` is the value of `errno` returned by the socket system call (e.g., `connect`, `socket`, or `bind`). The function only checks for `ECONNREFUSED` (the server isn't listening) and `ECONNRESET` (backlog exhausted), but the error can be any POSIX error code: `ETIMEDOUT`, `EHOSTUNREACH`, `ENETDOWN`, `EINPROGRESS`, etc. Those other values will bypass the two `if` branches and be treated as a generic failure that forces the code to iterate to the next address.

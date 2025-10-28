@@ -1,0 +1,10 @@
+<answer>
+Yes.  
+1. Behavior for missing keys  
+• operator[](key) inserts a new element with a default-constructed value when the key is not present, so the container may be modified.  
+• at(key) never inserts; if the key is absent it throws std::out_of_range.  
+
+2. const correctness  
+operator[] is only provided for non-const std::map / std::unordered_map, while at() has a const overload. Inside this const member function you can call at(), but calling operator[] would not compile unless the map were declared mutable.
+
+So in a const function at() is the only viable choice and, compared with [], it avoids accidental insertion and signals an error via exception instead. </answer>

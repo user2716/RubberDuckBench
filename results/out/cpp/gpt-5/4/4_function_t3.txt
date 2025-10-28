@@ -1,0 +1,3 @@
+<answer>
+Functionally, no: both return an empty std::wstring. return {} value-initializes (default-constructs) the std::wstring, while return L"" constructs it from a wide C string literal, which conceptually involves determining its length (0) and then constructing the string. In practice compilers optimize this, but return {} is the more direct/idiomatic choice and can be marginally cheaper. Either is correct.
+</answer>

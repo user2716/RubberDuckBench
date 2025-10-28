@@ -1,0 +1,3 @@
+<answer>
+Yes. `error_code` can be any POSIX error returned by the socket or `connect()` call (e.g., `ETIMEDOUT`, `ENETUNREACH`, `EHOSTUNREACH`, `EINPROGRESS`, `EINVAL`, etc.). The function only treats `ECONNREFUSED` and `ECONNRESET` specially; for any other error the flags are left unchanged and the code simply advances to the next address.
+</answer>

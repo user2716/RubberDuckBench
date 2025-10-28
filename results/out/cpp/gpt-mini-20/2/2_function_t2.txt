@@ -1,0 +1,13 @@
+Yes.  
+`error_code` is the value of `errno` returned from a failed `connect()` (or socket‑creation) call. While the code handles `ECONNREFUSED` and `ECONNRESET` specially, many other error codes can be returned, such as:
+
+| errno | Typical cause |
+|-------|---------------|
+| `EHOSTUNREACH` | No route to host |
+| `ENETUNREACH` | Network unreachable |
+| `ETIMEDOUT` | Connection timed out |
+| `EADDRNOTAVAIL` | Address not available |
+| `ECONNABORTED` | Connection aborted |
+| `EAGAIN` / `EWOULDBLOCK` | Resource temporarily unavailable |
+
+Therefore, `error_code` may be any of these or other platform‑specific socket errors; the function only reacts to the two it checks for, and for all others it simply continues to the next address.

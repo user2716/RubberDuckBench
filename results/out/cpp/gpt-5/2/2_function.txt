@@ -1,0 +1,3 @@
+<answer>
+Yes. error_code can be any errno from the failed socket/connect attempt, not just ECONNREFUSED or ECONNRESET (e.g., ETIMEDOUT, EHOSTUNREACH, ENETUNREACH, EADDRNOTAVAIL, EACCES, EAFNOSUPPORT, EPROTONOSUPPORT, EINPROGRESS/EALREADY for non-blocking, etc.; WSA* equivalents on Windows). This function only marks ECONNREFUSED and ECONNRESET as transient, retryable conditions; for any other error the flags stay false, and after exhausting addresses it will rethrow instead of waiting/retrying (or rethrow immediately if wait is false).
+</answer>

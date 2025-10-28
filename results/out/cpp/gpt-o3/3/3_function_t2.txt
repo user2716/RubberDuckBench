@@ -1,0 +1,14 @@
+<answer>
+Yes – the two member functions have different semantics.
+
+• m_sliceTypeStrMap.at(m_sliceType)  
+  – Works on a const map/array/vector, so it can be called from a const member function.  
+  – Performs a range / key-existence check; if the key (or index) is not present it throws std::out_of_range.  
+  – Never changes the container.
+
+• m_sliceTypeStrMap[m_sliceType]  
+  – For an associative container (std::map / std::unordered_map) it is non-const, because if the key is not present it default-constructs a new element and inserts it. That means the expression cannot be used through a const object and it mutates the map.  
+  – For sequence containers (vector/array/string) it does no bounds checking; an out-of-range index gives undefined behaviour.
+
+Therefore, in a const function that must not modify the container and should fail when the key is missing, at() is the correct choice; using operator[] would not compile for a const map, and on a vector would risk UB instead of an exception.
+</answer>

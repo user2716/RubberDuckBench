@@ -1,0 +1,3 @@
+<answer>
+Semantically, no—the resulting text is the same either way. The difference is in efficiency and ergonomics: chaining operator+ typically creates several temporaries and may perform multiple allocations, while fmt::format builds the final string in one go (usually one allocation) and is clearer when composing many parts. In this case the performance difference is likely negligible, but fmt::format("[{}]: {}", pluginName, fmt::string_view(str, len)) can avoid constructing an intermediate AString for the message and reduce allocations. The only functional difference to be aware of is that fmt can throw format_error (not applicable here since the format string is fixed).
+</answer>

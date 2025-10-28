@@ -1,0 +1,9 @@
+<answer>
+Yes.  
+`m_sliceTypeStrMap.at(m_sliceType)` performs a bounds‑checked lookup: if the key is missing it throws `std::out_of_range`.  
+`m_sliceTypeStrMap[m_sliceType]` (operator[]) does two things:
+
+1. It returns a reference to the value, and if the key is absent it inserts a **default‑constructed** value into the map before returning that reference.
+2. Because it modifies the container, it can only be used on a non‑const map.
+
+In a `const` member function like this one, `operator[]` is not allowed, so the only correct choice is `at()`.

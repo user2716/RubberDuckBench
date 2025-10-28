@@ -1,0 +1,21 @@
+**Short answer:**  
+No, they both return an empty `std::wstring`.  
+The only practical difference is that `return {};` uses the *default constructor* of `std::wstring`, while `return L"";` creates a temporary string from the literal and then returns it. The latter involves a tiny extra conversion step (length calculation and a constructor call), so `{}` can be slightly more efficient and is more generic (works for any return type that can be default‑constructed).  
+
+**Explanation**
+
+```cpp
+// 1. Default construction
+return {};            // equivalent to: return std::wstring{};
+// the default constructor creates an empty string directly
+
+// 2. Literal construction
+return L"";           // creates a temporary wstring from the literal
+                     // (calls wstring(const wchar_t*) constructor)
+```
+
+- **Semantics**: Both yield an empty string (`size() == 0`).
+- **Performance**: `{}` is marginally cheaper because it skips the conversion constructor that scans the literal. Modern compilers will usually optimise the literal case away, but `{}` is still the minimal‑cost option.
+- **Genericity**: `{}` works for any return type that can be value‑initialised, whereas `L""` is specific to `std::wstring`.
+
+So, if you simply want an empty `std::wstring`, prefer `return {};`.

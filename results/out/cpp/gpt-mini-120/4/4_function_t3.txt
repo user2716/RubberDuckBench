@@ -1,0 +1,9 @@
+<answer>
+Both statements return an empty `std::wstring`.  
+
+`return L"";` creates a temporary `std::wstring` by invoking the constructor that takes a `const wchar_t*`. The literal `L""` is a zero‑length wide character array, so the constructed string ends up empty.
+
+`return {};` list‑initializes the return object, which value‑initializes a `std::wstring`. This calls the default constructor of `std::wstring`, which also yields an empty string.
+
+Thus the observable result is the same. The only practical difference is that `return {}` directly uses the default constructor and avoids the conversion from a literal, making it slightly more direct and idiomatic (especially in modern C++). Functionally, however, there is no difference. 
+</answer>

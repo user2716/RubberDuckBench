@@ -1,0 +1,3 @@
+<answer>
+Yes. The destructor does nothing and the class doesn’t manage any resources that require custom cleanup. Assuming MDEWLoadingPresenter has a virtual destructor (which it should for polymorphic use), the implicitly generated destructor for SQWLoadingPresenter will also be virtual and correct. If you remove it, also remove (or change to “= default”) its declaration in the header to avoid a linker error. There are already other out-of-line virtual overrides in this class, so you don’t need the destructor to anchor the vtable either.
+</answer>

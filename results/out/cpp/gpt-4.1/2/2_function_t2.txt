@@ -1,0 +1,3 @@
+<answer>
+Yes, `error_code` can be something other than `ECONNREFUSED` or `ECONNRESET`. The function checks for those specific error codes to set the `anyRefused` and `anyReset` flags, but there is no restriction in the code that forces `error_code` to only be one of those values. In practice, `error_code` could represent any error value that a socket-related system call might produce, such as `EHOSTUNREACH`, `ETIMEDOUT`, or other network errors. If `error_code` is something else, the corresponding `if` blocks are simply skipped.
+</answer>

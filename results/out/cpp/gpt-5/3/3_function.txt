@@ -1,0 +1,3 @@
+<answer>
+Yes. at() performs a bounds-checked lookup and does not modify the container; if the key isn’t present it throws std::out_of_range, and it can be called on a const map. operator[] performs lookup but will insert a new element with a default-constructed value if the key is missing (thus modifying the container), and cannot be used on a const map. Using at() here enforces that the key must exist and keeps the method const-correct.
+</answer>

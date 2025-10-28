@@ -1,0 +1,17 @@
+<answer>
+Both statements return an empty std::wstring, so the observable behaviour of the function is the same.
+
+The only difference is in how the temporary std::wstring object is constructed:
+
+• return L"";  
+ The literal L"" is a const wchar_t[1]. It is first converted to const wchar_t* and the constructor  
+ std::wstring(const wchar_t*) is invoked. That constructor has to determine the length of the
+ string (wcslen) – for an empty literal this is zero and many implementations will fold the
+ calculation at compile time, but the call still selects the “from-C-string” constructor.
+
+• return {};  
+ The braced-init-list is empty, so the default constructor std::wstring() is chosen directly,
+ creating an empty string without having to examine any character data.
+
+In practice the cost difference is negligible (both end up with the same empty SSO buffer and no heap allocation), and no behavioural difference is observable. Using {} simply makes it clear that you intend to return “an empty string” instead of “a string built from a C-style literal”.
+</answer>
