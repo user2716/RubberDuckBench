@@ -1,0 +1,27 @@
+<think>
+Okay, so I'm trying to figure out whether I should call `compact_times()` on every KPIset or only the cumulative ones. Let me start by looking at the code provided.
+
+In the given code segment, there's a method called `recalculate()`. Inside this method, the first thing it does is call `self._compact_times()`. Then, it proceeds to calculate various averages and other metrics like stdev and percentiles. 
+
+I remember that `compact_times()` is used to manage the storage of response times, probably to prevent the dataset from growing too large, which could affect performance. It likely keeps only a certain number of recent data points or summarizes them in some way.
+
+Now, the question is about whether this method should be called on every KPIset or just the cumulative ones. Let me think about what each type does.
+
+A cumulative KPIset would aggregate data over time, so it's constantly adding new data points. If we don't compact these, they might become too large. On the other hand, non-cumulative KPIsets might represent a fixed set of data, perhaps for a specific interval or session where data doesn't keep accumulating beyond that.
+
+Looking at the code, `recalculate()` is called after compacting. This suggests that compaction is necessary before recalculating metrics to ensure that only relevant data points are considered. If we don't compact non-cumulative KPIsets, they might not need it because their data isn't growing indefinitely. But wait, maybe some of them do accumulate data over time as well.
+
+Wait, perhaps the key is in how `recalculate()` is used. If every KPIset that needs to recalculate metrics also needs to manage its data size, then they should all call `compact_times()`. However, if only cumulative sets are the ones that keep growing and need compaction before recalculating, then it's better to call it only there.
+
+I think about how in some systems, you have rolling windows or cumulative sums. For those, compacting is essential to maintain performance. Non-cumulative sets might not require this as frequently because their data doesn't grow indefinitely; they might be reset or have a fixed size.
+
+So, considering that `recalculate()` is part of maintaining accurate metrics, and if only the cumulative KPIsets are the ones that keep adding new data points over time, then calling `compact_times()` on them makes sense to prevent memory issues and ensure calculations are based on recent data. Non-cumulative sets might not need this because their data remains static or is managed differently.
+
+Therefore, the answer would be to call `compact_times()` only on cumulative KPIsets.
+</think>
+
+The method `_compact_times()` should be called on every KPIset that manages a growing dataset to prevent excessive memory usage and ensure efficient calculations. However, if non-cumulative KPIsets have fixed or managed data sizes, they might not require compaction as frequently.
+
+<answer>
+You should call `compact_times()` only on cumulative KPIsets where the data grows over time.
+</answer>

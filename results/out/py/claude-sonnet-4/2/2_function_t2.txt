@@ -1,0 +1,18 @@
+Looking at this code, I need to analyze what `_compact_times()` likely does and when it should be called.
+
+From the context, this appears to be a performance monitoring system that tracks KPIs (Key Performance Indicators) like response times, latency, and connection times. The `recalculate()` method computes averages, standard deviations, and percentiles.
+
+The `_compact_times()` method (note the underscore prefix indicating it's private) is called at the beginning of `recalculate()`, before any statistical calculations. Given that the method later processes `self[self.RESP_TIMES]` for percentile and standard deviation calculations, `_compact_times()` likely performs some form of data cleanup, sorting, or memory optimization on the stored timing data.
+
+Key observations:
+1. `_compact_times()` is called before statistical calculations that depend on the timing data
+2. The method processes response times for percentiles and standard deviation
+3. This appears to be optimizing or preparing the data structure for analysis
+
+For the question of whether to call it on every KPIset vs only cumulative ones:
+- **Every KPIset**: If individual KPIsets accumulate data over time and need periodic cleanup/optimization
+- **Only cumulative KPIsets**: If only the aggregate data structures grow large enough to need compaction
+
+<answer>
+You should call `_compact_times()` on every KPIset that accumulates timing data over time, not just cumulative ones. Since the method is called at the start of `recalculate()` and appears to optimize/prepare the timing data for statistical calculations, any KPIset that collects response time samples would benefit from this data compaction. The overhead is likely minimal compared to the performance benefits of working with optimized data structures during percentile and standard deviation calculations.
+</answer>

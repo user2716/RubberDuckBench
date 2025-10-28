@@ -1,0 +1,13 @@
+I'll analyze the code segment to determine when `compact_times()` should be called.
+
+Looking at the code, I can see:
+
+1. The method `recalculate()` calls `self._compact_times()` at the beginning, before performing any calculations.
+2. The purpose of the method is to "Recalculate averages, stdev and percentiles" as mentioned in the docstring.
+3. The calculations performed include computing average connection time, average latency, average response time, concurrency, percentiles, and standard deviation.
+
+The method `_compact_times()` (note the underscore indicating it's a private method) is likely responsible for organizing or optimizing the time data before calculations are performed. Without seeing its implementation, I can infer it prepares the data structures for efficient calculation.
+
+<answer>
+You should call `compact_times()` on every KPIset where you need accurate calculations. The method appears to be a prerequisite for the calculations that follow, ensuring the time data is properly organized. Since it's called at the beginning of `recalculate()`, it should be used whenever you're recalculating metrics, regardless of whether the KPIset is cumulative or not. The method is designed to ensure the data is in the right state for calculation.
+</answer>

@@ -1,0 +1,17 @@
+Looking at this code, I need to consider what's appropriate for HTTP Host headers.
+
+According to HTTP specifications (RFC 7230), the Host header should contain a valid host as defined in the URI specification (RFC 3986). URIs are restricted to ASCII characters - any non-ASCII characters must be percent-encoded. The Host header specifically should contain either:
+1. A registered name (domain name) - which must be ASCII or ASCII-compatible encoding (like Punycode for internationalized domain names)
+2. An IP address - which is inherently ASCII
+
+While UTF-8 is generally a safer default encoding in modern Python applications, in this specific case:
+
+1. **ASCII is correct per spec**: The Host header should only contain ASCII characters according to HTTP standards
+2. **ASCII will fail fast**: If someone incorrectly passes non-ASCII bytes in the Host header, using ASCII decoding will raise a `UnicodeDecodeError`, which helps catch the error early
+3. **UTF-8 could mask problems**: Using UTF-8 might silently accept invalid Host headers that contain non-ASCII characters, potentially leading to issues downstream
+
+For internationalized domain names (IDNs), they should already be encoded in Punycode (ASCII-compatible) form when used in HTTP headers.
+
+<answer>
+No, ASCII should be used for decoding the Host header, not UTF-8. The HTTP specification requires the Host header to contain only ASCII characters (with internationalized domains using Punycode encoding). Using ASCII decoding ensures compliance with the HTTP standard and will properly raise an error if invalid non-ASCII bytes are encountered, rather than silently accepting malformed headers.
+</answer>

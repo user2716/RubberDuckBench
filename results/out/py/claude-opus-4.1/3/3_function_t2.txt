@@ -1,0 +1,18 @@
+Looking at this code, I need to consider the context of HTTP Host headers and their encoding requirements.
+
+The Host header in HTTP/1.1 is defined in RFC 7230, which specifies that the Host header should contain a host and optional port. According to the HTTP specifications:
+
+1. **Domain names in Host headers must be ASCII**: The Host header should contain either an IP address or a domain name. Domain names in HTTP headers must follow DNS naming conventions, which are restricted to ASCII characters (specifically, letters, digits, hyphens, and dots).
+
+2. **Internationalized Domain Names (IDNs)**: While internationalized domain names exist (like 例え.jp), they must be encoded using Punycode (ASCII-compatible encoding) when used in HTTP headers. For example, 例え.jp becomes xn--r8jz45g.jp in the Host header.
+
+3. **UTF-8 could hide errors**: Using UTF-8 decoding could potentially mask configuration errors or security issues. If someone accidentally sends non-ASCII bytes in a Host header, it's likely a bug that should be caught rather than silently handled.
+
+4. **Performance consideration**: ASCII decoding is slightly faster than UTF-8 decoding, though this is a minor point.
+
+However, there's one argument for UTF-8:
+- **Defensive programming**: UTF-8 is backward compatible with ASCII, so valid ASCII will decode correctly as UTF-8, providing more robustness against edge cases.
+
+<answer>
+No, ASCII should be used for decoding the Host header. The HTTP specification requires Host headers to contain only ASCII characters (domain names must be ASCII or Punycode-encoded), and using ASCII decoding will properly raise an exception if invalid non-ASCII bytes are present, helping catch configuration errors early. While UTF-8 would be more permissive, it could mask bugs and doesn't align with HTTP standards.
+</answer>

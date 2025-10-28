@@ -1,0 +1,11 @@
+Looking at the code segment, I need to analyze when `_compact_times()` should be called based on its purpose and the recalculate method's context.
+
+The method `recalculate()` starts by calling `self._compact_times()` and then proceeds to calculate various metrics like averages, percentiles, and standard deviations based on the data in the KPIset.
+
+Without seeing the implementation of `_compact_times()`, I can infer from its name and usage that it likely compacts or consolidates time-related data for efficiency before calculations are performed. This is important for accurate statistical calculations.
+
+Since `recalculate()` appears to be performing calculations on the KPIset's data, and `_compact_times()` is called at the beginning of this process, it's logical that this compaction step should be performed whenever you need accurate calculations.
+
+<answer>
+You should call `_compact_times()` on every KPIset that needs accurate statistical calculations, not just cumulative ones. The compaction appears to be a prerequisite for proper calculation of averages, percentiles, and standard deviations. Since `recalculate()` calls it before performing any calculations, it suggests this step is necessary for all KPIsets where you want to ensure data integrity and calculation accuracy.
+</answer>

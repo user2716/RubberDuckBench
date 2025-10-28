@@ -1,0 +1,17 @@
+Looking at this code, I need to understand what `_compact_times()` likely does and when it would be necessary.
+
+The `recalculate()` method appears to be computing statistical measures (averages, standard deviation, percentiles) from accumulated data. The method:
+1. Calls `_compact_times()` first
+2. Calculates averages using accumulated sums divided by sample count
+3. Calculates concurrency from `_concurrencies`
+4. Computes percentiles and standard deviation from `RESP_TIMES`
+
+The `_compact_times()` method (though not shown) likely consolidates or compresses time-series data to manage memory usage - probably removing individual data points once they've been aggregated or keeping only necessary granularity.
+
+For **cumulative KPIsets** that accumulate data over time, compacting makes sense to prevent unbounded memory growth while preserving the statistical information needed.
+
+For **non-cumulative/snapshot KPIsets** that represent a fixed time window or single measurement period, the data size is already bounded, and compacting might not be necessary or could even lose precision that you want to keep for that specific snapshot.
+
+<answer>
+You should call `_compact_times()` primarily on cumulative KPIsets to manage memory growth over long-running accumulation periods. For non-cumulative/snapshot KPIsets that represent fixed time windows, compacting is likely unnecessary since their data is already bounded, and you may want to preserve the full detail for that specific period. Consider making this conditional based on a KPIset type flag or the expected usage pattern.
+</answer>

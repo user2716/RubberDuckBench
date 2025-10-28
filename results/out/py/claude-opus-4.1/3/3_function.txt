@@ -1,0 +1,24 @@
+Looking at this code, I need to consider the context of HTTP Host headers and their encoding requirements.
+
+The Host header in HTTP/1.1 is defined in RFC 7230, which specifies that the Host header should contain either:
+1. A registered name (which must be ASCII per DNS specifications)
+2. An IP address (IPv4 or IPv6, also ASCII)
+3. Optionally followed by a port number
+
+According to RFC 3986 (URI specification) and RFC 1123 (Internet host requirements), hostnames in URLs must be ASCII. While Internationalized Domain Names (IDNs) exist, they are encoded using Punycode (an ASCII-compatible encoding) when used in HTTP headers and URLs.
+
+Let me analyze the implications:
+
+**Using ASCII (current approach):**
+- Pros: Strict compliance with HTTP specifications
+- Pros: Will fail fast if non-ASCII bytes are present (which would indicate a protocol violation)
+- Cons: Will raise an exception if non-ASCII bytes are encountered
+
+**Using UTF-8:**
+- Pros: More permissive, won't crash on non-ASCII bytes
+- Cons: Could mask protocol violations
+- Cons: Could lead to invalid URLs being constructed since URLs require ASCII hosts (or Punycode-encoded IDNs)
+
+<answer>
+No, we should keep ASCII as the encoding for the Host header. HTTP specifications require the Host header to contain only ASCII characters (with IDNs being Punycode-encoded). Using UTF-8 would be more permissive but could mask protocol violations and potentially create invalid URLs. If non-ASCII bytes are present in the Host header, it indicates a protocol error that should be caught rather than silently handled.
+</answer>

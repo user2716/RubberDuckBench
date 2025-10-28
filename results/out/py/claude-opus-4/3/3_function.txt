@@ -1,0 +1,20 @@
+Looking at this code, I need to consider the context of HTTP Host headers and their encoding requirements.
+
+The HTTP Host header is defined in RFC 7230 (HTTP/1.1) and must contain either:
+1. A registered name (hostname/domain name)
+2. An IP address
+
+According to RFC 3986 (URI specification) and RFC 7230, the Host header should only contain ASCII characters. Domain names in URLs must be ASCII-encoded, and if they contain non-ASCII characters (like internationalized domain names), they must be encoded using Punycode (RFC 3492) before being used in HTTP headers.
+
+For example:
+- `münchen.de` would be encoded as `xn--mnchen-3ya.de` in the Host header
+- The Host header would never contain raw UTF-8 encoded characters
+
+Using UTF-8 instead of ASCII could potentially:
+1. **Hide errors**: If someone incorrectly passes non-ASCII characters in the Host header, UTF-8 would silently accept them, whereas ASCII would raise a `UnicodeDecodeError`, alerting developers to the invalid input
+2. **Create security issues**: Accepting non-ASCII characters could lead to URL spoofing or other security vulnerabilities
+3. **Violate HTTP specifications**: The HTTP protocol explicitly requires ASCII for headers
+
+<answer>
+No, we should not use UTF-8 instead of ASCII. The HTTP Host header must contain only ASCII characters according to HTTP specifications (RFC 7230). Using ASCII encoding ensures that any non-ASCII characters will raise an error, which helps catch invalid Host headers early. If internationalized domain names are needed, they should be properly encoded using Punycode before being used in the Host header.
+</answer>

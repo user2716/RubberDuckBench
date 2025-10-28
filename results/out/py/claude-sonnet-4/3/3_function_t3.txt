@@ -1,0 +1,21 @@
+Looking at this code, I need to consider what the HTTP Host header should contain according to web standards and what encoding would be most appropriate.
+
+The HTTP Host header, according to RFC 7230, should contain a hostname and optional port number. Hostnames in HTTP are traditionally ASCII-only, following the original DNS specification (RFC 1035) which restricts hostnames to ASCII characters (letters, digits, and hyphens).
+
+While Internationalized Domain Names (IDN) exist and allow Unicode characters in domain names, they are encoded using Punycode (which results in ASCII-compatible encoding) when used in HTTP headers and DNS queries. This means that even international domain names should appear as ASCII in the Host header.
+
+Here are the key considerations:
+
+1. **HTTP Standard Compliance**: The Host header should contain ASCII-encoded hostnames
+2. **Backward Compatibility**: Existing code expects ASCII hostnames
+3. **Error Handling**: If non-ASCII bytes are present, using ASCII decoding will raise a clear `UnicodeDecodeError`, which is better than silently accepting potentially malformed data
+4. **Security**: Using ASCII prevents potential issues with domain name spoofing using Unicode lookalike characters
+
+The current code correctly uses ASCII decoding because:
+- It follows HTTP standards where hostnames should be ASCII
+- It will fail fast if invalid data is encountered
+- It maintains compatibility with existing systems
+
+<answer>
+No, we should keep ASCII as the encoding. The HTTP Host header should contain ASCII-encoded hostnames according to web standards, even for internationalized domain names (which use Punycode encoding). Using ASCII decoding ensures compliance with HTTP specifications and will properly raise an error if invalid non-ASCII data is encountered, which is preferable to silently accepting potentially malformed host data.
+</answer>

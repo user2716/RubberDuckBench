@@ -1,0 +1,19 @@
+Looking at the code, I can see that `F.cross_entropy` is being called from PyTorch's functional API (imported as `F` from `torch.nn.functional`), while `cross_entropy` appears to be called without any module prefix.
+
+The key differences are:
+
+1. **F.cross_entropy** - This is the functional version from `torch.nn.functional`. It computes the cross-entropy loss and returns a tensor containing the loss value. This is what's being used correctly in the training loop for computing the loss that gets backpropagated.
+
+2. **cross_entropy** - This appears to be an undefined function in the code. Looking at line 67, `cross_entropy(logits[val_idx], labels[val_idx])` is called but:
+   - It's not imported anywhere in the visible code
+   - Its return value isn't assigned to anything
+   - The next line tries to use `val_loss.item()` but `val_loss` is never defined
+
+This looks like a bug in the code. The author likely meant to write:
+```python
+val_loss = F.cross_entropy(logits[val_idx], labels[val_idx])
+```
+
+<answer>
+In this code, `F.cross_entropy` is the PyTorch functional API method that properly computes cross-entropy loss, while `cross_entropy` appears to be an undefined function that will cause a NameError when the code runs. This is likely a typo where the author forgot to prefix it with `F.` and assign its output to `val_loss`.
+</answer>

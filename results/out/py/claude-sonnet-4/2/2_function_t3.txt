@@ -1,0 +1,19 @@
+Looking at this code, I need to analyze what `_compact_times()` does and how it relates to the broader recalculation process.
+
+From the context, this appears to be a KPI (Key Performance Indicator) calculation method that:
+1. First calls `_compact_times()` 
+2. Then recalculates averages, percentiles, and standard deviations based on response times data
+
+The key insights are:
+
+1. **Data integrity**: `_compact_times()` is called at the very beginning of `recalculate()`, suggesting it's a data preparation/cleanup step that ensures the underlying time data is in the correct state before any calculations.
+
+2. **Calculation dependency**: The subsequent calculations (averages, percentiles, stdev) all depend on having clean, properly formatted time data. If `_compact_times()` handles data cleanup, deduplication, or formatting, this would be necessary regardless of whether the KPIset is cumulative or incremental.
+
+3. **Method positioning**: The fact that it's called unconditionally at the start of every `recalculate()` call suggests the developers intended it to run for all KPIsets, not just cumulative ones.
+
+4. **Performance vs correctness**: While there might be a performance consideration for calling it on every KPIset, the positioning suggests correctness takes precedence.
+
+<answer>
+You should call `_compact_times()` on every KPIset, not just cumulative ones. The method is positioned at the very beginning of `recalculate()` and called unconditionally, indicating it's a necessary data preparation step for all KPI calculations. Since the subsequent average, percentile, and standard deviation calculations depend on properly formatted time data, skipping `_compact_times()` on non-cumulative KPIsets could lead to incorrect results or calculation errors.
+</answer>

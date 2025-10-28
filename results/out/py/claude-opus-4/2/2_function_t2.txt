@@ -1,0 +1,19 @@
+Looking at this code, I need to understand what `_compact_times()` likely does and when it should be called.
+
+From the context, this appears to be a performance metrics calculation class (KPIset) that tracks response times, latencies, and other performance indicators. The `_compact_times()` method is called at the beginning of `recalculate()`.
+
+The method name `_compact_times()` suggests it's performing some kind of data structure optimization or compression on time-series data. This is typically done to:
+1. Reduce memory usage by consolidating duplicate entries or aggregating data points
+2. Improve calculation performance by working with a smaller dataset
+3. Remove outdated or unnecessary data points
+
+Given that `recalculate()` computes averages, standard deviations, and percentiles from the stored time data, it makes sense to compact the data before these calculations to ensure:
+- Accuracy (no duplicate counting)
+- Performance (smaller dataset for percentile calculations)
+- Memory efficiency
+
+The question about "cumulative KPIsets" suggests there might be different types of KPIsets - perhaps some that accumulate data over time (cumulative) and others that represent snapshots or intervals.
+
+<answer>
+You should call `_compact_times()` on every KPIset, not just cumulative ones. The compaction ensures accurate calculations of averages, percentiles, and standard deviations by eliminating duplicates or consolidating data points before statistical computations. This is especially important for percentile calculations which require sorted data and can be affected by duplicate entries. Whether the KPIset is cumulative or represents a time window, having clean, compacted data is essential for correct metrics.
+</answer>

@@ -1,0 +1,17 @@
+Looking at this code, I need to analyze what `_compact_times()` likely does and when it would be necessary.
+
+The `recalculate()` method appears to be computing statistical metrics (averages, standard deviation, percentiles) from collected performance data. The `_compact_times()` method (called at the beginning) is likely performing some kind of data structure optimization or cleanup on the response times data before these calculations.
+
+Key observations:
+1. The method calculates percentiles and standard deviation from `self[self.RESP_TIMES]`, suggesting this contains raw response time data
+2. The method uses accumulated sums (`sum_cn`, `sum_lt`, `sum_rt`) for average calculations
+3. The presence of `_concurrencies` suggests this tracks concurrent operations
+
+The decision of when to call `_compact_times()` depends on:
+- **Memory efficiency**: If KPIsets accumulate large amounts of raw data, compacting on every recalculation prevents memory bloat
+- **Calculation accuracy**: Percentile and stdev calculations need the raw data points, so compacting must preserve this information appropriately
+- **Performance trade-offs**: Frequent compacting has CPU cost but saves memory
+
+<answer>
+You should call `_compact_times()` on every KPIset recalculation, not just cumulative ones. This ensures consistent memory usage across all KPIsets and guarantees that percentile and standard deviation calculations are performed on properly prepared data structures. Without seeing the implementation of `_compact_times()`, it's safer to maintain consistency and call it for all KPIsets, as it likely optimizes the internal data structure (possibly removing duplicates, sorting, or aggregating response times) before the statistical calculations are performed.
+</answer>

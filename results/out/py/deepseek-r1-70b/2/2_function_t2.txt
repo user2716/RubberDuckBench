@@ -1,0 +1,21 @@
+<think>
+Okay, so I'm trying to figure out whether I should call compact_times() on every KPIset or just the cumulative ones. Let me start by understanding what's going on in the code provided.
+
+Looking at the recalculate method, it starts by calling self._compact_times(). Then it proceeds to calculate various metrics like average connection time, latency, response time, concurrency, percentiles, and standard deviation. These calculations seem to depend on data that might be processed or cleaned up by compact_times().
+
+I remember that in software engineering, methods like compact_times() are often used for housekeeping tasks, such as removing outdated data, consolidating measurements, or optimizing storage. So, if compact_times() is called only once at the beginning of recalculate(), it's likely preparing the necessary data structures for all subsequent calculations.
+
+Now, considering different KPIset instances: each KPIset probably maintains its own set of response times and other metrics. If I only call compact_times() on cumulative KPIsets, the individual ones might not have their data properly prepared before calculating averages or percentiles. This could lead to incorrect results because the calculations would be based on unprocessed or incomplete data.
+
+On the other hand, if every KPIset calls compact_times(), each one ensures its own data is up-to-date and ready for accurate computations. This consistency is crucial, especially in distributed systems where multiple KPIsets might be running independently. Each needs to handle its own data correctly without relying on others to do it.
+
+I should also think about the design implications. If compact_times() modifies internal state, then not calling it on every instance could leave some instances in an inconsistent state, leading to bugs that are hard to trace. By making sure each KPIset compacts its times before recalculating, we maintain encapsulation and ensure that each object is responsible for its own data integrity.
+
+So, putting it all together, it makes sense to call compact_times() on every KPIset to guarantee that each one's data is properly prepared before any calculations occur. This approach prevents potential errors from using unprocessed data and maintains a consistent state across all instances.
+</think>
+
+To ensure accurate recalculations of metrics like averages and percentiles, `compact_times()` should be called on **every** KPIset. It prepares the necessary data for each instance individually, ensuring consistency and correctness in calculations.
+
+<answer>
+You should call `compact_times()` on every KPIset to ensure that the data is properly prepared before recalculating metrics like averages and percentiles.
+</answer>

@@ -1,0 +1,16 @@
+Looking at this code, I need to analyze what `_compact_times()` does and when it should be called.
+
+From the context, this appears to be a method that recalculates various performance metrics (averages, standard deviation, percentiles) for a KPI (Key Performance Indicator) set. The method is called `recalculate()` and performs comprehensive statistics calculations.
+
+The `_compact_times()` method is called at the very beginning of the recalculation process, before any statistical calculations are performed. Given that:
+
+1. The method recalculates percentiles and standard deviation using `self[self.RESP_TIMES]`
+2. These calculations depend on the response times data being in a proper state
+3. The compact operation appears to be a preprocessing step before statistical analysis
+4. All the subsequent calculations (averages, percentiles, standard deviation) would benefit from having clean, compacted data
+
+The positioning of `_compact_times()` at the start of `recalculate()` suggests it's preparing the underlying time series data for accurate statistical computation, regardless of whether this is a cumulative or non-cumulative KPI set.
+
+<answer>
+You should call `_compact_times()` on every KPIset, not just cumulative ones. The method is positioned at the beginning of the recalculation process and appears to be a data preprocessing step that ensures the response times data is in the proper state for accurate statistical calculations (averages, percentiles, standard deviation). Since all KPIsets need accurate statistics regardless of whether they're cumulative, the compacting operation should be applied universally.
+</answer>
