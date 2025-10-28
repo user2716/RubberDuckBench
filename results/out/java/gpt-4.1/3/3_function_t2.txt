@@ -1,0 +1,9 @@
+<answer>
+Yes, you should add a null check for `mPrefix`. In the current code, if `mPrefix` is null, calling `mPrefix.length()` will throw a `NullPointerException`. To make your code robust, check that `mPrefix` is not null before checking its length:
+
+```java
+if (mPrefix != null && mPrefix.length() > 0) {
+    elements.add(mPrefix);
+}
+```
+</answer>

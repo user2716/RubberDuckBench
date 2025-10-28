@@ -1,0 +1,8 @@
+<answer>
+The main difference between using `new HashMap<>(Collections.singletonMap(...))` and directly using `Collections.singletonMap(...)` as a parameter to `messageParams` is mutability. 
+
+- `Collections.singletonMap(key, value)` returns an immutable map containing only the mapping you provide. You cannot add, remove, or modify entries in this map.
+- `new HashMap<>(Collections.singletonMap(...))` creates a new mutable `HashMap` that is initially populated with the single entry from the immutable singleton map. You can add, remove, or modify entries in this new map.
+
+If you pass the singleton map directly, `messageParams` will receive an immutable map, and any attempt to modify it will throw an `UnsupportedOperationException`. If you wrap it with a `HashMap`, `messageParams` receives a mutable map and can safely add or remove entries. The correct usage depends on whether `messageParams` or subsequent code needs to modify the map.
+</answer>

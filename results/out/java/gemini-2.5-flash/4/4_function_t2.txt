@@ -1,0 +1,13 @@
+Yes, the `roleInfoList == null` check is necessary.
+
+Here's why:
+
+1.  **Cache Miss Handling:** The line `List<RoleInfo> roleInfoList = roleInfoMap.get(username);` can return `null` if the `username` is not present in the `roleInfoMap` (i.e., a cache miss).
+2.  **Conditional Database Fetch:** The `if` condition `!authConfigs.isCachingEnabled() || roleInfoList == null` dictates when to fetch from the database.
+    *   If caching is **disabled** (`!authConfigs.isCachingEnabled()` is `true`), the condition is met, and the database is always queried.
+    *   If caching is **enabled** (`!authConfigs.isCachingEnabled()` is `false`), then the condition depends entirely on `roleInfoList == null`. This means if caching is enabled, we only go to the database if the user's roles were *not* found in the cache (`roleInfoList` is `null`).
+3.  **Consequence of Removal:** If you remove `|| roleInfoList == null`, the condition would become `if (!authConfigs.isCachingEnabled())`. In this scenario, if caching *is* enabled (`authConfigs.isCachingEnabled()` is `true`), then `!authConfigs.isCachingEnabled()` would be `false`, and the `if` block (which fetches from the database) would *never* execute. This would lead to the method returning `null` directly on a cache miss, instead of falling back to the database.
+
+<answer>
+Yes, the `roleInfoList == null` check is necessary. It ensures that when caching is enabled (`authConfigs.isCachingEnabled()` is `true`), the system correctly handles a cache miss by falling back to fetch the roles from the database. Without this check, if caching is enabled and a user's roles are not found in the cache, the method would incorrectly return `null` without attempting to load them from the database.
+</answer>

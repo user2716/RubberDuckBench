@@ -1,0 +1,11 @@
+The primary difference lies in the **mutability** of the map being created.
+
+1.  **`Collections.singletonMap(...)`**: This method creates an **immutable** `Map` containing exactly one key-value pair. Any attempt to add, remove, or modify entries in this map will result in an `UnsupportedOperationException` at runtime. It's memory-efficient for a single entry and clearly communicates that the map's contents are fixed.
+
+2.  **`new HashMap<>(Collections.singletonMap(...))`**: This pattern first creates the immutable `singletonMap` and then uses it to initialize a **new, mutable `HashMap`**. The resulting `HashMap` contains the initial single key-value pair but can be subsequently modified. New entries can be added, existing ones removed, or values updated without any runtime errors.
+
+In this code segment, `new HashMap<>(...)` is used, indicating that the `UidFetchCommand.Builder` (or the `UidFetchCommand` it builds) expects or might need to operate on a **mutable** map. If the `Builder`'s internal logic were to, for example, add more message parameters for other UIDs or modify the existing one at a later stage, it would require a mutable `HashMap` to do so without crashing. Using `Collections.singletonMap` directly would prevent such modifications.
+
+<answer>
+The difference is that `Collections.singletonMap()` creates an **immutable** map with a single entry, meaning its contents cannot be changed after creation. In contrast, `new HashMap<>(Collections.singletonMap(...))` creates a **mutable** `HashMap` initialized with that single entry, allowing it to be modified (e.g., adding more key-value pairs or removing entries) later without throwing an `UnsupportedOperationException`. The use of `new HashMap` here implies that the `UidFetchCommand.Builder` or the resulting `UidFetchCommand` needs a modifiable map instance.
+</answer>

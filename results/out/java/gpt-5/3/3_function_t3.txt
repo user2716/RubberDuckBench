@@ -1,0 +1,3 @@
+<answer>
+Yes, if there’s any chance mPrefix can be null, you should add a null check; calling length() on a null String will throw a NullPointerException. Either enforce a class invariant that mPrefix (and mTopic) are never null (e.g., initialize to ""), or guard the checks: if (mPrefix != null && !mPrefix.isEmpty()) { elements.add(mPrefix); }. The same applies to mTopic.
+</answer>

@@ -1,0 +1,3 @@
+<answer>
+Yes, you do need the null check for `roleInfoList`. The reason is that `roleInfoMap.get(username)` may return `null` if the map does not contain a value for the given username. In such a case, you want to fetch the roles from the database. If caching is enabled and the map does contain an entry, you want to use the cached value. If you remove the null check, users who don't yet have cached data would never trigger a database fetch, which would result in incorrect or missing role information.
+</answer>

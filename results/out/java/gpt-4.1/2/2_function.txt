@@ -1,0 +1,3 @@
+<answer>
+The key difference is that `Collections.singletonMap(String.valueOf(uid), (Message) createImapMessage(String.valueOf(uid)))` creates an immutable map with a single entry, while `new HashMap<>(...)` wraps that immutable map in a new mutable `HashMap`. If you pass the `singletonMap` directly to `messageParams`, any attempt to modify the map (add, remove, or update entries) will throw an `UnsupportedOperationException`. If you wrap it into a `HashMap`, you get a mutable map that can be altered after construction. Using a `HashMap` is safer if `messageParams` or later code needs to modify the map; otherwise, `singletonMap` is lighter and enforces immutability.
+</answer>

@@ -1,0 +1,3 @@
+<answer>
+Yes. There’s an early return when drawer == null, so all subsequent code is skipped. The drawer selection calls obviously require a non-null drawer. Even the final actionBarSubTitle.setVisibility() line doesn’t reference drawer directly, but it’s still gated by the early return and only runs when drawer is non-null.
+</answer>

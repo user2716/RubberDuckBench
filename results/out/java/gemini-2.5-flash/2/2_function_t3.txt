@@ -1,0 +1,11 @@
+The difference lies in **mutability** and **type**.
+
+1.  **`Collections.singletonMap(String.valueOf(uid), (Message) createImapMessage(String.valueOf(uid)))`**: This creates an **immutable** `Map` containing exactly one entry. Any attempt to add, remove, or modify entries on this map will result in an `UnsupportedOperationException`. It's lightweight and guarantees that its contents will not change.
+
+2.  **`new HashMap<>(Collections.singletonMap(String.valueOf(uid), (Message) createImapMessage(String.valueOf(uid))))`**: This first creates the immutable singleton map, and then uses it to initialize a **new, mutable `HashMap` instance**. This means the resulting `HashMap` initially contains the single entry, but you can later add, remove, or modify its entries without error.
+
+The choice to wrap the `singletonMap` in a `new HashMap()` indicates that the map passed to `messageParams` is expected to be mutable, or there's a potential for it to be modified later on. If a `Collections.singletonMap` were used directly and the `messageParams` method (or subsequent code) attempted to modify it, an `UnsupportedOperationException` would be thrown.
+
+<answer>
+The primary difference is **mutability**. `Collections.singletonMap()` returns an immutable map, meaning its contents cannot be changed after creation. In contrast, `new HashMap<>(Collections.singletonMap(...))` creates a new, mutable `HashMap` instance initialized with the single entry from the singleton map. This allows for subsequent additions, removals, or modifications to the map's contents without throwing an `UnsupportedOperationException`, which would occur if the immutable `singletonMap` were passed directly and then modified.
+</answer>

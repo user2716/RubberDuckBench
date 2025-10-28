@@ -1,0 +1,3 @@
+<answer>
+Collections.singletonMap(...) returns an immutable, single-entry Map; any attempt to put/remove/clear will throw UnsupportedOperationException. new HashMap<>(Collections.singletonMap(...)) creates a mutable copy containing that one entry. If messageParams only reads the map, either works (singletonMap is lighter and effectively thread-safe). If messageParams (or later code) mutates the map, you must pass a mutable Map (e.g., new HashMap<>(...)) to avoid runtime exceptions.
+</answer>
