@@ -1,0 +1,16 @@
+To determine if the destructor `SQWLoadingPresenter::~SQWLoadingPresenter() {}` can be removed, we need to consider a few factors. 
+
+In C++, when you define a class with no user-declared constructors or destructors, the compiler will automatically generate these for you (known as implicitly declared or defined special member functions). This includes a default constructor and a default destructor.
+
+However, in this case, since `SQWLoadingPresenter` has a user-declared constructor (`SQWLoadingPresenter::SQWLoadingPresenter(std::unique_ptr<MDLoadingView> view, const std::string filename)`), the compiler will not generate a default constructor for us. But it will still automatically generate a destructor if we don't declare one.
+
+The explicitly declared destructor `SQWLoadingPresenter::~SQWLoadingPresenter() {}` is empty, which means it does nothing when an object of this class is destroyed. 
+
+Given these facts:
+
+- The destructor is empty and doesn't manage any resources.
+- There are no dynamic memory allocations or other resources in the class that need to be manually cleaned up.
+
+Therefore, the explicitly declared empty destructor can indeed be removed because the compiler will generate a default destructor that does essentially the same thing (nothing) when an object of this class is destroyed.
+
+<answer> The SQWLoadingPresenter::~SQWLoadingPresenter() {} can be safely removed as it is not performing any necessary cleanup or resource management, and the compiler will automatically generate a similar destructor. Removing it follows best practices by avoiding unnecessary code. </answer>

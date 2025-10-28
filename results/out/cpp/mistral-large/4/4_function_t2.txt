@@ -1,0 +1,13 @@
+In the context of C++, both `return L"";` and `return {};` will effectively result in returning an empty `std::wstring`. However, there are subtle differences in how they achieve this.
+
+1. **`return L"";`**:
+   - This returns a wide string literal (`L""`) which is then used to initialize the returned `std::wstring`. The constructor of `std::wstring` that takes a `const wchar_t*` will be called, and it will construct an empty `std::wstring`.
+
+2. **`return {};`**:
+   - This uses list initialization (also known as uniform initialization) to return an empty `std::wstring`. The default constructor of `std::wstring` will be invoked, which initializes the string to be empty.
+
+Both approaches result in returning an empty `std::wstring`, but `return {};` is generally preferred for its clarity and simplicity. It directly indicates that you are returning a default-initialized object, making it clearer to anyone reading the code. Additionally, uniform initialization avoids some potential pitfalls of other forms of initialization.
+
+<answer>
+Both `return L"";` and `return {};` return an empty `std::wstring`, but `return {};` is preferred for its clarity and simplicity in indicating a default-initialized object. It also leverages uniform initialization, which can be safer in some contexts.
+</answer>

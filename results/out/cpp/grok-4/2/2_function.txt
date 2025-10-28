@@ -1,0 +1,3 @@
+<answer>
+Yes, error_code can be something other than ECONNREFUSED or ECONNRESET, as the function handles any error by advancing to the next address. For other error codes, it does not set the anyRefused or anyReset flags, which affects retry logic: if all addresses fail without triggering those flags and wait is true, the function will throw an exception without retrying.
+</answer>

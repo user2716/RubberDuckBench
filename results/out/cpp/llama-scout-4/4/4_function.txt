@@ -1,0 +1,18 @@
+In C++, when it comes to returning an empty string, there are a few ways to do it, but the two methods you're referring to are using a string literal (`L""`) and using an initializer list (`{}`). 
+
+The difference lies in how the string is constructed and what is actually being returned.
+
+Returning `L""` directly returns a `wstring` object that represents an empty string. The `L` prefix denotes a wide character string literal, which is what `wstring` expects.
+
+On the other hand, `return {};` utilizes the `wstring` class's implicit constructor that takes no arguments, effectively creating an empty string object.
+
+Both methods achieve the same result of returning an empty string, but there's a subtle difference:
+
+- `return L"";` creates a temporary `wstring` object from the string literal and then moves or copies it (depending on the C++ version and `wstring` implementation) into the return value, which could be more expensive.
+- `return {};` directly constructs an empty `wstring` object, which is more straightforward.
+
+However, in modern C++ (C++11 and later), both methods are acceptable, and the difference in performance is usually negligible. The preference often comes down to personal style and consistency.
+
+<answer>
+There is no practical difference in terms of functionality between returning an empty `wstring` using `return L"";` versus `return {};`. Both achieve the same result, but `return {};` might be slightly more efficient and is often preferred for its simplicity.
+</answer>

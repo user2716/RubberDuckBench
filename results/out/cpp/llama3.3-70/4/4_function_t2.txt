@@ -1,0 +1,9 @@
+In C++, when returning an object, the syntax `return {}` is called "direct initialization" or "value initialization", while `return L""` is called "copy initialization". 
+
+The difference between these two lies in how the object is created and initialized. When using `return L""`, a temporary `std::wstring` object is created from the string literal, and then this temporary object is used to initialize the return value through copy initialization.
+
+On the other hand, when using `return {}`, an empty `std::wstring` object is directly constructed as the return value. This avoids the creation of any temporary objects, making it more efficient in terms of performance.
+
+However, with modern C++ compilers and their optimizations (such as copy elision), both methods are likely to result in similar generated code and performance characteristics.
+
+<answer> The difference between returning an empty wstring using return L""; versus using return {}; is mainly a matter of style and potential minor performance implications due to temporary object creation, but with modern C++ compilers, the impact of this difference is usually negligible. Returning {} can be slightly more efficient by avoiding the creation of a temporary string object. However, the choice between these two methods should primarily depend on personal preference or coding standards rather than performance considerations. </answer>

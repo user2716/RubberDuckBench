@@ -1,0 +1,3 @@
+<answer>
+Yes, the error_code parameter can be a value other than ECONNREFUSED or ECONNRESET, as the function accepts it as an input without any restrictions or validations limiting it to only those two values. The code handles other potential error codes by proceeding to try the next address regardless, and in cases where all addresses are exhausted, it may throw an exception if wait is true but neither anyRefused nor anyReset was set (which would occur for non-REFUSED/RESET errors). This is consistent with socket connect() failures, which can produce various error codes beyond just ECONNREFUSED and ECONNRESET, such as ETIMEDOUT or EHOSTUNREACH.
+</answer>

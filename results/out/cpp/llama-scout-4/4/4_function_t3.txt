@@ -1,0 +1,18 @@
+In C++, when it comes to returning an empty string, both methods seem viable but have slightly different implications.
+
+Returning `L""` explicitly returns an empty wide string literal. This is a clear and direct way to indicate that the function is returning an empty string.
+
+On the other hand, `return {};` utilizes the `std::wstring` constructor that takes no arguments, which effectively constructs an empty string. This method is more idiomatic C++ and expresses the intent of returning an empty object.
+
+In terms of functionality, both approaches achieve the same result: an empty string is returned. However, there's a subtle difference:
+
+- `return L"";` constructs a `wstring` from a string literal, which can be less efficient because it involves constructing a temporary object.
+- `return {};` directly constructs an empty `wstring`, which can be more efficient because it avoids the temporary object.
+
+However, in modern C++, the difference in efficiency is usually negligible due to the move constructor and RVO (Return Value Optimization).
+
+The primary consideration is readability and consistency with the rest of the codebase. 
+
+<answer>
+There is no practical difference in terms of functionality between returning an empty wstring using `return L"";` versus `return {};`. The latter is more idiomatic and potentially more efficient. 
+</answer>
