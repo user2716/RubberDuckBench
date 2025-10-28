@@ -1,0 +1,3 @@
+<answer>
+Yes, you need to call deepcopy(result) before modifying result[DATA] to avoid altering the original reply.result dictionary. Without the deepcopy, the modification to result[DATA] (serialization) would affect reply.result, which is later updated with seqNo and stored in the graph, potentially storing an unintended serialized version of DATA in the graph. The deepcopy ensures that the ledger and client receive the serialized DATA, while the graph receives the original DATA (with seqNo added).
+</answer>

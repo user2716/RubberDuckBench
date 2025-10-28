@@ -1,0 +1,10 @@
+**Answer**  
+Yes – you should create a copy of `reply.result` before you mutate `result[DATA]` if you want to keep the original `reply.result` unchanged until the very end.  
+
+**Why**  
+- `result = reply.result` makes `result` just another reference to the same dictionary.  
+- Replacing `result[DATA]` with a serialized string mutates that dictionary in place.  
+- Later in the method you still need the original `reply.result` (e.g., to add the sequence number after the reply is sent).  
+- `deepcopy` creates a distinct object, so the mutation of `result[DATA]` won’t affect `reply.result` until you explicitly copy it back.  
+
+If you’re sure the original `reply.result` can be altered (i.e., no other code depends on its original content), you can skip the `deepcopy`. In the current pattern—where you update `reply.result` only after the transaction is stored and sent—you should keep the `deepcopy`.

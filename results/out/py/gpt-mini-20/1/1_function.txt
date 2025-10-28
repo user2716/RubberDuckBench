@@ -1,0 +1,7 @@
+**Answer**
+
+`F.cross_entropy` is the built‑in PyTorch function (from `torch.nn.functional`) that takes logits and target class indices and returns the scalar cross‑entropy loss tensor.  
+
+`cross_entropy`, on the other hand, is a user‑defined helper that is imported from elsewhere in the project.  It usually wraps `F.cross_entropy` (or a similar routine) to add extra behaviour—such as printing the loss, returning both loss and accuracy, or handling device placement.  In the snippet it is called only for its side‑effects (e.g., logging), and its return value is ignored.  
+
+So the difference is that `F.cross_entropy` is the standard library implementation, whereas `cross_entropy` is a custom wrapper that may perform additional work beyond computing the loss.

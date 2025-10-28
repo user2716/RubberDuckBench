@@ -1,0 +1,11 @@
+<answer>
+Yes – at that point result is only a second reference to reply.result.  
+If you change result[DATA] you are really changing reply.result[DATA] as
+well, because both names point to the very same dict object.  
+Later in the method reply.result is reused (its seqNo is added and it is
+passed to storeTxnInGraph).  For SCHEMA / ISSUER_KEY transactions we want
+to give the ledger a version whose DATA field has been run through
+jsonSerz.serialize(), but we do not want the copy that is sent to the
+graph (and potentially back to the client) to be altered.  Making a
+deepcopy before the modification breaks the aliasing and keeps the
+original reply.result intact, so the deepcopy is required here. </answer>

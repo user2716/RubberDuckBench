@@ -1,0 +1,8 @@
+<answer>
+Call `compact_times()` only for the cumulative KPIsets.  
+The method reduces the number of raw timestamp entries, trading off fine‑grained
+resolution for memory and performance. For a per‑period or individual KPIset
+you typically want to keep the full list of timestamps to compute accurate
+percentiles and statistics; compacting would distort those results.  
+Thus, compact only the KPIsets that aggregate many samples (cumulative sets),
+and leave the others untouched.

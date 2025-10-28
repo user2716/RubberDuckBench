@@ -1,0 +1,9 @@
+<answer>
+You only need to protect the original reply.result from being changed.  
+The only modification you make is
+
+    result[DATA] = jsonSerz.serialize(...)
+
+i.e. you replace the value that is stored under the DATA key; you do not mutate the object that the old value refers to nor touch any nested structures.  
+Because of that, a deep copy is unnecessary – a shallow copy (dict(result) or result.copy()) is sufficient. Use deepcopy only when you intend to modify objects nested inside the DATA structure itself.
+</answer>

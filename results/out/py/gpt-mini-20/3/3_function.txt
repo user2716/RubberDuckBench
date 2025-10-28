@@ -1,0 +1,2 @@
+**Answer:**  
+No – keep using ASCII. The `Host` header is defined by RFC 7230 to contain only ASCII characters (a registered name or an IP literal). Internationalized domain names are transmitted in Punycode, which is also ASCII. Decoding with ASCII correctly enforces the protocol; using UTF‑8 would silently accept or misinterpret non‑ASCII byte sequences that are not valid host names, potentially hiding protocol violations.

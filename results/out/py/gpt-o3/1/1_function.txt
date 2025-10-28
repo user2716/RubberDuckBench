@@ -1,0 +1,22 @@
+<answer>
+In PyTorch two different things can be called “cross _entropy”.
+
+1. F.cross_entropy  
+   – This is torch.nn.functional.cross_entropy, a *stateless* function.  
+   – You pass the network output and the target each time and it immediately returns the loss.  
+   – It does not keep any parameters or buffers; every call is independent.
+
+2. cross_entropy (without the F)  
+   – In most training scripts this variable is created earlier with  
+     `cross_entropy = torch.nn.CrossEntropyLoss(...)`.  
+     That makes it an *instance of the nn.Module* CrossEntropyLoss.  
+   – Calling the instance (i.e. `cross_entropy(out, target)`) runs the module’s forward method and
+     produces the same numerical result as F.cross_entropy, but the object can keep internal
+     state such as class weights, a chosen reduction, can be moved to CUDA once, put in a
+     nn.Sequential, saved/loaded with the model, etc.
+
+If, instead, the author had written `from torch.nn.functional import cross_entropy`, then
+cross_entropy would just be another name for the same functional call and there would be no
+difference. So the only real distinction is whether the name refers to the functional
+implementation (F.cross_entropy) or to an instantiated nn.CrossEntropyLoss module.
+</answer>

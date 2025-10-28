@@ -1,0 +1,10 @@
+**Short answer:**  
+Call `compact_times()` only for cumulative KPIsets (those that aggregate data across many samples).  
+
+**Why?**  
+
+* `compact_times()` is meant to merge or prune redundant time entries to keep the internal list small and efficient.  
+* A cumulative KPIset grows over time, so its list of times can become large and need compression.  
+* A non‑cumulative KPIset usually contains only the times for a single measurement or a short window; it is already minimal, and compressing it would add unnecessary overhead and could even discard useful precision.  
+
+So, invoke `compact_times()` when you are aggregating over many samples (cumulative sets), and skip it for transient or single‑sample KPIsets.

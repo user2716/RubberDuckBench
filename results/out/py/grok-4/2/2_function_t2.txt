@@ -1,0 +1,3 @@
+<answer>
+You should call compact_times() only on cumulative KPIsets, as they accumulate large amounts of data over the entire test duration, necessitating compaction to manage memory and maintain performance during calculations like percentiles and standard deviation. Individual KPIsets, such as those for specific intervals or labels, typically handle limited data and do not require compaction, avoiding unnecessary overhead and potential loss of precision.
+</answer>

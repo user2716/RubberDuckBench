@@ -1,0 +1,4 @@
+<answer>
+You should call `_compact_times()` only on KPIsets that are **cumulative** (i.e., those that keep aggregating data over many runs).  
+A cumulative KPIset can accumulate a very large list of raw response times; compacting them reduces memory usage and speeds up the later percentile/stdev calculations that `recalculate()` performs. For a single‑run (non‑cumulative) KPIset you usually keep the original raw data for the whole run, and compacting it would discard detail that might be needed later. Therefore, invoke `compact_times()` on cumulative KPIsets only.
+</answer>

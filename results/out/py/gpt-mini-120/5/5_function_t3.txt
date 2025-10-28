@@ -1,0 +1,3 @@
+<answer>
+Yes, the check is needed (or at least advisable). `build_manager.setup_build()` only tells you whether the build step succeeded; it does not guarantee that the environment variable `BUILD_DIR` was actually set to a usable path. If `BUILD_DIR` is missing or empty, the later call `Runner(build_directory, context)` would receive an invalid directory and fail with obscure errors. By checking `if not build_directory` we fail fast with a clear `CorpusPruningException`, making the failure easier to diagnose. Only if you can prove that `setup_build` always populates `BUILD_DIR` on success could you safely remove the check, but keeping it is a good defensive measure. 
+</answer>

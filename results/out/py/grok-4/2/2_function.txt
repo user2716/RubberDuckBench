@@ -1,0 +1,3 @@
+<answer>
+You should call compact_times() only on cumulative KPIsets, as they aggregate all samples over time and can grow very large, requiring compaction for memory efficiency and efficient percentile calculations. Regular (non-cumulative) KPIsets typically handle smaller, interval-based data sets where full lists are manageable without compaction, making the call unnecessary overhead for them.
+</answer>

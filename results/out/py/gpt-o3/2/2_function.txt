@@ -1,0 +1,7 @@
+<answer>
+The purpose of _compact_times() is to keep the list of stored response-times from growing without bound.  
+For per-interval KPIsets that are recreated every second (or similar) the list never becomes large, so there is nothing to compact; the call is therefore unnecessary.  
+For the cumulative KPIset, however, the same list is appended to during the whole test run and can become very large, so compaction is needed to avoid excessive memory usage.
+
+Because the method is inexpensive and returns immediately when the list is already small, you can safely call it on every KPIset, but it is strictly required only for the cumulative KPIset.
+</answer>

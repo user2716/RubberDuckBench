@@ -1,0 +1,5 @@
+**Answer:**  
+Call `compact_times()` only on cumulative KPIsets.
+
+**Why:**  
+`compact_times()` merges and consolidates time‑bucket data that grows over many samples. In a cumulative KPIset this list can become large, so compaction keeps memory usage reasonable and improves lookup speed. A non‑cumulative KPIset represents a single test run; its time data is already compact and calling `compact_times()` would be unnecessary overhead and could even lose the original granularity needed for accurate statistics. Thus the method should be invoked only for KPIsets that aggregate over multiple intervals.

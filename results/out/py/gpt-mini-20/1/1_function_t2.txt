@@ -1,0 +1,11 @@
+**Short answer**
+
+`F.cross_entropy` is the built‑in PyTorch function (in `torch.nn.functional`) that takes raw logits and target class indices and returns the mean cross‑entropy loss.  
+`cross_entropy` in this script is a *user‑defined wrapper* (defined elsewhere in the codebase) that probably calls `F.cross_entropy` internally but adds extra behaviour – e.g., returning both loss and accuracy, logging, or applying a different reduction or weighting.  
+
+**Why the difference matters**
+
+* **API** – `F.cross_entropy(logits, targets)` → one‑line loss value.  
+* **Custom helper** – `cross_entropy(logits, targets)` → may return `(loss, acc)` or perform side‑effects (printing, storing metrics), or wrap the loss with additional processing (masking, weighting, etc.).
+
+So, calling `F.cross_entropy` gives you the raw loss, while calling `cross_entropy` invokes whatever logic the author wrote in that helper – typically a convenience that extends or logs the basic loss.

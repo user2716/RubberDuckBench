@@ -1,0 +1,3 @@
+<answer>
+You should call compact_times() only on cumulative KPIsets. Cumulative KPIsets aggregate data over the entire duration, resulting in a large volume of response times that can consume significant memory, so compacting is necessary for efficiency. Non-cumulative KPIsets, such as those for specific intervals or labels, typically handle smaller, bounded datasets and do not require compacting to the same extent.
+</answer>

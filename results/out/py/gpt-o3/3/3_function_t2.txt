@@ -1,0 +1,3 @@
+<answer>
+No.  
+According to RFC-3986 / RFC-7230 the value that appears in the HTTP “Host” header is a URI-host, which is limited to ASCII code-points; internationalised domain names are first converted to their punycode representation (xn--...). Therefore any byte sequence that legitimately reaches this point must already be pure ASCII. Decoding with 'ascii' guarantees that if non-ASCII bytes slip in we fail fast with a UnicodeDecodeError instead of silently producing an invalid URL. Using UTF-8 would merely mask such errors and would not be standards-compliant. Hence the current ascii decode is correct and should be kept. </answer>

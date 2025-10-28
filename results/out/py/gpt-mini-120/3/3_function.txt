@@ -1,0 +1,3 @@
+<answer>
+No. The `Host` header must be ASCII‑only according to the HTTP specifications (RFC 7230) and the DNS protocol. Internationalised domain names are transmitted in puny‑code (also ASCII), so any non‑ASCII bytes in the header indicate a malformed request. Decoding with UTF‑8 could silently accept invalid data, produce an incorrect URL, and hide protocol violations. Therefore the code should continue to decode the header with ASCII (or raise an error if the bytes are not valid ASCII) rather than defaulting to UTF‑8.
+</answer>

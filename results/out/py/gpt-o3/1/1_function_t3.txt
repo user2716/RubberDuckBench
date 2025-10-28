@@ -1,0 +1,13 @@
+<answer>
+None, in this script they are the same routine.  
+`F.cross_entropy` is the functional loss that lives in `torch.nn.functional`.  
+Somewhere before this code the author will have done  
+`from torch.nn.functional import cross_entropy`, so the bare name
+`cross_entropy` is just another reference to that exact same function.
+Therefore calling `F.cross_entropy(x, y)` or `cross_entropy(x, y)` executes the
+identical implementation; the only difference is whether you access it through
+the module namespace (`F.`) or through a symbol that was imported into the
+current namespace. (If instead the code had created an **instance** of
+`torch.nn.CrossEntropyLoss`, then there would be a difference, but that is not
+what is happening here.)
+</answer>

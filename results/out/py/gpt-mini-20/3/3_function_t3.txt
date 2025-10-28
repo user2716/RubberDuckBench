@@ -1,0 +1,8 @@
+**Short answer:** No – the Host header must be ASCII according to the HTTP/1.1 specification, so decoding with ASCII is correct and using UTF‑8 would only introduce the risk of mis‑interpreting (or silently accepting) non‑ASCII input that is actually invalid.
+
+**Why?**  
+* RFC 7230 defines the `Host` field value as a registered name (a domain) or an IP address, both of which are strictly ASCII characters.  
+* Internationalized domain names are represented in *punycode* (e.g., `xn--...`), which is also ASCII.  
+* Decoding with ASCII guarantees that any non‑ASCII byte sequence (which would be illegal in a Host header) raises a `UnicodeDecodeError`, allowing the caller to detect malformed input.  
+
+Using UTF‑8 would happily decode any byte sequence as a string, potentially swallowing errors or producing incorrect host names that would never be valid per the spec. Therefore, keep the ASCII decoding or, if you need a more permissive behaviour, add an explicit error handler (e.g., `errors='replace'`) but still decode as ASCII.

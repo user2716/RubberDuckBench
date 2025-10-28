@@ -1,0 +1,3 @@
+<answer>
+Yes – you should deepcopy `result` before changing `result[DATA]` (as the code already does for `SCHEMA` and `ISSUER_KEY` transactions). `reply.result` is later passed to `storeTxnInGraph` and may also be used elsewhere in the system. Without the deepcopy you would replace the original mutable `DATA` structure with a serialized string in‑place, causing side‑effects for any other references to the same dictionary. By deep‑copying you isolate the mutation to a separate object, preserving the original data for the rest of the workflow.
+</answer>

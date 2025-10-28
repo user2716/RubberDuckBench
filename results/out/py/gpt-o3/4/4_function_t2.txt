@@ -1,0 +1,11 @@
+<answer>
+Yes.  `result` is just another reference to the same dict that lives inside `reply.result`.  
+When we serialize `result[DATA]` we are changing the object in-place; without a copy that
+change would also be visible in `reply.result`.  
+Later in the method we still use `reply.result` (we add `seqNo` to it and pass it to
+`storeTxnInGraph`).  Those later steps expect the original, structured `DATA` value, not
+the JSON-serialised string we put in the ledger.  Creating a `deepcopy` lets us modify the
+copy for the ledger while leaving the original reply intact for the rest of the
+processing.  For transaction types where we do not touch `DATA` the copy is unnecessary,
+hence the conditional around the `deepcopy` call.
+</answer>

@@ -1,0 +1,3 @@
+<answer>
+Yes, you need to call deepcopy(result) before modifying result[DATA] for the specific transaction types (SCHEMA or ISSUER_KEY). This creates a copy for modification and storage in the ledger with serialized DATA, while preserving the original reply.result (with unmodified DATA) for later storage in the identity graph. Without deepcopy, the modification would alter the original, leading to incorrect data in the graph.
+</answer>

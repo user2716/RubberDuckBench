@@ -1,0 +1,3 @@
+<answer>
+You only need to deepcopy the `result` if the original `reply.result` must stay unchanged for later processing (e.g., when you later store the un‑modified reply in the identity graph). In the shown code the `DATA` field is serialized **only** for `SCHEMA` and `ISSUER_KEY` transactions, and the original `reply.result` is still used later (`self.storeTxnInGraph(reply.result)`). By deep‑copying first you avoid mutating the original dictionary, so the graph receives the raw data instead of the serialized string. If you don’t need the original value any more, you could modify `result` in place (a shallow copy would even be sufficient because you replace the whole `DATA` entry), but as written the deepcopy is required to preserve the original reply.
+</answer>

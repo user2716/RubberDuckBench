@@ -1,0 +1,6 @@
+<answer>
+Call it for every KPIset.  
+_compact_times() is very cheap when the response-time list is small, so interval KPIsets normally pass through it unchanged.  
+The only time the method does real work is when the list has grown past the configured limit, which in practice happens only on the cumulative KPIset that keeps all samples.  
+Invoking it unconditionally therefore costs almost nothing for ordinary sets and automatically keeps the cumulative set’s memory footprint under control, while sparing the caller from having to remember which kind of KPIset it is dealing with.
+</answer>

@@ -1,0 +1,10 @@
+<answer>
+`build_manager.setup_build` is responsible for downloading / unpacking the build and – on success – it always writes the path of the build directory into the environment variable `BUILD_DIR`.  
+It then returns a truthy value only when all of that succeeded. Consequently, if
+`build_setup_result` is truthy, `environment.get_value('BUILD_DIR')` should never
+be empty: the second test can never be false unless there is a bug inside
+`setup_build`.  
+So the extra check is not required for the normal control-flow; it is only a
+“belt-and-suspenders” sanity guard that would catch an unexpected internal
+failure. Removing it would not change behaviour in normal circumstances, but
+leaving it in makes the function more defensive. </answer>

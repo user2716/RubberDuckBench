@@ -1,0 +1,8 @@
+<answer>
+No.  
+According to RFC 7230/3986 the value carried in the HTTP Host header is an “authority”, i.e. a reg-name, IPv4 or IPv6 literal.  
+• For reg-names the allowed characters are the DNS label characters (letters, digits, “-” and “.”).  
+• If a domain contains non-ASCII characters it must first be converted to IDNA “punycode” (xn--…) so that what is actually transmitted on the wire is still pure US-ASCII.
+
+Therefore any valid Host header is guaranteed to be representable with ASCII.  Decoding the byte string with 'ascii' will either succeed (for a valid header) or raise, which is desirable because the header would be invalid.  Switching to UTF-8 would silently accept octets that should never appear in a compliant Host header and could mask an error or introduce security issues.  Hence we should keep ascii as the default encoding.
+</answer>

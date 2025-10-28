@@ -1,0 +1,3 @@
+<answer>
+Yes—if you need to keep the original `reply.result` unchanged you should deepcopy before mutating `result[DATA]`. In this function `result` is just a reference to the same dictionary stored in `reply.result`; changing a nested value (especially one that may be a mutable object) would also alter `reply.result`. By making a deep copy you get an independent object that you can safely serialize and pass to the ledger without affecting the original data that later gets stored in the graph or has other fields added. If you don’t need the original untouched, the deepcopy isn’t required, but given the later use of `reply.result`, keeping the deepcopy is the safer choice. 
+</answer>

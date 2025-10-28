@@ -1,0 +1,12 @@
+<answer>
+No – the Host header should continue to be decoded with ASCII, not UTF-8.
+
+According to RFC 7230 and the DNS specification, the value that appears in the Host header (and in the authority part of an http/https URL) is restricted to the so-called “LDH” characters: letters [a-zA-Z], digits [0-9] and the hyphen.  
+If an internationalised domain name has to be conveyed it is first converted to the ASCII-compatible Punycode form (e.g. xn--…​). In other words, a valid Host header can be expressed entirely with 7-bit ASCII.  
+
+By decoding the byte string with ascii we therefore:
+
+1. Correctly recover every valid host name.  
+2. Immediately raise a UnicodeDecodeError if the byte sequence contains any non-ASCII octets, flagging an invalid/illegal Host header instead of silently accepting it.  
+
+Using UTF-8 would decode additional byte values ≥ 0x80 without complaint, possibly letting malformed or malicious header values slip through. For this field strict ASCII decoding is both standards-compliant and safer, so there is no reason to switch to UTF-8. </answer>

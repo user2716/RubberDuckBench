@@ -1,0 +1,9 @@
+<answer>
+Call _compact_times() for every KPISet, not only for the cumulative one.  
+The method trims/merges the RESP_TIMES histogram so it never grows beyond the
+configured key limit; any KPISet (even a “per-second” set) can easily exceed
+that limit when the load is high.  Running the compaction on each set keeps
+memory usage predictable and is practically free because the operation is
+idempotent.  If you skipped it for the non-cumulative sets they could bloat in
+memory, while running it on them does not hurt accuracy or performance.
+</answer>

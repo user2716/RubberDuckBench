@@ -1,0 +1,7 @@
+**Answer**  
+No – keep the ASCII decoding. The `Host` header is defined by RFC 7230 to be an ASCII string (or a punycode‑encoded form of a Unicode domain, which is still ASCII). Using ASCII guarantees compliance and causes an explicit error if something non‑ASCII sneaks in, whereas UTF‑8 would silently misinterpret the bytes. If you ever need to support Unicode hostnames, they should first be converted to punycode, which remains ASCII.  
+
+```python
+if isinstance(host, bytes):
+    host = host.decode('ascii')   # correct per spec
+```

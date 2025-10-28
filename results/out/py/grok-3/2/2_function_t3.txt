@@ -1,0 +1,13 @@
+Let's analyze the question regarding whether `compact_times()` should be called on every `KPIset` or only on cumulative `KPIsets` in the context of the provided code segment.
+
+In the `recalculate` method, the call to `self._compact_times()` appears at the beginning of the method. The purpose of `compact_times()` is not explicitly defined in the provided code snippet, but based on the name and context, it likely compacts or processes time-related data (e.g., response times, latencies) to prepare for further calculations like averages, standard deviations, and percentiles. The `recalculate` method then proceeds to compute various metrics such as average connection time, latency, response time, concurrency, percentiles, and standard deviation.
+
+The distinction between "every `KPIset`" and "cumulative `KPIsets`" suggests a hierarchy or grouping of data sets where some `KPIsets` might represent individual data points or smaller samples, while cumulative `KPIsets` might aggregate data over a larger scope or time period. If `compact_times()` is a preprocessing step to organize or reduce the raw data (e.g., response times stored in `self[self.RESP_TIMES]`), it would be necessary to call it whenever the underlying data needs to be recalculated or updated. 
+
+If `compact_times()` modifies or prepares the data for calculations like averages or percentiles, it should likely be called on every `KPIset`, because each set might have its own raw data that needs processing before metrics are computed. However, if `compact_times()` is an expensive operation or if cumulative `KPIsets` are aggregates of already compacted data from individual `KPIsets`, calling it only on cumulative sets might be sufficient, assuming individual sets are compacted elsewhere or don't require this step at the cumulative level.
+
+Given the placement of `self._compact_times()` in the `recalculate` method without any conditional logic to distinguish between types of `KPIsets`, it appears the intent is to call it for every `KPIset` during recalculation. Without additional context on how cumulative vs. individual `KPIsets` are managed, the safer and more consistent approach based on the code structure is to call `compact_times()` on every `KPIset` to ensure the data is properly prepared for recalculation.
+
+<answer>
+You should call `compact_times()` on every `KPIset` during recalculation, as it appears to be a necessary preprocessing step for computing metrics like averages and percentiles. The code does not differentiate between individual and cumulative `KPIsets` in the `recalculate` method, suggesting that this operation is intended for all sets to ensure data consistency before further calculations.
+</answer>

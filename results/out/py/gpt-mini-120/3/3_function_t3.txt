@@ -1,0 +1,3 @@
+<answer>
+No. The Host header is defined by the HTTP specifications to contain only ASCII characters (or puny‑code‑encoded IDNs, which are themselves ASCII). Decoding the raw header bytes with ASCII therefore correctly validates that the header is well‑formed and raises an error for any non‑ASCII bytes, which would be a malformed request. Using UTF‑8 could silently accept invalid bytes or misinterpret puny‑code strings, and it offers no advantage because the header is not supposed to carry UTF‑8 text. If internationalised domain names are needed they must be converted to puny‑code (IDNA) before being placed in the Host header, not decoded as UTF‑8.
+</answer>

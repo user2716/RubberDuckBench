@@ -1,0 +1,27 @@
+**Short answer:**  
+In practice the check is defensive; it isn’t strictly required if `build_manager.setup_build()` guarantees that `BUILD_DIR` will always be set when it returns `True`. However, keeping the `if not build_directory` guard protects the function against subtle bugs where the environment variable is missing, unset, or an empty string, and makes the error path explicit.
+
+**Why it matters**
+
+```python
+build_setup_result = build_manager.setup_build(revision=revision)
+build_directory = environment.get_value('BUILD_DIR')
+if not build_setup_result or not build_directory:
+    raise CorpusPruningException('Failed to setup build.')
+```
+
+* `build_setup_result` tells us whether the build process succeeded.  
+* `environment.get_value('BUILD_DIR')` is the place where the build path is stored for the rest of the routine. If, for some reason, `setup_build` returned `True` but failed to set the variable (perhaps due to a change in the build logic or a race condition), the later code would attempt to instantiate `Runner(build_directory, context)` with `None` or an empty string, leading to hard‑to‑diagnose errors.
+
+By checking both conditions, you:
+
+1. **Guarantee** that the rest of the function has a valid path.  
+2. **Provide** a clear, immediate failure message (`CorpusPruningException`) instead of a cryptic `TypeError` or `FileNotFoundError` later on.  
+3. **Make the contract explicit**: “If the build setup fails *or* the directory isn’t available, abort.”
+
+**When you could drop the check**
+
+* If you’re certain (via tests and code review) that `build_manager.setup_build()` *always* sets `BUILD_DIR` whenever it returns `True`.  
+* If you have an intermediate layer that validates the environment before calling this function.
+
+Even in those scenarios, keeping the guard is a low‑cost safety net that can prevent silent misconfigurations in production or in future refactors.

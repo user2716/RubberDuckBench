@@ -1,0 +1,4 @@
+**Answer**
+
+`F.cross_entropy` is the built‑in PyTorch loss function that computes the cross‑entropy between logits and class labels.  
+`cross_entropy` (without the `F.` prefix) is a user‑defined helper that is defined elsewhere in the project (usually imported from a utilities module). It typically wraps `F.cross_entropy` and adds bookkeeping – for example it may compute the loss, return a tuple of loss and accuracy, or log the value for validation. In the code snippet, the call to `cross_entropy(logits[val_idx], labels[val_idx])` simply invokes that local helper; its return value is ignored because the accuracy is computed separately later. Thus the difference is that one is the standard PyTorch API, and the other is a project‑specific wrapper.

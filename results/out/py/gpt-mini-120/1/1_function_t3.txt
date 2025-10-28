@@ -1,0 +1,3 @@
+<answer>In PyTorch the loss function lives in the `torch.nn.functional` module.  
+`F.cross_entropy` is the function accessed through the alias `F` (usually `import torch.nn.functional as F`).  
+If you also do `from torch.nn.functional import cross_entropy`, then `cross_entropy` is just the same function brought into the current namespace. So the two calls are identical – the only difference is how the function is referenced. If `cross_entropy` hasn’t been imported or defined elsewhere, calling it would raise a `NameError`; otherwise it behaves exactly like `F.cross_entropy`.</answer>

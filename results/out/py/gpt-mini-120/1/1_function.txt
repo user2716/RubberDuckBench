@@ -1,0 +1,13 @@
+<answer>
+`F.cross_entropy` is the fully‑qualified name of the loss function defined in **torch.nn.functional** (i.e., `torch.nn.functional.cross_entropy`).  
+If the code contains a line such as  
+
+```python
+from torch.nn.functional import cross_entropy
+```  
+
+then the unqualified name `cross_entropy` refers to exactly the same function – it’s just an alias imported into the local namespace. In that case there is no functional difference; the two calls behave identically.
+
+If no such import (or a different definition) exists, `cross_entropy` would refer to whatever object the current module has bound to that name – it could be a custom wrapper around `F.cross_entropy` or, if nothing is bound, a `NameError` would be raised.
+
+So the difference is purely about **where the name is looked up**: `F.cross_entropy` always points to the PyTorch functional implementation, while `cross_entropy` depends on how the name was imported or defined in the script.

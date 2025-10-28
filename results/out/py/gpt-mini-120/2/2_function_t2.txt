@@ -1,0 +1,3 @@
+<answer>
+You should invoke **compact_times() for every KPIset before you call `recalculate()`**. The `recalculate` method assumes that the raw timing data (e.g., `self[RESP_TIMES]`) has already been “compacted” – it immediately uses those values to compute averages, percentiles and standard deviation. For cumulative KPIsets this step is mandatory, otherwise the list of timestamps would grow without bound and the statistics would be incorrect. For non‑cumulative KPIsets the compacting step is not strictly required, but calling it is harmless and keeps the behavior consistent across all KPIset types. Therefore, always run `compact_times()` (or the internal `_compact_times()`) on each KPIset prior to recalculating its metrics.
+</answer>
