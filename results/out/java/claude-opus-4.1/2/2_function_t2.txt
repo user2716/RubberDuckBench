@@ -1,0 +1,28 @@
+Looking at this code, I can see that a `HashMap` is being created with `Collections.singletonMap()` as its constructor argument. Let me explain the key differences:
+
+## Collections.singletonMap vs HashMap
+
+**Collections.singletonMap:**
+- Returns an **immutable** map with exactly one key-value pair
+- Memory efficient - optimized for single entry
+- Throws `UnsupportedOperationException` if you try to modify it (add, remove, put operations)
+- Lightweight implementation specifically for one mapping
+
+**HashMap (initialized with singletonMap):**
+- Creates a **mutable** map that initially contains the single entry
+- Uses more memory - has default capacity (typically 16) and load factor considerations
+- Allows modifications - you can add, remove, or update entries after creation
+- Standard hash table implementation
+
+## In this specific code
+
+The code does: `new HashMap<>(Collections.singletonMap(String.valueOf(uid), (Message) createImapMessage(String.valueOf(uid))))`
+
+This pattern suggests that:
+1. The initial map needs only one entry
+2. But the `messageParams` method likely expects a mutable map that might be modified later
+3. Or the API specifically requires a `HashMap` type rather than the more general `Map` interface
+
+<answer>
+The code uses `new HashMap<>(Collections.singletonMap(...))` to create a mutable HashMap with one initial entry, whereas `Collections.singletonMap()` alone would return an immutable map. The HashMap wrapper is likely necessary because the messageParams method either needs to modify the map later or specifically requires a mutable/HashMap type rather than an immutable singleton map.
+</answer>

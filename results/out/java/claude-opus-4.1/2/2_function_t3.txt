@@ -1,0 +1,26 @@
+Looking at this code, I can see that a new `HashMap` is being created and initialized with `Collections.singletonMap()`. Let me explain the key differences:
+
+## Collections.singletonMap vs HashMap
+
+**Collections.singletonMap:**
+- Returns an **immutable** map containing exactly one key-value pair
+- Very memory efficient - optimized for a single entry
+- Throws `UnsupportedOperationException` if you try to modify it (add, remove, or update entries)
+- Ideal when you need a read-only map with exactly one entry
+
+**HashMap (initialized with singletonMap):**
+- Creates a **mutable** map that initially contains the single entry from singletonMap
+- Uses more memory due to HashMap's internal structure (default capacity of 16, load factor, etc.)
+- Allows subsequent modifications - you can add, remove, or update entries
+- Provides O(1) average time complexity for basic operations
+
+## Why wrap singletonMap in HashMap here?
+
+The code `new HashMap<>(Collections.singletonMap(...))` suggests that:
+1. The `messageParams` method likely expects a mutable map that might be modified later
+2. Or the method signature specifically requires a `HashMap` type rather than just a `Map` interface
+3. The developer wants to ensure the map is mutable for potential future operations within the UidFetchCommand
+
+<answer>
+Collections.singletonMap returns an immutable, memory-efficient map with exactly one entry that cannot be modified, while wrapping it in a new HashMap creates a mutable copy that can be modified later. In this code, the HashMap wrapper is likely used because the messageParams method either requires a mutable map for subsequent operations or specifically expects a HashMap type rather than the generic Map interface.
+</answer>

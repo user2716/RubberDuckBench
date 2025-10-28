@@ -1,0 +1,18 @@
+Looking at the code, let me analyze the null check in the condition `if (!authConfigs.isCachingEnabled() || roleInfoList == null)`.
+
+The logic flow is:
+1. First, we attempt to get `roleInfoList` from the cache (`roleInfoMap.get(username)`)
+2. Then we check if either caching is disabled OR the roleInfoList is null
+3. If either condition is true, we fetch from the database
+
+Yes, you **do need** the null check for `roleInfoList`. Here's why:
+
+1. **Cache miss scenario**: When `roleInfoMap.get(username)` returns null (user not in cache), you need to fetch from the database
+2. **Caching disabled scenario**: When caching is disabled, you should always fetch fresh data from the database, regardless of what's in the map
+3. **Combined logic**: The OR condition ensures that you fetch from database in both cases - when there's no cached data OR when caching is disabled
+
+Without the null check, you would only fetch from the database when caching is disabled, which would cause the method to return null for users not in the cache even when caching is enabled.
+
+<answer>
+Yes, the null check for roleInfoList is necessary. It handles the cache miss scenario where roleInfoMap.get(username) returns null, ensuring that the method fetches data from the database when no cached data exists. Without this check, the method would return null for users not in the cache when caching is enabled, which would be incorrect behavior.
+</answer>

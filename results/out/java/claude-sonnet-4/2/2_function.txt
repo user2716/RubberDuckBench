@@ -1,0 +1,22 @@
+Looking at this code, I can see that the developer is creating a new HashMap and initializing it with the contents of a singletonMap. Let me explain the key differences:
+
+**Collections.singletonMap():**
+- Returns an **immutable** map containing exactly one key-value pair
+- Very memory efficient - optimized for a single entry
+- Any attempt to modify it (put, remove, clear) will throw `UnsupportedOperationException`
+- Ideal when you need a read-only map with one entry
+
+**new HashMap(Collections.singletonMap(...)):**
+- Creates a **mutable** HashMap copy of the singleton map
+- Uses more memory - HashMap has overhead for handling multiple entries
+- Can be modified after creation (add, remove, update entries)
+- The map starts with one entry but can grow
+
+In this specific code, the pattern `new HashMap<>(Collections.singletonMap(...))` suggests that:
+1. The `messageParams` method likely needs a mutable map (perhaps it adds more entries later)
+2. Or the API contract requires a mutable Map implementation
+3. Or this is defensive programming to avoid potential modification issues downstream
+
+<answer>
+The code creates a mutable HashMap initialized with a single entry from singletonMap. Collections.singletonMap returns an immutable map optimized for one entry, while new HashMap creates a mutable copy that can be modified later. This pattern is typically used when the receiving method needs a mutable map or might modify the map after receiving it.
+</answer>
