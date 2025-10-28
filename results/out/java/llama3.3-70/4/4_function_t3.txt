@@ -1,0 +1,5 @@
+The null check for `roleInfoList` is necessary to avoid a `NullPointerException` when trying to access or manipulate the list. If `authConfigs.isCachingEnabled()` returns true and `roleInfoMap.get(username)` returns null, then without this check, attempting to assign `roleInfoPage.getPageItems()` to `roleInfoList` would not throw an error because `roleInfoList` is already null. However, if any code after this point tries to call a method on `roleInfoList`, it will result in a `NullPointerException`. 
+
+Additionally, the check allows for the retrieval of roles from the database when the list is either empty or not cached, which seems to be the intended functionality based on the provided logic.
+
+<answer> Yes, you need this null check for roleInfoList to avoid potential NullPointerExceptions and ensure the correct retrieval of roles from the database when necessary. The null check allows the method to handle cases where the role information is not cached or does not exist in the map. </answer>

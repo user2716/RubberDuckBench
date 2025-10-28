@@ -1,0 +1,15 @@
+To determine if the null check for `roleInfoList` is necessary, let's analyze the code.
+
+The method `getRoles` is supposed to return a list of `RoleInfo` objects associated with a given `username`. If the caching is disabled or if the `roleInfoList` is null, it fetches the data from the database.
+
+The null check for `roleInfoList` seems to be redundant here because even if `roleInfoList` is null, the code will still attempt to fetch the data from the database and assign it to `roleInfoList`. 
+
+However, there is a scenario where this null check could be relevant. If `getRolesFromDatabase` returns null (which, by the way, might not be the best approach, as it would be more intuitive to return an empty list in this case), then not having the null check would result in a NullPointerException when trying to call `getPageItems()`.
+
+But assuming `getRolesFromDatabase` does not return null and always returns a `Page` object (which could be empty), then the null check for `roleInfoList` is not necessary.
+
+So, the answer depends on how `getRolesFromDatabase` is implemented.
+
+<answer>
+No, you don't necessarily need this null check for roleInfoList, but it depends on how getRolesFromDatabase is implemented.
+</answer>

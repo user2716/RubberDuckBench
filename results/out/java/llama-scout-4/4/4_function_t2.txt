@@ -1,0 +1,13 @@
+The null check for `roleInfoList` seems unnecessary in this context. 
+
+The method `getRoles` is supposed to return a list of `RoleInfo` objects associated with a given `username`. If `roleInfoList` is null, it attempts to fetch the data from the database. 
+
+However, even if `roleInfoList` is null, the code still proceeds to fetch data from the database and assign it to `roleInfoList`. 
+
+So, the null check doesn't add any significant value here. The code would work just fine without it.
+
+The caching mechanism seems to be handled by the condition `!authConfigs.isCachingEnabled() || roleInfoList == null`. If caching is disabled or `roleInfoList` is null, it fetches data from the database.
+
+<answer>
+No, you don't need this null check for roleInfoList.
+</answer>

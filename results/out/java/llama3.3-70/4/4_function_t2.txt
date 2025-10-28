@@ -1,0 +1,5 @@
+The null check for `roleInfoList` is necessary to prevent a `NullPointerException` (NPE) when trying to access the list. Without this check, if `roleInfoMap.get(username)` returns `null`, the subsequent code will throw an NPE when it tries to access `roleInfoList`. By checking for `null`, we can ensure that we don't try to access a non-existent list and instead retrieve the roles from the database.
+
+Additionally, the null check also serves as a safeguard in case the `roleInfoMap` does not contain the specified username. In this scenario, `roleInfoMap.get(username)` will return `null`, and without the null check, the code would fail with an NPE.
+
+<answer>The null check for roleInfoList is necessary to prevent NullPointerExceptions and ensure the code can handle cases where the username is not found in the roleInfoMap. It provides a safeguard against potential errors and allows the code to retrieve roles from the database when the cache is empty or disabled. This check is essential for maintaining the robustness and reliability of the code.</answer>

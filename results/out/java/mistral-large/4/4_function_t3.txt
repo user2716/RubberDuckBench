@@ -1,0 +1,9 @@
+Yes, you do need the `null` check for `roleInfoList`. This is because if `roleInfoMap.get(username)` returns `null`, and caching is not enabled (i.e., `authConfigs.isCachingEnabled()` returns `false`), then `roleInfoList` will be `null`. Without the null check, subsequent operations on `roleInfoList` could result in a `NullPointerException`.
+
+The line:
+```java
+if (!authConfigs.isCachingEnabled() || roleInfoList == null) {
+```
+ensures that if caching is not enabled or if the cached value (`roleInfoList`) is `null`, you will fetch the roles from the database. This guarantees that `roleInfoList` has a valid value before returning it.
+
+<answer>Yes, the null check for roleInfoList is necessary to prevent potential NullPointerExceptions and ensure proper functionality when caching is disabled or the cached value is not present.</answer>
