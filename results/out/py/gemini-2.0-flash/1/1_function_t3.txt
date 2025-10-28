@@ -1,0 +1,5 @@
+`F.cross_entropy` is a function from the `torch.nn.functional` module, which is PyTorch's functional interface. It calculates the cross-entropy loss between the input logits and the target labels. On the other hand, `cross_entropy` is likely a user-defined function within the same scope or imported from elsewhere in the project. Based on the code, F.cross_entropy is used for training loss, while the custom function called cross_entropy is used for printing the validation loss.
+
+```
+F.cross_entropy` is a function from the `torch.nn.functional` module within PyTorch that computes the cross-entropy loss. `cross_entropy` is called during the printing of validation loss and is a different user-defined function.
+```

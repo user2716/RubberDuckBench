@@ -1,0 +1,5 @@
+<answer>
+In most cases, it is safer to use "utf-8" rather than "ascii" when decoding the `Host` header because domain names may include internationalized domain names (IDNs) or punycode representations that require utf-8 for proper decoding. Using "ascii" will raise a `UnicodeDecodeError` if the host contains non-ASCII characters, whereas "utf-8" can handle both ASCII and Unicode characters. Therefore, unless you have a specific reason to expect only ASCII hostnames, you should prefer "utf-8".
+
+Final answer: Yes, you should use "utf-8" instead of "ascii" for decoding the host, as it supports a wider range of characters and is compatible with internationalized domains.
+</answer>

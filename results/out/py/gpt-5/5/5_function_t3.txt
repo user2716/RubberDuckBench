@@ -1,0 +1,3 @@
+<answer>
+Not strictly. By contract, build_manager.setup_build returns False if it fails to set up the build (which includes not establishing BUILD_DIR), so the build_setup_result check should be sufficient. The extra check for not build_directory is a defensive sanity check against unexpected regressions or misconfiguration, but functionally it’s redundant if setup_build’s guarantees hold.
+</answer>

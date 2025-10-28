@@ -1,0 +1,3 @@
+<answer>
+No. The Host header (and the URI host component) is defined to be ASCII per RFC 7230/3986; internationalized domain names must be transmitted as IDNA/Punycode (ASCII “xn--” labels). Decoding with UTF‑8 would silently accept non-conformant headers and could yield a URL that won’t round‑trip or route correctly. Keep ASCII as the default; if you want to display Unicode, explicitly convert between A-labels and U-labels via IDNA rather than changing the default decoding.
+</answer>

@@ -1,0 +1,5 @@
+`compact_times()` is called at the beginning of `recalculate()`. The purpose of `recalculate()` is to update averages, standard deviations, and percentiles based on the data stored within the `KPIset`. This data includes sums (e.g., `sum_cn`, `sum_lt`, `sum_rt`) and potentially concurrency information. The recalculation logic relies on the results of `_compact_times()` to be up to date. Therefore, `compact_times()` must be called on *every* `KPIset` before recalculating its statistics, regardless of whether it's a cumulative set or not. If `compact_times()` is only called on cumulative sets, the non-cumulative sets will have stale or incorrect time data, leading to inaccurate calculations.
+
+</answer>
+You should call `compact_times()` on every `KPIset`. The recalculation process depends on the updated time data provided by `compact_times()`, and omitting it for non-cumulative sets would result in inaccurate statistics.
+</answer>

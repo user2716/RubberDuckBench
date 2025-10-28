@@ -1,0 +1,12 @@
+Certainly! Here’s the explanation:
+
+Looking at your code, the method `_compact_times()` is called at the beginning of `recalculate()`. The function is responsible for cleaning up or reducing the resolution of time-series data within a KPIset. The purpose is typically to save memory or to make calculations more efficient, especially when the set grows large.
+
+- **Every KPIset:** If you call it on every KPIset, you run the risk of losing granularity or distorting the raw data for each individual KPIset, which might be valuable for high-frequency or detailed analysis.
+- **Only Cumulative KPIsets:** Compacting makes most sense for "cumulative" KPIsets, which aggregate data over time (e.g., for overall reports or rollups), because the fine details are less relevant, and memory savings become significant as more data accumulates.
+
+Usually, in performance tools, you want to keep raw, fine-grained detail in interval/individual KPIsets but save memory in the cumulative sum. Over-compacting also can distort percentiles and stdev if done too early or frequently.
+
+<answer>
+You should call `_compact_times()` only on cumulative KPIsets. For individual (atomic) KPIsets, retaining fine-grained timing information is beneficial for accuracy and detailed analysis. Compaction is most useful where data is aggregated over long periods, to optimize memory usage and processing speed.
+</answer>

@@ -1,0 +1,3 @@
+<answer>
+Call compact_times() for every KPIset. It’s designed to be a no-op unless the sample lists exceed the compaction threshold, so it keeps memory and percentile/stdev computation bounded without harming small, per-interval sets. Restricting it to only cumulative KPIsets risks per-interval sets growing large under load. Given recalculate() already calls _compact_times(), you don’t need to special-case cumulative sets.
+</answer>

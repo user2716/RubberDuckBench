@@ -1,0 +1,3 @@
+<answer>
+No, you should not use UTF-8 as the default encoding when decoding the Host header; ASCII is the correct choice. According to the HTTP/1.1 specification (RFC 7230 and RFC 3986), the Host header is restricted to ASCII characters, specifically the set used in domain names and (optionally) port numbers. Using UTF-8 could allow invalid or non-compliant hostnames, potentially causing unexpected behavior or security issues. Stick with ASCII decoding for the Host header as per HTTP standards.
+</answer>

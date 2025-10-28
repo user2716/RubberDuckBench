@@ -1,0 +1,7 @@
+`_compact_times()` is called unconditionally at the very beginning of the `recalculate` method. This suggests it's an integral preprocessing step for any `KPIset` undergoing recalculation. Given the method calculates statistics like averages, standard deviation, and percentiles from raw data (e.g., `self[self.RESP_TIMES]`), `_compact_times()` likely optimizes memory and/or prepares this raw time-series data for efficient computation (e.g., by sorting it, removing old entries, or converting it to a more compact form like a histogram).
+
+Therefore, `_compact_times()` should be called on **every KPIset that is processed by this `recalculate` method**. The distinction with "cumulative KPIsets" is likely semantic: only KPIsets that accumulate raw time data (i.e., "cumulative" ones) would typically invoke the `recalculate` method in the first place, making `_compact_times()` relevant to all such instances.
+
+<answer>
+`_compact_times()` should be called on **every KPIset that has its `recalculate` method invoked**. Its unconditional placement at the start of `recalculate` indicates it's a necessary preprocessing step, likely for memory optimization or data preparation (e.g., sorting, compacting raw time data) before statistical computations like percentiles and standard deviation are performed. Practically, only KPIsets that accumulate raw time data (what you might refer to as "cumulative" KPIsets) would typically call `recalculate`, making `_compact_times()` essential for those.
+</answer>

@@ -1,0 +1,3 @@
+<answer>
+You should call `compact_times()` only on cumulative KPIsets, not on every KPIset. The purpose of `compact_times()` is typically to manage or reduce memory usage by aggregating or compacting detailed time-series data, which makes sense only for cumulative KPIsets that collect and aggregate data over longer periods. For non-cumulative (single, per-interval) KPIsets, compacting can lose granularity and distort interval statistics. Therefore, reserve `compact_times()` for cumulative KPIsets to maintain accuracy in interval KPIsets and efficiency in cumulative ones.
+</answer>

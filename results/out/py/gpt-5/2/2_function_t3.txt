@@ -1,0 +1,3 @@
+<answer>
+Only cumulative KPIsets. compact_times is a memory/precision trade-off meant for long‑lived, ever-growing datasets; per-interval KPIsets are short-lived and typically small, so compaction adds overhead and can introduce avoidable approximation error for percentiles. If you keep the call in recalculate, make compact_times a no-op unless the set is cumulative or the number of samples crosses a size threshold.
+</answer>

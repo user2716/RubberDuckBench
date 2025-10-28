@@ -1,0 +1,9 @@
+No, we should not use UTF-8 instead of ASCII when decoding the `Host` header.
+
+The HTTP/1.1 specification (RFC 7230, Section 5.4 and 3.2) dictates that header field values, including `Host`, must be composed of characters from the US-ASCII character set. Even when Internationalized Domain Names (IDNs) are used, they are converted to their Punycode (ASCII Compatible Encoding) form before being placed into the `Host` header. Therefore, the `Host` header value is always expected to be ASCII.
+
+Using `host.decode('ascii')` correctly enforces this specification. If a client sends a `Host` header containing non-ASCII bytes, it indicates a malformed or non-compliant request. Decoding it with ASCII will raise a `UnicodeDecodeError`, which is the correct behavior as it signals an invalid input. Using UTF-8 would silently "fix" such an invalid header, potentially masking issues or leading to unexpected behavior if the decoded string is used further in the application.
+
+<answer>
+No, we should not use UTF-8. The HTTP specification requires the `Host` header to contain only US-ASCII characters. Therefore, decoding with `ascii` is the correct and safest approach. This ensures compliance with the standard and will correctly raise an error if a malformed (non-ASCII) `Host` header is received, preventing potential security issues or misinterpretations.
+</answer>

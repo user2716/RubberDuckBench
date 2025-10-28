@@ -1,0 +1,3 @@
+<answer>
+Yes. result is just a reference to reply.result, so assigning result[DATA] = ... would also mutate reply.result[DATA]. Since reply.result is used later (e.g., updated with seqNo and added to the identity graph), you want to avoid changing it when preparing the ledger record. A deep copy guarantees isolation even if downstream code mutates nested structures; while a shallow copy would be enough for only reassigning the top-level DATA key, deepcopy is the safer choice here.
+</answer>

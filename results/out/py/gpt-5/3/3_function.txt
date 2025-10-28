@@ -1,0 +1,3 @@
+<answer>
+No. The Host header and URI host are defined to be ASCII per RFC 7230/3986; internationalized domain names must appear as ASCII punycode (IDNA). Decoding with UTF‑8 risks misinterpreting arbitrary header bytes. If you need to be lenient with non-ASCII bytes in headers, use latin-1 for a lossless mapping or reject the value; but do not switch to UTF‑8. 
+</answer>

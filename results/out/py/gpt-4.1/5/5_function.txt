@@ -1,0 +1,9 @@
+The check for `if not build_directory` is necessary. Here's why:
+
+The `build_directory` variable is set by calling `environment.get_value('BUILD_DIR')`, which retrieves the configured build directory path from the environment. There is no guarantee that the environment variable is set correctly or at all, even if `build_manager.setup_build(revision=revision)` succeeds (e.g., due to a misconfiguration or a bug elsewhere). If `build_directory` is `None` or an empty string, the subsequent code that depends on a valid build directory (such as instantiating `Runner(build_directory, context)`) will fail, probably with less clear or more confusing errors.
+
+The intent of the check is to ensure that both the build setup succeeded and that a valid directory path is available before proceeding, so that the error can be caught and raised explicitly as a `CorpusPruningException` with a clear message.
+
+<answer>
+Yes, the check for `if not build_directory` is needed. Even if the build setup succeeds, a missing or misconfigured build directory could lead to downstream errors. This check ensures that the function fails early and clearly if the build directory is not properly set.
+</answer>

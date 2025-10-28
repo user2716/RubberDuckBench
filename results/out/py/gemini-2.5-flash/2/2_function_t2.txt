@@ -1,0 +1,7 @@
+Based on the provided code segment, `_compact_times()` is called unconditionally at the very beginning of the `recalculate` method. This strongly suggests it's a prerequisite or preparation step for the subsequent statistical calculations (averages, percentiles, standard deviations).
+
+Unless `_compact_times()` has a specific implementation that is harmful or irrelevant to "cumulative KPIsets" (e.g., it aggressively discards historical data that a cumulative set needs to retain), it should be called for *every* KPIset whenever `recalculate` is triggered. Its role is likely to ensure the underlying data is in the correct state (e.g., cleaned, sorted, optimized) before statistics are computed. If cumulative KPIsets have different "compaction" needs, the logic for that distinction should ideally be handled *within* the `_compact_times()` method itself, or the `recalculate` method would need conditional logic to skip the call.
+
+<answer>
+Based on the provided code, `_compact_times()` is an unconditional first step in the `recalculate` method. This implies it's a necessary data preparation step for *any* KPIset whose statistics need to be accurately recomputed. Therefore, it should be called on every KPIset when `recalculate` is invoked. If "cumulative KPIsets" have different data management requirements, the `_compact_times()` method itself should ideally contain the logic to handle those distinctions rather than skipping the call entirely.
+</answer>

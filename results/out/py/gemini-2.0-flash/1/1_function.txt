@@ -1,0 +1,16 @@
+`F.cross_entropy` is a PyTorch function, specifically `torch.nn.functional.cross_entropy`. It computes the cross-entropy loss between input logits and target labels. On the other hand, `cross_entropy` is used without qualification elsewhere in the code, in particular immediately before calculating the validation accuracy. Because there is no assignment operator, it is used but its value is not captured and the function serves no purpose at all.
+
+```
+def main(args):
+...
+        backward_time.append(t2 - t1)
+        print("Epoch {:05d} | Train Forward Time(s) {:.4f} | Backward Time(s) {:.4f}".
+              format(epoch, forward_time[-1], backward_time[-1]))
+        cross_entropy(logits[val_idx], labels[val_idx]) # Does nothing.
+```
+
+`F.cross_entropy` is an actual call to the cross entropy function, while `cross_entropy` as used here has no effect.
+
+</answer>
+`F.cross_entropy` is a PyTorch function call that calculates the cross-entropy loss, which is then used for backpropagation. The unqualified call to `cross_entropy(logits[val_idx], labels[val_idx])` does nothing; its return value is not stored or used, so the loss calculation is effectively discarded.
+</answer>

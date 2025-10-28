@@ -1,0 +1,3 @@
+<answer>
+Yes, you need to call `deepcopy(result)` before modifying `result[DATA]` if you do not want to affect the original `reply.result` object. In your code, `result` is a direct reference to `reply.result`. If you modify `result[DATA]` without copying, changes will be reflected in `reply.result` as well, which could cause unintended side effects elsewhere in your code if `reply.result` is reused. By calling `deepcopy(result)`, you ensure that any modifications to `result[DATA]` are isolated from the original `reply.result`. Your current code does this conditionally for certain transaction types, so for those, you are safe. For other cases where `deepcopy` is not called, modifying `result[DATA]` will mutate the original.
+</answer>

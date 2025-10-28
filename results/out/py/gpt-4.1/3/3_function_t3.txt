@@ -1,0 +1,3 @@
+<answer>
+It is generally safer to use "ascii" when decoding the Host header, as per the HTTP/1.1 specification and domain name standards (RFC 7230 and RFC 1035), the Host header should only contain ASCII characters (labels a-z, 0-9, and "-"). However, with the introduction of Internationalized Domain Names (IDN), domain labels can contain non-ASCII Unicode characters, but these are transmitted over HTTP as ASCII-compatible "Punycode" (e.g., "xn--..."), which means the value in the Host header should still be ASCII. Therefore, using "ascii" is correct and preferred for decoding the Host header. Using "utf-8" could mask errors if non-ASCII data is improperly set in the Host header; such data should be normalized or rejected.
+</answer>

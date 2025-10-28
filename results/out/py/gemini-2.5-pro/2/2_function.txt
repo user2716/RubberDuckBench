@@ -1,0 +1,27 @@
+As a senior python software engineer, here is my analysis and answer.
+
+### Analysis
+
+The purpose of a function named `_compact_times()` within a statistics-gathering context is almost certainly to reduce memory consumption. Calculating accurate percentiles and standard deviation requires access to the individual data points (response times). For a long-running performance test, storing every single response time in a list (`self[self.RESP_TIMES]`) would lead to unbounded memory growth.
+
+The `_compact_times()` method likely transforms this large list of raw data points into a more memory-efficient, approximate data structure like a histogram or a t-digest. This compacted structure can then be used to estimate percentiles and other statistics without storing every point.
+
+With that in mind, let's consider the two types of `KPIset` objects mentioned in the question:
+
+1.  **Interval KPIsets ("every"):** These likely represent a short, fixed time window (e.g., metrics for the last 1 second). The number of data points is small and bounded, so memory is not a concern. Compacting this data is unnecessary overhead. More importantly, if you compact the data at this stage, you lose precision. When you later merge these compacted, lossy interval sets into a cumulative one, you are aggregating approximations, leading to a less accurate final result.
+
+2.  **Cumulative KPIsets:** This object represents the total metrics for the entire test run. This is where the number of data points can grow very large, and therefore, this is the object that has a critical need for memory management.
+
+### Recommendation
+
+The most robust and accurate design is to perform compaction only where it is needed: on the cumulative `KPIset`. The workflow should be:
+
+1.  Collect raw, un-compacted response times in the interval `KPIset`.
+2.  Merge the raw data from the interval set into the cumulative `KPIset`.
+3.  When `recalculate()` is called on the cumulative `KPIset`, it will first call `_compact_times()` to manage its now-larger list of raw data points before calculating the final statistics.
+
+This approach ensures that the final, cumulative statistics are calculated from the most accurate data possible before it is compacted for memory efficiency.
+
+<answer>
+You should call `_compact_times()` primarily on the cumulative KPIsets, not on every interval-based KPIset. The function's purpose is to manage memory by converting a large list of raw response times into a more compact, approximate data structure. Calling it on short-lived interval sets is unnecessary overhead and, more importantly, introduces a loss of precision early. The best practice is to aggregate the raw, high-fidelity data from interval sets into the cumulative set and then perform the compaction there to ensure the final, overall statistics are as accurate as possible.
+</answer>

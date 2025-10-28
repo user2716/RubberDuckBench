@@ -1,0 +1,5 @@
+`compact_times()` is called within `recalculate()`. `recalculate()` is responsible for calculating averages, standard deviations, and percentiles based on the data stored in the KPIset. Compacting the times likely involves some form of aggregation or filtering of the underlying time data (e.g., response times). If the KPIset represents a cumulative view of data over time, then `compact_times()` would be needed to aggregate all of the times. Otherwise, if the KPIset represents a window or slice of data and compacting the times means some data points will be discarded, you would only compact cumulative KPIsets, otherwise the final results may be inaccurate.
+
+<answer>
+It depends on what `compact_times()` is doing. If compact_times is aggregating all the data in the KPIset, then it should be called only on cumulative KPIsets. Otherwise, if compact_times is discarding data, then it should only be called on cumulative KPIsets if the final calculations should be done using data across all KPISets.
+</answer>

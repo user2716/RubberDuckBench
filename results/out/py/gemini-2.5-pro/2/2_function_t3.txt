@@ -1,0 +1,25 @@
+As a senior python software engineer, here is my analysis and answer.
+
+### Analysis
+
+The core of this question revolves around a classic trade-off between **accuracy** and **resource consumption** (specifically memory and CPU).
+
+The method `_compact_times()` likely exists to reduce the memory footprint of the stored time-series data (e.g., `self[self.RESP_TIMES]`). Calculating accurate percentiles and standard deviation requires having the full distribution of data points. Storing every single data point for a long-running or high-volume test can consume a very large amount of memory. Compaction techniques, such as using histograms or down-sampling, reduce this memory load but almost always introduce some loss of precision.
+
+Let's evaluate the two options:
+
+1.  **Call `_compact_times()` only on cumulative KPIsets:**
+    *   **Pros:** This preserves the maximum possible accuracy. The cumulative set, which represents the entire test run, will have its percentiles calculated from the most complete data set possible before it is compacted. The per-interval KPIsets would retain their raw data, which could be useful for detailed, un-aggregated analysis.
+    *   **Cons:** This is the most memory-intensive option. The list of response times in the main cumulative object will grow linearly with the number of samples, which could become a problem for long-running tests.
+
+2.  **Call `_compact_times()` on every KPIset (including per-interval sets):**
+    *   **Pros:** This is the most memory-efficient option. Memory usage is kept consistently low because data is compacted frequently at the interval level.
+    *   **Cons:** This can lead to a significant loss of accuracy. If you compact data at each interval (a lossy process) and then merge these already-compacted, approximated results into a cumulative set, you are compounding approximation errors. The final percentiles for the cumulative set might be a poor representation of the true distribution.
+
+### Recommendation
+
+The best approach depends on the expected scale of the data and the required accuracy. However, for a robust and generally applicable design, you should prioritize accuracy until performance constraints force you to do otherwise.
+
+<answer>
+You should call `compact_times()` only on cumulative KPIsets. The primary purpose of such a function is to manage memory consumption for long-running datasets. By only calling it on the cumulative set, you ensure that percentile and standard deviation calculations are performed on the most accurate, complete data available. Calling it on every interval KPIset would introduce and compound approximation errors, leading to inaccurate final aggregate results. If the memory usage of the cumulative set becomes an issue, `_compact_times()` should be implemented using a data structure like an HDR Histogram that allows for accurate merging and memory control without significant precision loss.
+</answer>

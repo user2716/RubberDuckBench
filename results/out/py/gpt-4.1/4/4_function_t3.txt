@@ -1,0 +1,3 @@
+<answer>
+Yes, you need to call `deepcopy(result)` before modifying `result[DATA]` if `result` is referenced elsewhere (for example, if `reply.result` is used after this function and the original structure must be preserved). Without a deep copy, modifications to `result[DATA]` will affect the original `reply.result`, which may be undesirable if other parts of the code depend on the unmodified data. Since the code creates a deep copy only for certain transaction types (SCHEMA, ISSUER_KEY), it's likely those types of transactions are reused elsewhere, so the copy is necessary to prevent side effects. For other transaction types, if you directly modify `result`, you are also modifying `reply.result`.
+</answer>

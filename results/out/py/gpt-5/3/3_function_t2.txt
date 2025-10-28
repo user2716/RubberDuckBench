@@ -1,0 +1,3 @@
+<answer>
+No. The Host header’s value is defined to be an ASCII uri-host (RFC 7230/3986). Internationalized domain names must appear in ASCII via IDNA/punycode (A-labels); raw UTF‑8 in Host is invalid. Decoding with UTF‑8 would accept bytes that shouldn’t be present and could mask invalid input. Keep ASCII here, and if you need to support Unicode hostnames, convert them to/from IDNA explicitly rather than using UTF‑8.
+</answer>

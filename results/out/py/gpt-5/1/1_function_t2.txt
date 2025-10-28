@@ -1,0 +1,3 @@
+<answer>
+There’s no functional difference: F.cross_entropy is torch.nn.functional.cross_entropy referenced via the namespace alias F. Calling cross_entropy unqualified only works if you did “from torch.nn.functional import cross_entropy”; otherwise it will be a NameError. Both are the same stateless functional loss; the alternative stateful module is torch.nn.CrossEntropyLoss().
+</answer>

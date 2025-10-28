@@ -1,0 +1,3 @@
+<answer>
+result is just a reference to reply.result. If you assign result[DATA] = ..., you will also change reply.result[DATA]. For SCHEMA and ISSUER_KEY we need the original structured DATA later (e.g., for the identity graph), so we make a copy before serializing it for the ledger. Strictly speaking, a shallow copy would be enough here since you’re replacing the DATA value (not mutating it), but deepcopy is the safest if downstream code might mutate nested structures. So: copy before modifying if you must preserve reply.result; otherwise you don’t need to.
+</answer>

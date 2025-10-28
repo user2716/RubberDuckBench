@@ -1,0 +1,3 @@
+<answer>
+Only cumulative KPIsets. Compaction trades precision for memory by merging response-time buckets; it’s intended to keep long‑lived, ever‑growing histograms (the cumulative set) bounded. Per-interval KPIsets are short-lived and typically small, so compacting them adds CPU cost and can slightly skew percentiles without real benefit. If you do call it universally, ensure it’s a no-op under a size threshold—but the intent is to compact only the cumulative set.
+</answer>

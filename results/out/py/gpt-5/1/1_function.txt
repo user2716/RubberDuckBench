@@ -1,0 +1,3 @@
+<answer>
+F.cross_entropy is the namespaced function torch.nn.functional.cross_entropy. Calling cross_entropy without the F only works if you’ve explicitly imported it into the current namespace (e.g., from torch.nn.functional import cross_entropy). In this snippet, cross_entropy isn’t imported or defined, so it would raise a NameError; functionally it’s the same operation as F.cross_entropy when properly imported. You likely want val_loss = F.cross_entropy(logits[val_idx], labels[val_idx]).
+</answer>

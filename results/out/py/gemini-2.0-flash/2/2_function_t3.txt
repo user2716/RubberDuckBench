@@ -1,0 +1,3 @@
+`compact_times()` is called at the beginning of `recalculate()`. `recalculate()` calculates averages, standard deviations, and percentiles using the data stored within the KPIset. These calculations rely on potentially compacted times. Therefore, `compact_times()` should be called on every KPIset, regardless of whether it's cumulative or not, to ensure accurate calculations in `recalculate()`.
+
+</answer>`compact_times()` should be called on every KPIset because the calculations performed within `recalculate()`, such as averages, standard deviations, and percentiles, rely on the potentially compacted times. This ensures the accuracy of the calculated metrics for all KPIsets. </answer>

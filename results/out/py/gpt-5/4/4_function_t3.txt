@@ -1,0 +1,3 @@
+<answer>
+You do need to avoid mutating reply.result because you later use it (e.g., storeTxnInGraph), but a deepcopy isn’t required here. Since you only replace the top-level key result[DATA] with a serialized value, a shallow copy (result = reply.result.copy()) is sufficient and more efficient. Use deepcopy only if jsonSerz.serialize mutates its input in place (which is uncommon for serializers).
+</answer>
