@@ -1,0 +1,5 @@
+`return L"";` explicitly constructs a `std::wstring` from a wide string literal. `return {};` value-initializes a `std::wstring`, which also results in an empty string. In practice, modern compilers will likely optimize both to the same result. However, `return {};` is generally preferred as it's more generic and doesn't rely on string literals, making it potentially more efficient in some corner cases (though unlikely in this simple scenario). It also signals a clear intent to return a default-constructed object.
+
+    <answer>
+    While both `return L"";` and `return {};` will result in an empty `std::wstring` being returned, `return {};` is generally preferred. It represents value initialization and is more generic, potentially allowing for better compiler optimizations and signaling a clear intent to return a default-constructed object.
+    </answer>

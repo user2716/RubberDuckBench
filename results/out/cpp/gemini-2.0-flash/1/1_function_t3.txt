@@ -1,0 +1,30 @@
+The primary difference lies in performance and potentially readability.
+
+Using `operator+` for repeated string concatenation, as done here, can be inefficient because each `+` typically creates a new temporary `AString` object. This involves memory allocation and copying, which can be slow, especially within loops or frequently called functions.
+
+`fmt::format`, on the other hand, is designed for efficient string formatting. It avoids creating multiple temporary string objects by constructing the final string directly in a single operation. This usually involves pre-allocating the required memory and then writing the formatted output directly into the buffer. It can also provide better readability in some cases, especially when dealing with multiple variables and complex formatting requirements.
+
+In this specific scenario, the performance difference might not be significant if this `LogFromLuaStack` function is not called frequently. However, for high-performance applications or logging systems, using `fmt::format` would generally be a better choice. Furthermore, using `fmt::format` might lead to more readable and maintainable code, especially if more complex string manipulations were to be done.
+
+For example, the code could be rewritten using `fmt::format` like this:
+
+```c++
+#include <fmt/format.h>
+
+static void LogFromLuaStack(lua_State * tolua_S, eLogLevel a_LogLevel)
+{
+	tolua_Error err;
+	if (tolua_isusertype(tolua_S, 1, "cCompositeChat", false, &err))
+	{
+		auto Msg = static_cast<cCompositeChat *>(tolua_tousertype(tolua_S, 1, nullptr))->ExtractText();
+		Logger::LogSimple(Msg, a_LogLevel);
+		return;
+	}
+
+	size_t len = 0;
+	const char * str = lua_tolstring(tolua_S, 1, &len);
+	Logger::LogSimple(fmt::format("[{}]: {}", cManualBindings::GetLuaPlugin(tolua_S)->GetName(), AString(str, len)), a_LogLevel);
+}
+```
+
+<answer>Yes, there is a difference. Using `operator+` for string concatenation involves creating temporary `AString` objects, which can be inefficient due to repeated memory allocation and copying. `fmt::format` is generally more efficient as it constructs the final string directly in a single operation, avoiding the overhead of temporary objects. Additionally, `fmt::format` can often improve code readability, especially with more complex formatting requirements.</answer>

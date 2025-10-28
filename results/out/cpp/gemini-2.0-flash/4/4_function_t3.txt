@@ -1,0 +1,7 @@
+`return L"";` explicitly constructs a `std::wstring` from a wide string literal. `return {};` uses list initialization, which, in the case of `std::wstring`, default-constructs an empty `std::wstring`.
+
+In practice, both result in the same outcome: returning an empty `std::wstring`. However, the underlying mechanisms are slightly different. `return L"";` involves implicit conversion, while `return {}` involves direct default construction. Compilers will likely optimize both to be equally efficient, especially in optimized builds. In terms of readability, `return L"";` might be considered more explicit and easier to understand at a glance, as it clearly indicates that a wide string is being returned. `return {}` is more generic and could be used for various types, potentially making it slightly less clear in this specific context.
+
+<answer>
+Both `return L"";` and `return {};` effectively return an empty `std::wstring`. `return L"";` constructs a `std::wstring` from a wide string literal, while `return {}` default-constructs an empty `std::wstring`. While the end result is the same, `return L"";` is generally considered more explicit and readable in this context.
+</answer>
