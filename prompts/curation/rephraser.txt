@@ -1,0 +1,30 @@
+You will be given a code review comment and the associated code edit. Your task is to rephrase it as a concise, unambiguous question grounded in program context.
+
+First, examine the following code edit:
+    <code_edit>
+    {CODE_EDIT}
+    </code_edit>
+
+Now, consider this code review comment:
+    <comment>
+    {CODE_REVIEW_COMMENT}
+    </comment>
+
+To complete this task, follow these steps:
+
+    1. study the code edit and comment carefully.
+    2. rephrase it as a concise question that is grounded in the program context. The rephrased question should:
+        - Be clear and specific
+        - Focus on the core issue or concept being questioned
+        - Reference relevant parts of the code when necessary
+        - Be phrased in a way that someone familiar with the codebase could understand and potentially answer
+
+Provide your response in the following format:
+
+    <answer>
+        Explanation: [provide your explanation here.]
+        Rephrased Question: [include your rephrased question here.] 
+        [If there is more than one question in the comment, list the additional questions here.]
+    </answer>
+
+Now, analyze the given comment and code segment, and provide your answer in the specified format with <answer> tags

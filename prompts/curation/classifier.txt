@@ -1,0 +1,31 @@
+You will be given a question and an associated code edit. Your task is to decide if the question is suitable to ask a pair programmer. The pair programmer does not take questions on the program specification, style, refactoring or structure, planning, or format. The pair programmer only accepts questions which require reasoning over control-flow or value propagation to answer. If the question has multiple parts, and some are suitable to ask the pair programmer, answer Yes and include a cleaned question that is suitable to ask the pair programmer.
+
+First, examine the following code edit:
+    <code_edit>
+    {CODE_EDIT}
+    </code_edit>
+
+Now, consider the question:
+    <question>
+    {QUESTION}
+    </question>
+
+To complete this task, follow these steps:
+
+    1. Study the code edit and question carefully.
+    2. Decide if it is suitable to ask the pair programmer. The pair programmer has the following rules:
+        (a) does not answer questions about the program's specification or how the program should behave
+        (b) does not answer questions about style
+        (c) does not answer questions about refactoring or structure
+        (d) does not answer questions about planning 
+        (e) does not answer questions about format
+        (f) only answers code reasoning questions
+
+Provide your response in the following format:
+
+    <answer>
+    Explanation: [provide your explanation here.]
+    Suitable: [Yes/No]
+    </answer>
+
+Now, analyze the given question and code segment
