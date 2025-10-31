@@ -1,0 +1,14 @@
+{
+    "repo_url": "https://github.com/google/clusterfuzz.git",
+    "commit": "fb1bf92dc2b0bc6a9ef9752d96fa53fffe14c4ba",
+    "pull_id": 1658,
+    "sample_num": 5,
+    "loc": {
+        "file": "src/python/bot/tasks/corpus_pruning_task.py",
+        "function": {
+            "start": 587,
+            "end": 717  
+        },
+        "comment": 600
+    }
+}

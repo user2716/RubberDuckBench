@@ -1,0 +1,1 @@
+Should I call compact_times() on every KPIset or only cumulative KPIsets?

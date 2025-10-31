@@ -1,0 +1,14 @@
+{
+    "repo_url": "https://github.com/Blazemeter/taurus.git",
+    "commit": "ee8314c200087fb089c64eaf9324871ac3fca1b8",
+    "pull_id": 429,
+    "sample_num": 2,
+    "loc": {
+        "file": "bzt/modules/aggregator.py",
+        "function": {
+            "start": 164,
+            "end": 187 
+        },
+        "comment": 170
+    }
+}

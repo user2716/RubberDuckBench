@@ -1,0 +1,14 @@
+{
+    "repo_url": "https://github.com/dmlc/dgl.git",
+    "commit": "c13d99022b7c0cd8fa65d99fe9033d268d275861",
+    "pull_id": 1217,
+    "sample_num": 1,
+    "loc": {
+        "file": "examples/pytorch/rgcn/entity_classify.py",
+        "function": {
+            "start": 45,
+            "end": 135 
+        },
+        "comment": 120
+    }
+}

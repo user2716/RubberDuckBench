@@ -1,0 +1,1 @@
+What is the difference between calling F.cross_entropy vs cross_entropy?

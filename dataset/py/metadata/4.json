@@ -1,0 +1,14 @@
+{
+    "repo_url": "https://github.com/hyperledger/indy-node.git",
+    "commit": "9c9b30c358f5e81f56760d29f073b6411274688a",
+    "pull_id": 57,
+    "sample_num": 4,
+    "loc": {
+        "file": "sovrin_node/server/node.py",
+        "function": {
+            "start": 562,
+            "end": 587 
+        },
+        "comment": 573
+    }
+}

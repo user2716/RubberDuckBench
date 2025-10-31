@@ -1,0 +1,14 @@
+{
+    "repo_url": "https://github.com/psf/requests.git",
+    "commit": "01e405c6116c94d92057f7aaea58d51d1d7f90a7",
+    "pull_id": 3598,
+    "sample_num": 3,
+    "loc": {
+        "file": "requests/cookies.py",
+        "function": {
+            "start": 52,
+            "end": 71 
+        },
+        "comment": 64
+    }
+}

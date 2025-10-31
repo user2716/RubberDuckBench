@@ -1,0 +1,1 @@
+Do we need the check for 'if not build_directory'?
