@@ -1,0 +1,1 @@
+Can error_code be something other than ECONNREFUSED or ECONNRESET?

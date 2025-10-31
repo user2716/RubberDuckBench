@@ -1,0 +1,14 @@
+{
+    "repo_url": "https://github.com/mantidproject/mantid",
+    "commit": "8788e081724e1e5a3c78b9808ca737db4e80079c",
+    "pull_id": 19301,
+    "sample_num": 3,
+    "loc": {
+        "file": "MantidQt/CustomInterfaces/src/Reflectometry/QtReflEventView.cpp",
+        "function": {
+            "start": 82,
+            "end": 85 
+        },
+        "comment": 84
+    }
+}

@@ -1,0 +1,1 @@
+Is there a difference between returning an empty wstring using return L""; versus using return {};

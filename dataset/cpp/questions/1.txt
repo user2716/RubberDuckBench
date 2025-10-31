@@ -1,0 +1,1 @@
+Is there a difference between using operator+ and fmt::format to concatenate the strings "[", cManualBindings::GetLuaPlugin(tolua_S)->GetName(), "]: ", and "AString(str, len)"?

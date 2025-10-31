@@ -1,0 +1,14 @@
+{
+    "repo_url": "https://github.com/pytorch/pytorch",
+    "commit": "3ea7f6e23b0deffb321d56e3b888235db5f780bc",
+    "pull_id": 30354,
+    "sample_num": 2,
+    "loc": {
+        "file": "torch/lib/c10d/Utils.cpp",
+        "function": {
+            "start": 134,
+            "end": 176 
+        },
+        "comment": 149
+    }
+}

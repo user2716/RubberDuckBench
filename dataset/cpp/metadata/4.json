@@ -1,0 +1,14 @@
+{
+    "repo_url": "https://github.com/microsoft/terminal",
+    "commit": "409b3588463954f5e48d4d8b3cfce76057c114cf",
+    "pull_id": 7251,
+    "sample_num": 4,
+    "loc": {
+        "file": "src/cascadia/TerminalCore/Terminal.cpp",
+        "function": {
+            "start": 413,
+            "end": 422 
+        },
+        "comment": 421
+    }
+}

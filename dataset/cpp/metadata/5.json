@@ -1,0 +1,14 @@
+{
+    "repo_url": "https://github.com/mantidproject/mantid",
+    "commit": "2dba3f1a30dbecb1f42c533ae3094ba55f74e638",
+    "pull_id": 14420,
+    "sample_num": 5,
+    "loc": {
+        "file": "Vates/VatesAPI/src/SQWLoadingPresenter.cpp",
+        "function": {
+            "start": 1,
+            "end": 181 
+        },
+        "comment": 169
+    }
+}
