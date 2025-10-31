@@ -1,0 +1,14 @@
+{
+    "repo_url": "https://github.com/pinterest/secor.git",
+    "commit": "a88dd58d89e387c9e487b02d688217956c217fc2",
+    "pull_id": 299,
+    "sample_num": 3,
+    "loc": {
+        "file": "src/main/java/com/pinterest/secor/common/LogFilePath.java",
+        "function": {
+            "start": 147,
+            "end": 157
+        },
+        "comment": 149
+    }
+}

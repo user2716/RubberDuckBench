@@ -1,0 +1,1 @@
+Does the code at the end of initializeFromLocalSearch depend on drawer?

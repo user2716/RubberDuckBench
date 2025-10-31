@@ -1,0 +1,14 @@
+{
+    "repo_url": "https://github.com/thunderbird/thunderbird-android.git",
+    "commit": "7f8894c8f9e02e73e3c56e5b71adf071cb268b74",
+    "pull_id": 3740,
+    "sample_num": 1,
+    "loc": {
+        "file": "app/ui/src/main/java/com/fsck/k9/activity/MessageList.java",
+        "function": {
+            "start": 1682,
+            "end": 1713 
+        },
+        "comment": 1702
+    }
+}

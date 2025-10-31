@@ -1,0 +1,15 @@
+{
+    "repo_url": "https://github.com/thunderbird/thunderbird-android.git",
+    "commit": "15d2ea6fb7c0ead47ec5568411528c9f59f8329c",
+    "pull_id": 2607,
+    "sample_num": 2,
+    "loc": {
+        "file": "k9mail-library/src/test/java/com/fsck/k9/mail/store/imap/selectedstate/command/UidFetchCommandTest.java",
+        "function": {
+            "start": 103,
+            "end": 114
+        },
+        "comment": 110
+    }
+}
+

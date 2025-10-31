@@ -1,0 +1,14 @@
+{
+    "repo_url": "https://github.com/alibaba/nacos.git",
+    "commit": "dcf40afa5452251610f056b256de6e4090bcbfd8",
+    "pull_id": 6156,
+    "sample_num": 4,
+    "loc": {
+        "file": "console/src/main/java/com/alibaba/nacos/console/security/nacos/roles/NacosRoleServiceImpl.java",
+        "function": {
+            "start": 159,
+            "end": 169
+        },
+        "comment": 161
+    }
+}

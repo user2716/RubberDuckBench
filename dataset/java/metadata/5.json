@@ -1,0 +1,14 @@
+{
+    "repo_url": "https://github.com/AntennaPod/AntennaPod.git",
+    "commit": "0b8de35231d67055d031081e16100c39e254aa97",
+    "pull_id": 5588,
+    "sample_num": 5,
+    "loc": {
+        "file": "app/src/main/java/de/danoeh/antennapod/activity/MainActivity.java",
+        "function": {
+            "start": 620,
+            "end": 680
+        },
+        "comment": 665
+    }
+}
